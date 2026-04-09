@@ -1,0 +1,292 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix eurovoc: <http://eurovoc.europa.eu/> .
+@prefix nb:      <https://w3id.org/nuclear-bench/> .
+
+# -------------------------------------------------------
+# Ontology metadata
+# -------------------------------------------------------
+
+<https://w3id.org/nuclear-bench/>
+  a owl:Ontology ;
+  dct:title "Nuclear-Bench Ontology"@en ;
+  dct:description """An OWL ontology for a knowledge-grounded 
+                     annotated QnA benchmark dataset in the nuclear 
+                     technical domain. Q&A pairs are provided by 
+                     industry experts with source locations. The 
+                     annotation layer maps terms to EuroVoc and 
+                     encodes everything as linked data."""@en ;
+  dct:creator "thushari" ;
+  dct:created "2026"^^xsd:gYear ;
+  dct:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dct:source <https://github.com/ARMADA/nuclear-bench> ;
+  owl:versionInfo "1.0" ;
+  rdfs:seeAlso <http://eurovoc.europa.eu/> .
+
+# -------------------------------------------------------
+# LAYER 1 — Expert knowledge classes
+# (question, answer, ground truth provided by experts)
+# -------------------------------------------------------
+
+nb:Question
+  a owl:Class ;
+  rdfs:label "Question"@en ;
+  rdfs:comment """A natural language question provided by an industry 
+                  expert, grounded in a document from the 
+                  nuclear-bench corpus."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:Answer
+  a owl:Class ;
+  rdfs:label "Answer"@en ;
+  rdfs:comment """A natural language answer provided by an industry 
+                  expert, with a structured value and unit."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:GroundTruth
+  a owl:Class ;
+  rdfs:label "Ground truth"@en ;
+  rdfs:comment """The exact source location of an answer within a 
+                  corpus document, provided by an industry expert. 
+                  Includes document ID, page, and table or section 
+                  reference."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:Document
+  a owl:Class ;
+  rdfs:label "Document"@en ;
+  rdfs:comment """A source document from the nuclear-bench corpus. 
+                  Identified by a stable SR or AR identifier 
+                  e.g. AR_017."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+# -------------------------------------------------------
+# LAYER 2 — Annotation classes
+# (taxonomy, vocabulary mapping added by annotator)
+# -------------------------------------------------------
+
+nb:Annotation
+  a owl:Class ;
+  rdfs:label "Annotation"@en ;
+  rdfs:comment """A semantic annotation linking a Question or Answer 
+                  to a controlled vocabulary concept. Added by the 
+                  dataset annotator, not the expert."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:Term
+  a owl:Class ;
+  rdfs:label "Term"@en ;
+  rdfs:comment """A technical term from the nuclear domain. Either 
+                  mapped to an existing EuroVoc concept in eurovoc.ttl 
+                  or manually defined in eurovoc_special.ttl."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+# -------------------------------------------------------
+# Object properties
+# -------------------------------------------------------
+
+nb:hasAnswer
+  a owl:ObjectProperty ;
+  rdfs:domain nb:Question ;
+  rdfs:range  nb:Answer ;
+  rdfs:label  "has answer"@en ;
+  rdfs:comment "Links a Question to its expert-provided Answer."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:hasGroundTruth
+  a owl:ObjectProperty ;
+  rdfs:domain nb:Question ;
+  rdfs:range  nb:GroundTruth ;
+  rdfs:label  "has ground truth"@en ;
+  rdfs:comment """Links a Question to its expert-provided source 
+                  location."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:hasAnnotation
+  a owl:ObjectProperty ;
+  rdfs:domain nb:Question ;
+  rdfs:range  nb:Annotation ;
+  rdfs:label  "has annotation"@en ;
+  rdfs:comment """Links a Question to its taxonomy annotation, 
+                  added by the dataset annotator."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:sourceDocument
+  a owl:ObjectProperty ;
+  rdfs:domain nb:GroundTruth ;
+  rdfs:range  nb:Document ;
+  rdfs:label  "source document"@en ;
+  rdfs:comment """Links a GroundTruth to the corpus document it 
+                  was verified from."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:termDefinition
+  a owl:ObjectProperty ;
+  rdfs:domain nb:Annotation ;
+  rdfs:range  nb:Term ;
+  rdfs:label  "term definition"@en ;
+  rdfs:comment """Links an Annotation to its vocabulary definition, 
+                  either from eurovoc.ttl or 
+                  eurovoc_special.ttl."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:eurovocMatch
+  a owl:ObjectProperty ;
+  rdfs:domain nb:Term ;
+  rdfs:range  skos:Concept ;
+  rdfs:label  "EuroVoc match"@en ;
+  rdfs:comment """Links a Term to its matching EuroVoc concept URI. 
+                  Used in eurovoc.ttl for standard terms."""@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+# -------------------------------------------------------
+# Datatype properties — Layer 1 (expert provided)
+# -------------------------------------------------------
+
+nb:questionText
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Question ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "question text"@en ;
+  rdfs:comment "The natural language question text from the expert."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:answerText
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Answer ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "answer text"@en ;
+  rdfs:comment "The natural language answer text from the expert."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:value
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Answer ;
+  rdfs:range  xsd:decimal ;
+  rdfs:label  "value"@en ;
+  rdfs:comment "The numerical value of the answer e.g. 5."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:unit
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Answer ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "unit"@en ;
+  rdfs:comment "The unit of measurement e.g. μg."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:technique
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Answer ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "technique"@en ;
+  rdfs:comment "The radiometric technique referenced in the answer."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:element
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Answer ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "element"@en ;
+  rdfs:comment "The chemical element referenced in the answer."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:sourcePage
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:GroundTruth ;
+  rdfs:range  xsd:integer ;
+  rdfs:label  "source page"@en ;
+  rdfs:comment "The page number in the source document."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:sourceTable
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:GroundTruth ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "source table"@en ;
+  rdfs:comment "The table reference in the source document."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:sourceSection
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:GroundTruth ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "source section"@en ;
+  rdfs:comment "The section reference in the source document."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:verifiedValue
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:GroundTruth ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "verified value"@en ;
+  rdfs:comment "The exact verified value as it appears in the source."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:documentType
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Document ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "document type"@en ;
+  rdfs:comment "SR for progress report or AR for action report."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:documentYear
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Document ;
+  rdfs:range  xsd:gYear ;
+  rdfs:label  "document year"@en ;
+  rdfs:comment "The publication year of the source document."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+# -------------------------------------------------------
+# Datatype properties — Layer 2 (annotator provided)
+# -------------------------------------------------------
+
+nb:namedEntity
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Annotation ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "named entity"@en ;
+  rdfs:comment "The named entity identified in the Q&A pair."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+nb:namedEntityType
+  a owl:DatatypeProperty ;
+  rdfs:domain nb:Annotation ;
+  rdfs:range  xsd:string ;
+  rdfs:label  "named entity type"@en ;
+  rdfs:comment "The type of named entity e.g. chemical element, technique, unit."@en ;
+  rdfs:isDefinedBy <https://w3id.org/nuclear-bench/> .
+
+# -------------------------------------------------------
+# Cardinality constraints
+# -------------------------------------------------------
+
+nb:Question
+  rdfs:subClassOf
+    [ a owl:Restriction ;
+      owl:onProperty nb:hasAnswer ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass nb:Answer ] ;
+  rdfs:subClassOf
+    [ a owl:Restriction ;
+      owl:onProperty nb:hasGroundTruth ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass nb:GroundTruth ] ;
+  rdfs:subClassOf
+    [ a owl:Restriction ;
+      owl:onProperty nb:hasAnnotation ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass nb:Annotation ] .
+
+nb:GroundTruth
+  rdfs:subClassOf
+    [ a owl:Restriction ;
+      owl:onProperty nb:sourceDocument ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onClass nb:Document ] .

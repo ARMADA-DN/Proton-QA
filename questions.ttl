@@ -1,0 +1,91 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix eurovoc: <http://eurovoc.europa.eu/> .
+@prefix nb:      <https://w3id.org/nuclear-bench/> .
+
+# -------------------------------------------------------
+# Document
+# -------------------------------------------------------
+
+nb:AR_017
+  a nb:Document ;
+  rdfs:label "Action Report AR_017"@en ;
+  nb:documentType "AR" ;
+  nb:documentYear "2001"^^xsd:gYear .
+
+# -------------------------------------------------------
+# Question
+# -------------------------------------------------------
+
+nb:Q_001
+  a nb:Question ;
+  rdfs:label "Q_001"@en ;
+  nb:questionText "What is the minimum amount required for a Calorimetry assay of Americium?"@en ;
+  dct:created "2024"^^xsd:gYear ;
+  dct:language "en" ;
+  nb:hasAnswer nb:A_001 ;
+  nb:hasGroundTruth nb:GT_001 ;
+  nb:hasAnnotation nb:AN_001 ;
+  nb:hasAnnotation nb:AN_002 .
+
+# -------------------------------------------------------
+# Answer — Layer 1 (expert provided)
+# -------------------------------------------------------
+
+nb:A_001
+  a nb:Answer ;
+  rdfs:label "A_001"@en ;
+  nb:answerText "The minimum amount required for a Calorimetry assay of Americium is 5 μg."@en ;
+  nb:value "5"^^xsd:decimal ;
+  nb:unit "μg" ;
+  nb:technique "Calorimetry" ;
+  nb:element "Americium" .
+
+# -------------------------------------------------------
+# Ground truth — Layer 1 (expert provided)
+# -------------------------------------------------------
+
+nb:GT_001
+  a nb:GroundTruth ;
+  rdfs:label "GT_001"@en ;
+  nb:sourceDocument nb:AR_017 ;
+  nb:sourcePage "28"^^xsd:integer ;
+  nb:sourceTable "Table 2 - Application of radiometric techniques for minor actinides" ;
+  nb:verifiedValue "5 μg" .
+
+# -------------------------------------------------------
+# Annotations — Layer 2 (annotator provided)
+# -------------------------------------------------------
+
+nb:AN_001
+  a nb:Annotation ;
+  rdfs:label "AN_001 - Americium"@en ;
+  nb:namedEntity "Americium" ;
+  nb:namedEntityType "chemical element" ;
+  nb:termDefinition nb:Term_Americium .
+
+nb:AN_002
+  a nb:Annotation ;
+  rdfs:label "AN_002 - Calorimetry"@en ;
+  nb:namedEntity "Calorimetry" ;
+  nb:namedEntityType "radiometric technique" ;
+  nb:termDefinition nb:Term_Calorimetry .
+
+# -------------------------------------------------------
+# Terms — linked to EuroVoc or eurovoc_special.ttl
+# -------------------------------------------------------
+
+nb:Term_Americium
+  a nb:Term ;
+  rdfs:label "Americium"@en ;
+  skos:prefLabel "Americium"@en ;
+  nb:eurovocMatch eurovoc:3645 .
+
+nb:Term_Calorimetry
+  a nb:Term ;
+  rdfs:label "Calorimetry"@en ;
+  skos:prefLabel "Calorimetry"@en .
