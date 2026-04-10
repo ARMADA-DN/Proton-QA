@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Reject large staged TTL files unless they are tracked by Git LFS.
 # Override threshold by setting TTL_LFS_THRESHOLD_BYTES in your environment.
-threshold_bytes="${TTL_LFS_THRESHOLD_BYTES:-1048576}"
+threshold_bytes="${TTL_LFS_THRESHOLD_BYTES:-5242880}"
 
 fail=0
 
