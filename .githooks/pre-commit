@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Reject large staged TTL files unless they are tracked by Git LFS.
+# Override threshold by setting TTL_LFS_THRESHOLD_BYTES in your environment.
+threshold_bytes="${TTL_LFS_THRESHOLD_BYTES:-1048576}"
+
+fail=0
+
+while IFS= read -r file; do
+  case "$file" in
+    *.ttl)
+      # Skip deleted paths and paths not present in the index.
+      if ! git cat-file -e ":$file" 2>/dev/null; then
+        continue
+      fi
+
+      staged_size=$(git cat-file -s ":$file")
+      if [[ "$staged_size" -gt "$threshold_bytes" ]]; then
+        filter_attr=$(git check-attr filter -- "$file" | awk '{print $3}')
+        if [[ "$filter_attr" != "lfs" ]]; then
+          echo "ERROR: $file is $staged_size bytes in the index and is not LFS-tracked." >&2
+          echo "Add an LFS rule in .gitattributes for this path before committing." >&2
+          fail=1
+        fi
+      fi
+      ;;
+  esac
+done < <(git diff --cached --name-only --diff-filter=ACMR)
+
+if [[ "$fail" -ne 0 ]]; then
+  exit 1
+fi
