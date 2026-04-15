@@ -1,3 +1,457 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e1b328de335480ed105fd2de5ac812813cab659e7c7e8ccef252ba9926aec25f
-size 14641
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix wd:      <http://www.wikidata.org/entity/> .
+@prefix eurovoc: <http://eurovoc.europa.eu/> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix schema:  <https://schema.org/> .
+@prefix qa:      <https://w3id.org/wdaqua/qanary#> .
+@prefix ex:      <http://example.org/> .
+
+
+#################################################
+# SOURCE DOCUMENTS
+#################################################
+
+ex:AR_02_0 a foaf:Document ;
+    dct:identifier "AR_02_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       "AR" ;
+    dct:date       "2002"^^xsd:gYear .
+
+ex:AR_00_0 a foaf:Document ;
+    dct:identifier "AR_00_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       "AR" ;
+    dct:date       "2000"^^xsd:gYear .
+
+ex:AR_01_0 a foaf:Document ;
+    dct:identifier "AR_01_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       "AR" ;
+    dct:date       "2001"^^xsd:gYear .
+    
+    
+#################################################
+# AR_02_0 — Q1
+# What is the minimum amount required for a
+# Calorimetry assay of Americium?
+#################################################
+
+ex:AR_02_0_q1 a qa:Question ;
+    rdfs:label            "What is the minimum amount required for a Calorimetry assay of Americium?"@en ;
+    schema:acceptedAnswer ex:AR_02_0_q1_a1 .
+
+ex:AR_02_0_q1_a1 a qa:Answer ;
+    rdfs:label            "5 MicroGM"@en ;
+    qudt:numericValue     "5"^^xsd:decimal ;
+    qudt:unit             unit:MicroGM ;
+    oa:confidence         "1.00"^^xsd:decimal ;
+    prov:wasDerivedFrom   ex:AR_02_0_q1 ;
+    prov:hadPrimarySource ex:AR_02_0 .
+
+# Provenance annotation
+ex:AR_02_0_q1_src a oa:Annotation ;
+    oa:hasBody   ex:AR_02_0_q1_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_02_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=28&table=2"
+        ]
+    ] .
+
+# Entity linking annotations
+ex:AR_02_0_q1_ann_americium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1872 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_02_0_q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "86"^^xsd:nonNegativeInteger ;
+            oa:end   "95"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_02_0_q1_ann_microgram a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1645498 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_02_0_q1_a1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "2"^^xsd:nonNegativeInteger ;
+            oa:end   "10"^^xsd:nonNegativeInteger
+        ]
+    ] .
+    
+    
+
+#################################################
+# AR_00_0 — Q1
+# What is the melting point temperature of magnesia?
+#################################################
+
+ex:AR_00_0_q1 a qa:Question ;
+    rdfs:label             "What is the melting point temperature of magnesia?"@en ;
+    schema:acceptedAnswer  ex:AR_00_0_q1_a2 ;
+    schema:suggestedAnswer ex:AR_00_0_q1_a1 .
+
+ex:AR_00_0_q1_a1 a qa:Answer ;
+    rdfs:label               "3250 +/- 20 K"@en ;
+    qudt:numericValue        "3250"^^xsd:decimal ;
+    qudt:standardUncertainty "20"^^xsd:decimal ;
+    qudt:unit                unit:K ;
+    oa:confidence            "0.60"^^xsd:decimal ;
+    prov:wasDerivedFrom      ex:AR_00_0_q1 ;
+    prov:hadPrimarySource    ex:AR_00_0 .
+
+ex:AR_00_0_q1_a2 a qa:Answer ;
+    rdfs:label               "3245 +/- 10 K"@en ;
+    qudt:numericValue        "3245"^^xsd:decimal ;
+    qudt:standardUncertainty "10"^^xsd:decimal ;
+    qudt:unit                unit:K ;
+    oa:confidence            "1.00"^^xsd:decimal ;
+    prov:wasDerivedFrom      ex:AR_00_0_q1 ;
+    prov:hadPrimarySource    ex:AR_00_0 .
+
+# Provenance annotations
+ex:AR_00_0_q1_src1 a oa:Annotation ;
+    oa:hasBody   ex:AR_00_0_q1_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=19"
+        ]
+    ] .
+
+ex:AR_00_0_q1_src2 a oa:Annotation ;
+    oa:hasBody   ex:AR_00_0_q1_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=19"
+        ]
+    ] .
+
+# Entity linking annotations
+ex:AR_00_0_q1_ann_magnesia a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q214769 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0_q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "42"^^xsd:nonNegativeInteger ;
+            oa:end   "50"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_00_0_q1_ann_meltingpoint a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q15318 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0_q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "25"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_00_0_q1_ann_temperature a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q11466 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0_q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "26"^^xsd:nonNegativeInteger ;
+            oa:end   "37"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+#################################################
+# AR_00_0 — Q2
+# How many defects can an alpha particle generate
+# in nuclear fuel?
+#################################################
+
+ex:AR_00_0_q2 a qa:Question ;
+    rdfs:label            "How many defects can an alpha particle generate in nuclear fuel?"@en ;
+    schema:acceptedAnswer ex:AR_00_0_q2_a1 .
+
+ex:AR_00_0_q2_a1 a qa:Answer ;
+    rdfs:label            "200 NUM"@en ;
+    qudt:numericValue     "200"^^xsd:decimal ;
+    qudt:unit             unit:NUM ;
+    oa:confidence         "1.00"^^xsd:decimal ;
+    prov:wasDerivedFrom   ex:AR_00_0_q2 ;
+    prov:hadPrimarySource ex:AR_00_0 .
+
+# Provenance annotation
+ex:AR_00_0_q2_src a oa:Annotation ;
+    oa:hasBody   ex:AR_00_0_q2_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=33&table=1"
+        ]
+    ] .
+
+# Entity linking annotations
+ex:AR_00_0_q2_ann_alphaparticle a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q103517 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0_q2 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "24"^^xsd:nonNegativeInteger ;
+            oa:end   "38"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_00_0_q2_ann_nuclearfuel a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q194523 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0_q2 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "51"^^xsd:nonNegativeInteger ;
+            oa:end   "63"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_00_0_q2_ann_uo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q378379 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=33&table=1"
+        ]
+    ] .
+
+#################################################
+# AR_00_0 — Q3
+# What is the expected lattice parameter
+# for a corium sample?
+#################################################
+
+ex:AR_00_0_q3 a qa:Question ;
+    rdfs:label            "What is the expected lattice parameter for a corium sample?"@en ;
+    schema:acceptedAnswer ex:AR_00_0_q3_a1 .
+
+ex:AR_00_0_q3_a1 a qa:Answer ;
+    rdfs:label            "5.2984 Angstrom"@en ;
+    qudt:numericValue     "5.2984"^^xsd:decimal ;
+    qudt:unit             unit:ANGSTROM ;
+    prov:wasDerivedFrom   ex:AR_00_0_q3 ;
+    prov:hadPrimarySource ex:AR_00_0 .
+
+# Provenance annotation
+ex:AR_00_0_q3_src a oa:Annotation ;
+    oa:hasBody   ex:AR_00_0_q3_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=93"
+        ]
+    ] .
+
+# Entity linking annotations
+ex:AR_00_0_q3_ann_latticeparameter a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q595364 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0_q3 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "21"^^xsd:nonNegativeInteger ;
+            oa:end   "38"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_00_0_q3_ann_corium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q910355 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_00_0_q3 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "45"^^xsd:nonNegativeInteger ;
+            oa:end   "51"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+#################################################
+# AR_01_0 — Q1
+# Which is the dissolution rate of spent nuclear
+# fuel when in contact with water?
+#################################################
+
+ex:AR_01_0_q1 a qa:Question ;
+    rdfs:label            "Which is the dissolution rate of spent nuclear fuel when in contact with water?"@en ;
+    schema:acceptedAnswer ex:AR_01_0_q1_a1 ;
+    schema:acceptedAnswer ex:AR_01_0_q1_a2 .
+
+ex:AR_01_0_q1_a1 a qa:Answer ;
+    rdfs:label            "6.77e-11 mol/m2/s"@en ;
+    rdfs:comment          "Lower burnup light water reactor fuel"@en ;
+    qudt:numericValue     "6.77e-11"^^xsd:decimal ;
+    qudt:unit             unit:MOL-PER-M2-SEC ;
+    oa:confidence         "1.00"^^xsd:decimal ;
+    prov:wasDerivedFrom   ex:AR_01_0_q1 ;
+    prov:hadPrimarySource ex:AR_01_0 .
+
+ex:AR_01_0_q1_a2 a qa:Answer ;
+    rdfs:label            "2.66e-10 mol/m2/s"@en ;
+    rdfs:comment          "Higher burnup light water reactor fuel (53 MWd/KgU)"@en ;
+    qudt:numericValue     "2.66e-10"^^xsd:decimal ;
+    qudt:unit             unit:MOL-PER-M2-SEC ;
+    oa:confidence         "1.00"^^xsd:decimal ;
+    prov:wasDerivedFrom   ex:AR_01_0_q1 ;
+    prov:hadPrimarySource ex:AR_01_0 .
+
+# Provenance annotations
+ex:AR_01_0_q1_src1 a oa:Annotation ;
+    oa:hasBody   ex:AR_01_0_q1_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_01_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=76"
+        ]
+    ] .
+
+ex:AR_01_0_q1_src2 a oa:Annotation ;
+    oa:hasBody   ex:AR_01_0_q1_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_01_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=76"
+        ]
+    ] .
+
+# Entity linking annotations
+ex:AR_01_0_q1_ann_dissolutionrate a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     ex:DissolutionRate ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_01_0_q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "14"^^xsd:nonNegativeInteger ;
+            oa:end   "31"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_01_0_q1_ann_spentnuclearfuel a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1863171 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_01_0_q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "34"^^xsd:nonNegativeInteger ;
+            oa:end   "53"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+#################################################
+# AR_01_0 — Q2
+# What is the half-life of 213Bi?
+#################################################
+
+ex:AR_01_0_q2 a qa:Question ;
+    rdfs:label            "What is the half-life of 213Bi?"@en ;
+    schema:acceptedAnswer ex:AR_01_0_q2_a1 .
+
+ex:AR_01_0_q2_a1 a qa:Answer ;
+    rdfs:label            "45 min"@en ;
+    qudt:numericValue     "45"^^xsd:decimal ;
+    qudt:unit             unit:MIN ;
+    prov:wasDerivedFrom   ex:AR_01_0_q2 ;
+    prov:hadPrimarySource ex:AR_01_0 .
+
+# Provenance annotation
+ex:AR_01_0_q2_src a oa:Annotation ;
+    oa:hasBody   ex:AR_01_0_q2_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_01_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=38"
+        ]
+    ] .
+
+# Entity linking annotations
+ex:AR_01_0_q2_ann_halflife a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q98118544 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_01_0_q2 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "16"^^xsd:nonNegativeInteger ;
+            oa:end   "25"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+ex:AR_01_0_q2_ann_bismuth213 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q18888211 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource ex:AR_01_0_q2 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "27"^^xsd:nonNegativeInteger ;
+            oa:end   "32"^^xsd:nonNegativeInteger
+        ]
+    ] .

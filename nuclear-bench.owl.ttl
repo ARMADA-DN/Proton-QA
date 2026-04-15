@@ -1,3 +1,70 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d9f066b7631051f7624c58e09bb9ac4ebbca95bdec1d63f6a9ff3f6fe7cde793
-size 3597
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix wd:      <http://www.wikidata.org/entity/> .
+@prefix eurovoc: <http://eurovoc.europa.eu/> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix schema:  <https://schema.org/> .
+@prefix qa:      <https://w3id.org/wdaqua/qanary#> .
+
+# -------------------------------------------------------
+# Ontology metadata
+# -------------------------------------------------------
+<https://w3id.org/nuclear-bench/> a owl:Ontology ;
+    dct:title       "Nuclear-Bench Ontology"@en ;
+    dct:description "An OWL ontology for a knowledge-grounded annotated QnA benchmark dataset in the nuclear technical domain."@en ;
+    dct:creator     "Thushari Pahalage", "Matteo Lissandrini" ;
+    dct:created     "2026"^^xsd:gYear ;
+    dct:license     <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0" .
+
+# -------------------------------------------------------
+# Classes owned by this ontology
+# -------------------------------------------------------
+qa:Question a owl:Class ;
+    rdfs:label "Question"@en .
+
+qa:Answer a owl:Class ;
+    rdfs:label "Answer"@en ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:comment """Answer values are expressed as:
+        - qudt:numericValue + qudt:unit for numeric answers
+        - qudt:numericValue + qudt:standardUncertainty + qudt:unit for numeric answers with uncertainty
+        - rdfs:label + oa:Annotation linking to wd: or eurovoc: for named entity answers"""@en .
+
+# -------------------------------------------------------
+# External Classes (referenced, not redefined)
+# -------------------------------------------------------
+# foaf:Document           — document class, subClassOf prov:Entity (FOAF standard)
+# oa:Annotation           — annotation class (W3C Web Annotation)
+# oa:SpecificResource     — specific resource selector (W3C Web Annotation)
+# oa:FragmentSelector     — fragment selector (W3C Web Annotation)
+# oa:TextPositionSelector — text position selector (W3C Web Annotation)
+# prov:Entity             — provenance entity (W3C PROV)
+# schema:Question         — question class (Schema.org)
+# schema:Answer           — answer class (Schema.org)
+
+# -------------------------------------------------------
+# External Properties (referenced, not redefined)
+# -------------------------------------------------------
+# schema:acceptedAnswer   — links question to accepted answer (confidence 1.00)
+# schema:suggestedAnswer  — links question to suggested answer (confidence < 1.00)
+
+# -------------------------------------------------------
+# External Vocabularies (referenced, not redefined)
+# -------------------------------------------------------
+# Wikidata:    wd:      entities are wikibase:Item
+# EuroVoc:     eurovoc: entities are skos:Concept
+# Own:         ex:      mint as skos:Concept when no external entity exists
+# QUDT:        qudt:    for quantities and units of measurement
+# PROV:        prov:    for provenance chains
+# OA:          oa:      for annotations and entity linking
+# Dublin Core: dct:     for document metadata
+# Schema.org:  schema:  for Q&A linking
