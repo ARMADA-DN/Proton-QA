@@ -9,61 +9,62 @@
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 @prefix wd:      <http://www.wikidata.org/entity/> .
 @prefix eurovoc: <http://eurovoc.europa.eu/> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix schema:  <https://schema.org/> .
 @prefix qa:      <https://w3id.org/wdaqua/qanary#> .
-@prefix nb:      <https://w3id.org/nuclear-bench/> .
 
 # -------------------------------------------------------
 # Ontology metadata
 # -------------------------------------------------------
-
-<https://w3id.org/nuclear-bench/>
-  a owl:Ontology ;
-  dct:title       "Nuclear-Bench Ontology"@en ;
-  dct:description """An OWL ontology for a knowledge-grounded annotated QnA benchmark
-                     dataset in the nuclear technical domain. Q&A pairs are provided by
-                     industry experts with source locations. The annotation layer maps
-                     terms to Wikidata/EuroVoc and encodes everything as linked data."""@en ;
-  dct:creator     "Thushari Pahalage", "Matteo Lissandrini" ;
-  dct:created     "2026"^^xsd:gYear ;
-  dct:license     <https://creativecommons.org/licenses/by/4.0/> ;
-  dct:source      <https://github.com/ARMADA/nuclear-bench> ;
-  owl:versionInfo "1.0" ;
-  rdfs:seeAlso    <http://eurovoc.europa.eu/>, <http://www.wikidata.org/> .
+<https://w3id.org/nuclear-bench/> a owl:Ontology ;
+    dct:title       "Nuclear-Bench Ontology"@en ;
+    dct:description "An OWL ontology for a knowledge-grounded annotated QnA benchmark dataset in the nuclear technical domain."@en ;
+    dct:creator     "Thushari Pahalage", "Matteo Lissandrini" ;
+    dct:created     "2026"^^xsd:gYear ;
+    dct:license     <https://creativecommons.org/licenses/by/4.0/> ;
+    owl:versionInfo "1.0" .
 
 # -------------------------------------------------------
-# Core QA Classes
+# Classes owned by this ontology
 # -------------------------------------------------------
-
 qa:Question a owl:Class ;
-  rdfs:label "Question" ;
-  rdfs:subClassOf prov:Entity .
+    rdfs:label "Question"@en .
 
 qa:Answer a owl:Class ;
-  rdfs:label "Answer" ;
-  rdfs:subClassOf prov:Entity .
+    rdfs:label "Answer"@en ;
+    rdfs:subClassOf prov:Entity ;
+    rdfs:comment """Answer values are expressed as:
+        - qudt:numericValue + qudt:unit for numeric answers
+        - qudt:numericValue + qudt:standardUncertainty + qudt:unit for numeric answers with uncertainty
+        - rdfs:label + oa:Annotation linking to wd: or eurovoc: for named entity answers"""@en .
 
 # -------------------------------------------------------
-# Document Class
+# External Classes (referenced, not redefined)
 # -------------------------------------------------------
-
-foaf:Document a owl:Class ;
-  rdfs:subClassOf prov:Entity .
-
-# -------------------------------------------------------
-# Annotation Classes (from Web Annotation Model)
-# -------------------------------------------------------
-
-oa:Annotation a owl:Class .
-
-oa:SpecificResource a owl:Class .
-
-oa:FragmentSelector a owl:Class .
-
-oa:TextPositionSelector a owl:Class .
+# foaf:Document           — document class, subClassOf prov:Entity (FOAF standard)
+# oa:Annotation           — annotation class (W3C Web Annotation)
+# oa:SpecificResource     — specific resource selector (W3C Web Annotation)
+# oa:FragmentSelector     — fragment selector (W3C Web Annotation)
+# oa:TextPositionSelector — text position selector (W3C Web Annotation)
+# prov:Entity             — provenance entity (W3C PROV)
+# schema:Question         — question class (Schema.org)
+# schema:Answer           — answer class (Schema.org)
 
 # -------------------------------------------------------
-# External Entity Classes (Wikidata / EuroVoc)
-# Typed as skos:Concept — instantiated per Q&A pair
+# External Properties (referenced, not redefined)
 # -------------------------------------------------------
+# schema:acceptedAnswer   — links question to accepted answer (confidence 1.00)
+# schema:suggestedAnswer  — links question to suggested answer (confidence < 1.00)
 
-skos:Concept a owl:Class .
+# -------------------------------------------------------
+# External Vocabularies (referenced, not redefined)
+# -------------------------------------------------------
+# Wikidata:    wd:      entities are wikibase:Item
+# EuroVoc:     eurovoc: entities are skos:Concept
+# Own:         ex:      mint as skos:Concept when no external entity exists
+# QUDT:        qudt:    for quantities and units of measurement
+# PROV:        prov:    for provenance chains
+# OA:          oa:      for annotations and entity linking
+# Dublin Core: dct:     for document metadata
+# Schema.org:  schema:  for Q&A linking
