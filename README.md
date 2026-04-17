@@ -29,19 +29,25 @@ These IDs are used as URIs in the TTL knowledge files, e.g. `ex:AR_86_1`.
 
 ## Repository Structure
 
+```
 repo-root/
-├── corpus/                                ← 67 documents via Git LFS
-│   ├── AR_{YY}{seq}.pdf … (27 files)    ← action reports
-│   └── SR{YY}_{seq}.pdf … (40 files)    ← progress reports
+├── corpus/                               # Documents (stored via Git LFS)
+│   ├── AR_YYYY_seq.pdf                  # Action Reports (27 files)
+│   └── SR_YYYY_seq.pdf                  # Progress Reports (40 files)
+│
 ├── vocab/
-│   ├── eurovoc_in_skos_core_concepts.rdf ← primary EuroVoc vocabulary (SKOS)
-│   └── concept_extensions.ttl            ← custom concepts not in EuroVoc or Wikidata
-├── nuclear-bench.owl.ttl                  ← OWL ontology (under review)
-├── questions.ttl                          ← all Q&A pairs with annotations
-└── README.md
+│   ├── eurovoc_in_skos_core_concepts.rdf  # EuroVoc vocabulary (SKOS)
+│   └── concept_extensions.ttl             # Custom domain concepts
+│
+├── questions.ttl                         # Q&A pairs with semantic annotations
+└── README.md                             # Project documentation
+```
+
+
 
 
 ## Knowledge Files
+
 
 ### `questions.ttl`
 Encodes each question, answer, source document reference, EuroVoc term, and ground 
