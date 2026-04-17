@@ -1,5 +1,4 @@
 corpus/*.pdf filter=lfs diff=lfs merge=lfs -text
-
 # Large TTL vocabularies tracked in LFS (size-based matching is not supported).
 vocab/eurovoc_in_skos_core_concepts.ttl filter=lfs diff=lfs merge=lfs -text
 vocab/qudt-unit.ttl filter=lfs diff=lfs merge=lfs -text
