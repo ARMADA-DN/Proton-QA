@@ -40,6 +40,7 @@ repo-root/
 ├── questions.ttl                          ← all Q&A pairs with annotations
 └── README.md
 
+
 ## Knowledge Files
 
 ### `questions.ttl`
@@ -74,10 +75,10 @@ Concepts are defined under the `ex:` prefix.
 
 | Entity                   | ID Pattern                        | Example                          |
 |--------------------------|-----------------------------------|----------------------------------|
-| Question                 | `ex:{docID}_q{n}`                 | `ex:AR_00_0_q3`                  |
-| Answer                   | `ex:{docID}_q{n}_a{m}`            | `ex:AR_00_0_q3_a1`               |
-| Provenance               | `ex:{docID}_q{n}_src`             | `ex:AR_00_0_q3_src`              |
-| Annotation (term-specific)| `ex:{docID}_q{n}_ann_{term}`     | `ex:AR_00_0_q3_ann_latticeparameter` |
+| Question                 | `ex:{docID}_q{n}`                 | `ex:AR_2000_0_q3`                  |
+| Answer                   | `ex:{docID}_q{n}_a{m}`            | `ex:AR_2000_0_q3_a1`               |
+| Provenance               | `ex:{docID}_q{n}_src`             | `ex:AR_2000_0_q3_src`              |
+| Annotation (term-specific)| `ex:{docID}_q{n}_ann_{term}`     | `ex:AR_2000_0_q3_ann_latticeparameter` |
 
 This ensures consistency and full traceability back to the source document across 
 questions, answers, provenance, and annotations.
