@@ -1,4 +1,4 @@
-# NuclearGroundBench
+# PROTON-QA
 A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclear-related documents
 
 ## Overview
@@ -18,12 +18,12 @@ Each document follows a three-part ID: `{type}_{YY}_{sequence}`
 | Part       | Description                                              |
 |------------|----------------------------------------------------------|
 | `type`     | Document type — `SR` (progress report) or `AR` (action report) |
-| `YY`       | Last two digits of the year (e.g., `86` for 1986)       |
+| `YYYY`       | Last two digits of the year (e.g., `1986` for 1986)       |
 | `sequence` | Sequence number within the same year (e.g., quarterly)  |
 
 **Examples:**
-- `AR_86_1.pdf` — first action report of 1986
-- `SR_66_1.pdf` — first progress report of 1966
+- `AR_1986_1.pdf` — first action report of 1986
+- `SR_1966_1.pdf` — first progress report of 1966
 
 These IDs are used as URIs in the TTL knowledge files, e.g. `ex:AR_86_1`.
 
@@ -42,8 +42,6 @@ repo-root/
 ├── questions.ttl                         # Q&A pairs with semantic annotations
 └── README.md                             # Project documentation
 ```
-
-
 
 
 ## Knowledge Files
@@ -105,6 +103,6 @@ The following file types are managed via Git LFS:
 *To be added.*
 
 ## TODO
-domain to be registered and prefix to be added.
+domain to be registered 
 https://w3id.org/proton-qa/
 Prefix - pqa 
