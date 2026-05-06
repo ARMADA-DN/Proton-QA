@@ -1,0 +1,200 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "@base": "https://github.com/ARMADA-DN/NuclearGroundBench/tree/main/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "dct": "http://purl.org/dc/terms/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "key": "cr:key",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform"
+  },
+  "@type": "sc:Dataset",
+  "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "name": "PROTON-QA",
+  "description": "A question answering (QA) system retrieves the relevant information from data sources and generates precise answers to user questions. QA benchmarking is essential for comparable, standardized, and reproducible evaluation of such systems. In this work, we focus on a QA system for data stored in technical, domain-specific documents for precise, data-centric answers. In technical domains, answers frequently depend on unit-sensitive numerical values, measurement uncertainty, context-dependent validity, and specialized terminology. Recently, most QA systems are implemented via Retrieval-Augmented Generation (RAG) with LLMs. Yet, these systems often provide limited reliability when it comes to the factuality of the answers produced. For this reason, new approaches involve the use of Knowledge Graphs (KG) and semantic annotation in methods such as neuro-symbolic. Existing generic domain benchmarks do not capture the reliability requirements, and QA resources are largely limited to plain-text question-answer pairs that lack provenance tracking, semantic annotations, and integration of knowledge graphs. In this paper, we present PROTON-QA, a provenance-aware, ontology-grounded QA dataset. The PROTON-QA is grounded in the nuclear-data domain and addresses four key gaps in the existing domain-specific benchmarks: (1) document provenance traceability for grounding questions and answers, (2) unit-aware numerical answer representation, (3) concept-level entity linking for semantic interoperability, and (4) ontology-grounded representation enabling reasoning over diverse answer types. By combining provenance, unit semantics, and linked data representation, PROTON-QA provides a reusable benchmark for evaluating the retrieval and verification capabilities of QA systems operating over restricted technical corpora in high-stakes environments. The current release comprises 20 expert-curated questions drawn from 13 annual reports in the nuclear domain, with multi-source provenance annotations, Wikidata entity links, and a domain-specific concept extension vocabulary.",
+  "url": "https://github.com/ARMADA-DN/NuclearGroundBench/tree/main/corpus",
+  "version": "1.0.0",
+  "license": "https://opensource.org/licenses/MIT",
+  "inLanguage": "en",
+  "datePublished": "2026",
+  "creator": [
+    {
+      "@type": "sc:Person",
+      "name": "Thushari Pahalage Dona"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Antonio Bulgheroni"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Lorenzo Fongaro"
+    },
+    {
+      "@type": "sc:Person",
+      "name": "Matteo Lissandrini"
+    }
+  ],
+  "publisher": {
+    "@type": "sc:Organization",
+    "name": "ARMADA Doctoral Network"
+  },
+  "keywords": [
+    "question answering",
+    "knowledge graph",
+    "nuclear domain",
+    "provenance",
+    "linked data",
+    "RDF",
+    "ontology",
+    "benchmark",
+    "RAG",
+    "neuro-symbolic"
+  ],
+  "distribution": [
+    {
+      "@type": "cr:FileObject",
+      "@id": "questions-ttl",
+      "name": "questions.ttl",
+      "description": "RDF Turtle file containing 20 expert-curated questions with answers, multi-source provenance annotations, and Wikidata entity linking annotations.",
+      "contentUrl": "https://github.com/ARMADA-DN/NuclearGroundBench/raw/main/corpus/questions.ttl",
+      "encodingFormat": "text/turtle"
+    },
+    {
+      "@type": "cr:FileObject",
+      "@id": "concept-extensions-ttl",
+      "name": "concept_extensions.ttl",
+      "description": "RDF Turtle file containing domain-specific SKOS concept extensions for nuclear terminology not available in Wikidata.",
+      "contentUrl": "https://github.com/ARMADA-DN/NuclearGroundBench/raw/main/corpus/concept_extensions.ttl",
+      "encodingFormat": "text/turtle"
+    },
+    {
+      "@type": "cr:FileSet",
+      "@id": "corpus-ttl-files",
+      "name": "PROTON-QA corpus TTL files",
+      "description": "Collection of all RDF Turtle files constituting the PROTON-QA dataset corpus.",
+      "containedIn": [
+        { "@id": "questions-ttl" },
+        { "@id": "concept-extensions-ttl" }
+      ],
+      "encodingFormat": "text/turtle",
+      "includes": "*.ttl"
+    }
+  ],
+  "recordSet": [
+    {
+      "@type": "cr:RecordSet",
+      "@id": "questions",
+      "name": "Questions",
+      "description": "Expert-curated questions with provenance-aware answers grounded in nuclear domain documents.",
+      "key": { "@id": "questions/id" },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "questions/id",
+          "name": "id",
+          "description": "Unique question identifier (e.g. pqa:q1).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "questions-ttl" },
+            "extract": { "fileProperty": "content" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "questions/label",
+          "name": "label",
+          "description": "Natural language question text in English.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "questions/acceptedAnswer",
+          "name": "acceptedAnswer",
+          "description": "The gold standard answer with confidence score and provenance source.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "questions/suggestedAnswer",
+          "name": "suggestedAnswer",
+          "description": "Alternative candidate answers with lower confidence scores.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "questions/provenance",
+          "name": "provenance",
+          "description": "Source document and page reference supporting the answer.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "questions/entityLinks",
+          "name": "entityLinks",
+          "description": "Wikidata or custom pqa: entity IRIs for concepts mentioned in the question.",
+          "dataType": "sc:URL"
+        }
+      ]
+    },
+    {
+      "@type": "cr:RecordSet",
+      "@id": "concepts",
+      "name": "Concept Extensions",
+      "description": "Domain-specific SKOS concepts extending Wikidata for nuclear terminology.",
+      "key": { "@id": "concepts/id" },
+      "field": [
+        {
+          "@type": "cr:Field",
+          "@id": "concepts/id",
+          "name": "id",
+          "description": "Unique concept identifier in the pqa: namespace (e.g. pqa:DIAMEX).",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": { "@id": "concept-extensions-ttl" },
+            "extract": { "fileProperty": "content" }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "concepts/prefLabel",
+          "name": "prefLabel",
+          "description": "Preferred human-readable label for the concept.",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "concepts/skosMapping",
+          "name": "skosMapping",
+          "description": "SKOS mapping relation to a Wikidata entity (exactMatch, closeMatch, narrowMatch, relatedMatch, broader).",
+          "dataType": "sc:Text"
+        }
+      ]
+    }
+  ]
+}

@@ -37,7 +37,9 @@ repo-root/
 │
 ├── vocab/
 │   ├── eurovoc_in_skos_core_concepts.rdf  # EuroVoc vocabulary (SKOS)
-│   └── concept_extensions.ttl             # Custom domain concepts
+│   ├── concept_extensions.ttl             # Custom domain concepts
+│   ├── qudt.ttl                           # QUDT core ontology (quantities & dimensions)
+│   └── qudt-unit.ttl                      # QUDT units vocabulary
 │
 ├── questions.ttl                         # Q&A pairs with semantic annotations
 └── README.md                             # Project documentation
