@@ -135,8 +135,8 @@ riot --validate croissant.ttl
 
 ## Cloning with Git LFS
 ```bash
-git clone https://github.com/ARMADA-DN/NuclearGroundBench.git
-cd NuclearGroundBench
+git clone https://github.com/ARMADA-DN/Proton-QA.git
+cd Proton-QA
 git lfs pull
 ```
 
