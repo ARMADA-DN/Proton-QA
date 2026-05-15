@@ -84,7 +84,6 @@ Current custom concepts (`pqa:` namespace):
 | `pqa:MgAmO2` | Magnesium Americium Oxide | `skos:relatedMatch` wd:Q898519 |
 | `pqa:LatticeParameter` | Lattice parameter / constant | `skos:exactMatch` wd:Q625641 |
 | `pqa:DissolutionRate` | Rate of solid dissolution in liquid | `skos:closeMatch` wd:Q3133701 |
-| `pqa:KXRF` | K-edge X-ray Fluorescence | `skos:closeMatch` wd:Q898974 |
 | `pqa:PNCC` | Passive Neutron Coincidence Counting | `skos:narrowMatch` wd:Q60552688 |
 | `pqa:HRGS` | High Resolution Gamma Spectrometry | `skos:closeMatch` wd:Q906816 |
 | `pqa:ActinideCe115Family` | Actinide 115 family compounds | `skos:relatedMatch` wd:Q5695236 |
@@ -159,4 +158,4 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 ## TODO
 - [ ] Register domain `https://w3id.org/proton-qa/`
 - [ ] Zenodo publication and DOI assignment
-- [ ] Repo rename
+
