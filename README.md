@@ -1,5 +1,5 @@
-<p align="center">
-  <img src="assets/logo.png" alt="PROTON-QA Logo" width="500">
+<p align="left">
+  <img src="assets/logo.png" alt="PROTON-QA Logo" width="600">
 </p>
 
 A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclear-related documents
