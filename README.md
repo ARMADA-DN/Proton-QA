@@ -1,9 +1,10 @@
-# PROTON-QA
+<p align="center">
+  <img src="assets/logo.png" alt="PROTON-QA Logo" width="500">
+</p>
+
 A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclear-related documents
 
-<p align="center">
-  <img src="assets/logo.png" alt="PROTON-QA Logo" width="300">
-</p>
+
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
