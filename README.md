@@ -5,14 +5,16 @@
 A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclear-related documents
 
 
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
 
 ## Overview
-A knowledge-grounded annotated question and answer dataset built from 67 institutional 
-documents spanning 1966–2013. The corpus covers two document types: progress reports 
-and action reports.
+A knowledge-grounded benchmark dataset for question answering over technical
+nuclear reports. The dataset comprises semantically annotated question–answer
+pairs derived from Action Reports published between 2000 and 2013. Each question
+is linked to its source document, provenance annotations, ontology concepts, and
+unit-aware answer representations to support explainable and knowledge-grounded
+question answering.
 
 PROTON-QA addresses four key gaps in existing domain-specific benchmarks:
 1. Document provenance traceability for grounding questions and answers
@@ -20,11 +22,7 @@ PROTON-QA addresses four key gaps in existing domain-specific benchmarks:
 3. Concept-level entity linking for semantic interoperability
 4. Ontology-grounded representation enabling reasoning over diverse answer types
 
-## Corpus Structure
-| Series | Period      | Type             | Count |
-|--------|-------------|------------------|-------|
-| SR     | 1966–1985   | Progress reports | 40    |
-| AR     | 1986–2013   | Action reports   | 27    |
+
 
 ## Naming Convention
 Each document follows a three-part ID: `{type}_{YYYY}_{sequence}`
@@ -37,7 +35,6 @@ Each document follows a three-part ID: `{type}_{YYYY}_{sequence}`
 
 **Examples:**
 - `AR_2000_0.pdf` — first action report of 2000
-- `SR_1966_1.pdf` — first progress report of 1966
 
 These IDs are used as URIs in the TTL knowledge files, e.g. `pqa:AR_2000_0`.
 
@@ -47,7 +44,7 @@ These IDs are used as URIs in the TTL knowledge files, e.g. `pqa:AR_2000_0`.
 
 ```
 repo-root/
-├── LICENSE                                # MIT License
+├── LICENSE                                # CC BY 4.0 License
 ├── croissant.jsonld                       # Croissant dataset metadata
 ├── croissant.ttl                          # Croissant metadata in Turtle format
 ├── README.md                              # Project documentation
@@ -155,12 +152,22 @@ The following file types are managed via Git LFS:
 - Matteo Lissandrini
 
 ## Citation
-*To be added after Zenodo publication.*
+If you use PROTON-QA in your research, please cite the Zenodo record and the accompanying publication (to be added after publication).
 
 ## License
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-## TODO
-- [ ] Register domain `https://w3id.org/proton-qa/`
-- [ ] Zenodo publication and DOI assignment
+The PROTON-QA dataset is licensed under the
+**Creative Commons Attribution 4.0 International (CC BY 4.0)**.
 
+You are free to share and adapt the dataset for any purpose, provided
+appropriate attribution is given.
+
+See the [LICENSE](LICENSE) file or visit
+https://creativecommons.org/licenses/by/4.0/ for the full license text.
+
+## Metadata
+
+The dataset includes machine-readable metadata in both JSON-LD and Turtle
+formats following the MLCommons Croissant specification. The metadata
+describes the dataset contents, licensing, provenance, creators, and
+distribution to facilitate FAIR data publication and interoperability.
