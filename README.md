@@ -6,7 +6,7 @@ A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclea
 
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.21346766)
 
 ## Overview
 A knowledge-grounded benchmark dataset for question answering over technical
