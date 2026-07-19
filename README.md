@@ -4,6 +4,15 @@
 
 A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclear-related documents
 
+## PROTON-QA Explorer
+
+A visual demonstration of the PROTON-QA provenance model, illustrating how questions, answers, and evidence are linked to their source documents.
+
+<p align="center">
+  <img src="assets/provenance-demo.gif"
+       alt="PROTON-QA provenance visualization"
+       width="900">
+</p>
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21346766.svg)](https://doi.org/10.5281/zenodo.21346766)
@@ -181,16 +190,6 @@ appropriate attribution is given.
 
 See the [LICENSE](LICENSE) file or visit
 https://creativecommons.org/licenses/by/4.0/ for the full license text.
-
-## PROTON-QA Explorer
-
-A visual demonstration of the PROTON-QA provenance model, illustrating how questions, answers, and evidence are linked to their source documents.
-
-<p align="center">
-  <img src="assets/provenance-demo.gif"
-       alt="PROTON-QA provenance visualization"
-       width="900">
-</p>
 
 ## RAG Prompt Template
 
