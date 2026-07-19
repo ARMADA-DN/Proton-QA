@@ -6,15 +6,11 @@ A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclea
 
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.21346766)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21346766.svg)](https://doi.org/10.5281/zenodo.21346766)
 
 ## Overview
-A knowledge-grounded benchmark dataset for question answering over technical
-nuclear reports. The dataset comprises semantically annotated question–answer
-pairs derived from Action Reports published between 2000 and 2013. Each question
-is linked to its source document, provenance annotations, ontology concepts, and
-unit-aware answer representations to support explainable and knowledge-grounded
-question answering.
+
+PROTON-QA is a knowledge-grounded benchmark for evaluating question answering systems over technical nuclear literature. The dataset comprises semantically annotated question–answer pairs derived from publicly available Action Reports published between 2000 and 2013 by the European Commission Joint Research Centre (JRC). Each question is linked to its source document, provenance metadata, ontology concepts, and unit-aware answer representations to support explainable and knowledge-grounded question answering.
 
 PROTON-QA addresses four key gaps in existing domain-specific benchmarks:
 1. Document provenance traceability for grounding questions and answers
@@ -22,14 +18,16 @@ PROTON-QA addresses four key gaps in existing domain-specific benchmarks:
 3. Concept-level entity linking for semantic interoperability
 4. Ontology-grounded representation enabling reasoning over diverse answer types
 
+## Description of the Content
 
+The source corpus consists of publicly available Action Reports published between 2000 and 2013 by the European Commission Joint Research Centre (JRC), Institute for Transuranium Elements (ITU), Karlsruhe. The reports describe experimental research in nuclear science and engineering, covering topics such as radiochemistry, nuclear materials, actinide and radionuclide characterization, fuel cycle research, waste management, analytical chemistry, and environmental studies. They include detailed experimental procedures, measurement results, technical analyses, tables, figures, and references, providing the technical evidence from which the benchmark's question–answer pairs and annotations were constructed.
 
 ## Naming Convention
 Each document follows a three-part ID: `{type}_{YYYY}_{sequence}`
 
 | Part       | Description                                                     |
 |------------|-----------------------------------------------------------------|
-| `type`     | Document type — `SR` (progress report) or `AR` (action report) |
+| `type`     | `AR` (action report) |
 | `YYYY`     | Full four-digit year (e.g., `2000` for 2000)                    |
 | `sequence` | Sequence number within the same year (e.g., quarterly)          |
 
@@ -40,22 +38,24 @@ These IDs are used as URIs in the TTL knowledge files, e.g. `pqa:AR_2000_0`.
 
 ## Repository Structure
 
-
-
 ```
 repo-root/
 ├── LICENSE                                # CC BY 4.0 License
 ├── croissant.jsonld                       # Croissant dataset metadata
-├── croissant.ttl                          # Croissant metadata in Turtle format
+├── croissant.ttl                          # Croissant metadata
 ├── README.md                              # Project documentation
 │
 ├── corpus/                                # Documents (stored via Git LFS)
-│   ├── AR_YYYY_seq.pdf                   # Action Reports (27 files)
-│   └── SR_YYYY_seq.pdf                   # Progress Reports (40 files)
+│   ├── AR_YYYY_seq.pdf                   # Action Reports (12 files)
+│  
 │
 ├── vocab/
-│   ├── eurovoc_in_skos_core_concepts.rdf  # EuroVoc vocabulary (SKOS)
-│   ├── concept_extensions.ttl             # Custom domain concepts
+│   ├── eurovoc_in_skos_core_concepts.rdf  # EuroVoc controlled vocabulary (SKOS)
+│   ├── concept_extensions.ttl             # Custom nuclear domain concept extensions
+│   ├── oa.ttl                             # Open Annotation (OA) ontology
+│   ├── prov-o.ttl                         # PROV-O provenance ontology
+│   ├── qanary.ttl                         # Qanary ontology for QA annotations
+│   ├── schemaorg-current-http.ttl         # Schema.org vocabulary
 │   ├── qudt.ttl                           # QUDT core ontology (quantities & dimensions)
 │   └── qudt-unit.ttl                      # QUDT units vocabulary
 │
@@ -63,39 +63,7 @@ repo-root/
 
 ```
 
-## Knowledge Files
-
-### `questions.ttl`
-Encodes each question, answer, source document reference, entity linking annotations,
-and provenance. Questions and answers are explicitly linked using:
-- `schema:acceptedAnswer` — high-confidence gold standard answers
-- `schema:suggestedAnswer` — alternative candidate answers with lower confidence
-
-Provenance is tracked via the W3C Open Annotation (`oa:`) and PROV-O (`prov:`) 
-vocabularies, linking each answer to a specific page in the source document.
-Units are represented using the QUDT vocabulary.
-
-### `vocab/concept_extensions.ttl`
-Extends existing vocabularies (EuroVoc, Wikidata) with domain-specific terms not 
-found in either. Follows SKOS conventions and is aligned with EuroVoc.
-
-Current custom concepts (`pqa:` namespace):
-
-| Term | Description | SKOS Mapping |
-|---|---|---|
-| `pqa:MgAmO2` | Magnesium Americium Oxide | `skos:relatedMatch` wd:Q898519 |
-| `pqa:LatticeParameter` | Lattice parameter / constant | `skos:exactMatch` wd:Q625641 |
-| `pqa:DissolutionRate` | Rate of solid dissolution in liquid | `skos:closeMatch` wd:Q3133701 |
-| `pqa:PNCC` | Passive Neutron Coincidence Counting | `skos:narrowMatch` wd:Q60552688 |
-| `pqa:HRGS` | High Resolution Gamma Spectrometry | `skos:closeMatch` wd:Q906816 |
-| `pqa:ActinideCe115Family` | Actinide 115 family compounds | `skos:relatedMatch` wd:Q5695236 |
-| `pqa:IrradiatedFuel` | Irradiated / spent nuclear fuel | `skos:closeMatch` wd:Q1863171 |
-| `pqa:DIAMEX` | DIAMide EXtraction process | `skos:broader` wd:Q386477 |
-
-> **Note:** EuroVoc follows SKOS conventions. Wikidata does not — it uses its own 
-> ontology and is not a controlled vocabulary.
-
-## Naming Convention for Knowledge Entities
+## Naming Convention for URIs
 
 | Entity                    | ID Pattern                       | Example                            |
 |---------------------------|----------------------------------|------------------------------------|
@@ -105,54 +73,103 @@ Current custom concepts (`pqa:` namespace):
 | Entity linking annotation | `pqa:q{n}_ann_{term}`            | `pqa:q1_ann_magnesia`              |
 | Source document           | `pqa:{type}_{YYYY}_{seq}`        | `pqa:AR_2000_0`                    |
 
-## Prefixes Used
 
-| Prefix | Namespace |
-|--------|-----------|
-| `pqa:` | `https://w3id.org/proton-qa/resource#` |
-| `qa:`  | `https://w3id.org/wdaqua/qanary#` |
-| `oa:`  | `http://www.w3.org/ns/oa#` |
-| `prov:`| `http://www.w3.org/ns/prov#` |
-| `qudt:`| `http://qudt.org/schema/qudt/` |
-| `unit:`| `http://qudt.org/vocab/unit/` |
-| `wd:`  | `http://www.wikidata.org/entity/` |
-| `skos:`| `http://www.w3.org/2004/02/skos/core#` |
 
-## Croissant Metadata
-This dataset includes a [Croissant](https://docs.mlcommons.org/croissant/) metadata 
-file (`croissant.jsonld`) for machine-readable dataset description, compatible with 
-Google Dataset Search and ML frameworks.
 
-To validate:
-```bash
-mlcroissant validate --jsonld croissant.jsonld
+## Knowledge Files
+
+### `questions.ttl`
+
+The benchmark is represented as an RDF knowledge graph that integrates multiple semantic vocabularies. Each question is connected to its answers, source document, provenance, and semantic annotations through a structured graph.
+
+<p align="center">
+  <img src="assets/image.png" alt="PROTON-QA knowledge graph model" width="900"/>
+</p>
+
+The knowledge model consists of the following components:
+
+- **Question** (`qa:Question`) — represents a benchmark question and links to one or more answers through `schema:acceptedAnswer` or `schema:suggestedAnswer`.
+- **Answer** (`qa:Answer`) — stores the answer text or numerical value together with unit-aware representations using QUDT.
+- **Entity Annotation** (`oa:Annotation`) — links mentions in the question to ontology concepts (e.g., Wikidata, EuroVoc, or custom domain concepts).
+- **Provenance Annotation** (`oa:Annotation`) — connects each answer to its supporting evidence in the source document using OA and PROV-O.
+- **Evidence Source** (`oa:SpecificResource`) — identifies the referenced report.
+- **Page Selector** (`oa:FragmentSelector`) — specifies the page containing the supporting evidence.
+- **Text Quote** (`oa:TextQuoteSelector`) — records the exact supporting text extracted from the report.
+
+The representation combines:
+
+- **Schema.org** for questions and answers.
+- **Open Annotation (OA)** for annotations and evidence linking.
+- **PROV-O** for provenance.
+- **QUDT** for numerical values and units.
+- **Qanary** for question-answering concepts.
+- **EuroVoc** and custom concept extensions for semantic entity linking.
+
+### `concept_extensions.ttl`
+
+Defines custom SKOS concepts for domain-specific terminology that is not sufficiently represented in existing vocabularies such as EuroVoc or Wikidata. These concepts include preferred labels, alternative labels, definitions, scope notes, and semantic links to related concepts.
+
+**Example**
+
+```turtle
+pqa:MgAmO2 a skos:Concept ;
+    skos:prefLabel  "Magnesium Americium Oxide"@en ;
+    skos:altLabel   "Mg:AmO2"@en ;
+    skos:definition "Mixture of magnesium oxide and americium dioxide used in nuclear fuel research."@en ;
+    skos:scopeNote  "Studied in the context of actinide-doped oxide fuels."@en ;
+    skos:relatedMatch wd:Q214769 ;   # Magnesium oxide (MgO)
+    skos:relatedMatch wd:Q425412 ;   # Americium dioxide (AmO₂)
+    skos:inScheme   pqa:ProtonQAVocabulary .
 ```
 
-To convert to Turtle:
-```bash
-riot --output=turtle croissant.jsonld > croissant.ttl
-riot --validate croissant.ttl
-```
+This representation extends existing vocabularies with nuclear-specific concepts while maintaining interoperability through SKOS semantic relations.
 
-## Cloning with Git LFS
+## Git LFS
+
+The corpus documents are stored using **Git Large File Storage (Git LFS)**. To clone the repository with all PDF files:
+
 ```bash
 git clone https://github.com/ARMADA-DN/Proton-QA.git
 cd Proton-QA
 git lfs pull
 ```
 
-## Git LFS Tracked Files
 The following file types are managed via Git LFS:
-- `*.pdf` — all corpus documents
+
+- `*.pdf` — Source corpus documents
 
 ## Authors
-- Thushari Pahalage Dona
-- Antonio Bulgheroni
-- Lorenzo Fongaro
-- Matteo Lissandrini
+
+| Name | Affiliation | Contact |
+|------|-------------|---------|
+| **Thushari Pahalage Dona** | University of Verona | <thushari.pahalage@univr.it> · [ORCID](https://orcid.org/0000-0001-6563-9516) |
+| **Antonio Bulgheroni** | European Commission Joint Research Centre (JRC) | <Antonio.BULGHERONI@ec.europa.eu> · [ORCID](https://orcid.org/0000-0001-7988-2090) |
+| **Lorenzo Fongaro** | European Commission Joint Research Centre (JRC) | <Lorenzo.FONGARO@ec.europa.eu> · [ORCID](https://orcid.org/0000-0001-9267-3525) |
+| **Matteo Lissandrini** | University of Verona | <matteo.lissandrini@univr.it> · [ORCID](https://orcid.org/0000-0001-7922-5998) |
 
 ## Citation
-If you use PROTON-QA in your research, please cite the Zenodo record and the accompanying publication (to be added after publication).
+
+If you use **PROTON-QA** in your research, please cite the dataset. If applicable, also cite the accompanying publication.
+
+### BibTeX (Dataset)
+
+```bibtex
+@dataset{pahalage_dona2026protonqa,
+  author    = {Thushari Pahalage Dona and
+               Antonio Bulgheroni and
+               Lorenzo Fongaro and
+               Matteo Lissandrini},
+  title     = {PROTON-QA: A Knowledge-Grounded Benchmark Dataset for Question Answering over Technical Nuclear Reports},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.21346766},
+  url       = {https://doi.org/10.5281/zenodo.21346766}
+}
+```
+
+### BibTeX (Publication)
+
+*To be added upon publication.*
 
 ## License
 
@@ -165,9 +182,24 @@ appropriate attribution is given.
 See the [LICENSE](LICENSE) file or visit
 https://creativecommons.org/licenses/by/4.0/ for the full license text.
 
-## Metadata
+## PROTON-QA Explorer
 
-The dataset includes machine-readable metadata in both JSON-LD and Turtle
-formats following the MLCommons Croissant specification. The metadata
-describes the dataset contents, licensing, provenance, creators, and
-distribution to facilitate FAIR data publication and interoperability.
+A visual demonstration of the PROTON-QA provenance model, illustrating how questions, answers, and evidence are linked to their source documents.
+
+<p align="center">
+  <img src="assets/provenance-demo.gif"
+       alt="PROTON-QA provenance visualization"
+       width="900">
+</p>
+
+## RAG Prompt Template
+
+A prompt template for retrieval-augmented generation (RAG) systems that instructs the model to generate answers following the PROTON-QA RDF representation, including provenance, semantic annotations, and unit-aware answer formatting.
+
+- [`scripts/rag_prompt.txt`](scripts/rag_prompt.txt)
+
+## Evaluation Script
+
+Script for evaluating question answering systems on the PROTON-QA benchmark. These utilities compare system outputs against the reference RDF annotations and compute benchmark evaluation metrics.
+
+- [`scripts/evaluate.py`](scripts/evaluate.py) — Evaluation script.
