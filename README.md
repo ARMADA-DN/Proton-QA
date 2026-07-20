@@ -138,6 +138,20 @@ pqa:MgAmO2 a skos:Concept ;
 
 This representation extends existing vocabularies with nuclear-specific concepts while maintaining interoperability through SKOS semantic relations.
 
+## Answer Taxonomy
+
+To support consistent evaluation across diverse question types, PROTON-QA categorizes questions according to the semantic structure of their expected answers. The benchmark currently contains seven answer types spanning numerical, semantic, and categorical responses.
+
+| Category | Answer Type | Expected Output | Evaluation | # Questions | Example |
+|----------|-------------|-----------------|------------|------------:|---------|
+| **Numeric** | Dimensionless | Pure number | Exact match | 7 | *What is the decontamination factor of Tc in the DIAMEX process?* → **217** |
+| **Numeric** | Scalar + Unit | Value + unit | Exact match | 22 | *How long were the fuel rods in the Phebus FPT2 experiment?* → **1 m** |
+| **Numeric** | Value ± Uncertainty + Unit | Value, uncertainty, unit | Tolerance match | 7 | *What is the melting point temperature of pure MgO?* → **3250 ± 20 K** |
+| **Numeric** | Contextual | Conditional values | Condition match | 1 | *Which is the dissolution rate of spent nuclear fuel in contact with water?* → **6.77×10⁻¹¹ (low burnup); 2.66×10⁻¹⁰ (high burnup)** |
+| **Named Entity** | Named Entity | Entity name or identifier | String/QID match | 2 | *Which parent isotope is used in generator-based production of Ac-225?* → **Thorium-229** |
+| **Enumerated List** | Entity Set | Multiple entities | Set match | 3 | *What are the most promising radiometric techniques for minor actinide measurement?* → **XRF, PNCC, HRGS** |
+| **Boolean** | Yes/No | Binary response | Exact match | 8 | *Do plutonium-containing materials exhibit superconductive properties?* → **Yes** |
+
 ## Git LFS
 
 The corpus documents are stored using **Git Large File Storage (Git LFS)**. To clone the repository with all PDF files:
