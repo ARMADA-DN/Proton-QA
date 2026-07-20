@@ -1,0 +1,602 @@
+[
+  {
+  "question": "[Q1] What is the melting point temperature of magnesia?",
+  "accepted_answer": {
+    "value": "3245",
+    "unit": "K",
+    "uncertainty": "10",
+    "document": "AR_2000_0",
+    "page": "20"
+  },
+  "suggested_answers": [
+    {
+      "value": "3250",
+      "unit": "K",
+      "uncertainty": "20",
+      "document": "AR_2000_0",
+      "page": "19"
+    },
+    {
+      "value": "3245",
+      "unit": "K",
+      "uncertainty": "10",
+      "document": "AR_2000_0",
+      "page": "20"
+    },
+    {
+      "value": "3250",
+      "unit": "K",
+      "uncertainty": "20",
+      "document": "AR_2000_0",
+      "page": "80"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2000_0",
+      "page": "19"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "20"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "80"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2000_0",
+      "page": "19",
+      "text": "Application of this method to the investigation of MgO melting led to the unexpected conclusion that its melting point lies in the interval 3250±20 K - about 180 K higher than the currently accepted value of 3070 K, obtained with conventional methods."
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "20",
+      "text": "predicts on the freezing plateau a temperature of 3245±10 K (Fig.3)."
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "20",
+      "text": "Fig. 3 Fitting of a spectrum taken during MgO freezing. The resulting melting temperature is 3245 K; the fitting precision gives an uncertainty of the order of 10 K."
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "80",
+      "text": "The melting point of MgO was measured at 3250±20 K, i.e. approximately 150 K higher than previously reported in the literature."
+    }
+  ]
+},
+{
+  "question": "[Q2] What is the melting point temperature of Pure MgO?",
+  "accepted_answer": {
+    "value": "3245",
+    "unit": "K",
+    "uncertainty": "10",
+    "document": "AR_2000_0",
+    "page": "20"
+  },
+  "suggested_answers": [
+    {
+      "value": "3250",
+      "unit": "K",
+      "uncertainty": "20",
+      "document": "AR_2000_0",
+      "page": "19"
+    },
+    {
+      "value": "3245",
+      "unit": "K",
+      "uncertainty": "10",
+      "document": "AR_2000_0",
+      "page": "20"
+    },
+    {
+      "value": "3250",
+      "unit": "K",
+      "uncertainty": "20",
+      "document": "AR_2000_0",
+      "page": "80"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2000_0",
+      "page": "19"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "20"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "80"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2000_0",
+      "page": "19",
+      "text": "Application of this method to the investigation of MgO melting led to the unexpected conclusion that its melting point lies in the interval 3250±20 K - about 180 K higher than the currently accepted value of 3070 K, obtained with conventional methods."
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "20",
+      "text": "predicts on the freezing plateau a temperature of 3245±10 K (Fig.3)."
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "20",
+      "text": "Fig. 3 Fitting of a spectrum taken during MgO freezing. The resulting melting temperature is 3245 K; the fitting precision gives an uncertainty of the order of 10 K."
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "80",
+      "text": "The melting point of MgO was measured at 3250±20 K, i.e. approximately 150 K higher than previously reported in the literature."
+    }
+  ]
+},
+  {
+  "question": "[Q3] What is the melting point temperature of Mg:AmO2?",
+  "accepted_answer": {
+    "value": "3220",
+    "unit": "K",
+    "uncertainty": "15",
+    "document": "AR_2000_0",
+    "page": "80"
+  },
+  "suggested_answers": [
+    {
+      "value": "3220",
+      "unit": "K",
+      "uncertainty": "15",
+      "document": "AR_2000_0",
+      "page": "80"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2000_0",
+      "page": "80"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2000_0",
+      "page": "80",
+      "text": "This high value was confirmed by the measured melting point of MgO:AmO2 (3220±15 K), a dark coloured material, for which pyrometric temperature measurements are much easier."
+    }
+  ]
+},
+  {
+  "question": "[Q4] How many defects can an alpha particle generate in nuclear fuel?",
+  "accepted_answer": {
+    "value": "200",
+    "unit": "displacements",
+    "uncertainty": "",
+    "document": "AR_2000_0",
+    "page": "32"
+  },
+  "suggested_answers": [
+    {
+      "value": "200",
+      "unit": "displacements",
+      "uncertainty": "",
+      "document": "AR_2000_0",
+      "page": "32"
+    },
+    {
+      "value": "200",
+      "unit": "defects formed",
+      "uncertainty": "",
+      "document": "AR_2000_0",
+      "page": "34"
+    },
+    {
+      "value": "200",
+      "unit": "displacements",
+      "uncertainty": "",
+      "document": "AR_2000_0",
+      "page": "37"
+    },
+    {
+      "value": "200",
+      "unit": "displacements",
+      "uncertainty": "",
+      "document": "AR_2000_0",
+      "page": "53"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2000_0",
+      "page": "32"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "34"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "37"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "53"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2000_0",
+      "page": "32",
+      "text": "a He-ion (a-particle) of - 5.5 MeV, with mainly electronic stopping, producing about 200 displacements, most of them as largely isolated defects at the end of its range of some 10-20 µm."
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "34",
+      "text": "Tab. 1 Displacements induced in U02 by different damaging sources.\r\nEnergy Range Fraction of energy lost Number of \r\nelastic (nuclear) I inelastic defects formed, \r\n(keV) (µm) collisions (electronic) (N)\r\n...\r\na-particle 5500 15 0.01 /0.99 200"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "37",
+      "text": "Total number of displacements:\r\n- 40000 for 95Zr\r\n- 60000 for m l\r\n- 200 for He"
+    },
+    {
+      "document": "AR_2000_0",
+      "page": "53",
+      "text": "Process displacements range\r\n...\r\na -decay a -particle 200 15µm"
+    }
+  ]
+},
+  {
+  "question": "[Q5] What is the expected lattice parameter for a corium sample?",
+  "accepted_answer": {
+    "value": "5.2984",
+    "unit": "A",
+    "uncertainty": "",
+    "document": "AR_2000_0",
+    "page": "90"
+  },
+  "suggested_answers": [
+    {
+      "value": "5.2984",
+      "unit": "A",
+      "uncertainty": "",
+      "document": "AR_2000_0",
+      "page": "90"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2000_0",
+      "page": "90"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2000_0",
+      "page": "90",
+      "text": "The X-ray diffraction of the corium pool sample indicated a distorted cubic fluorite lattice typical of U02 but with a very small lattice parameter a = 5.2984 A."
+    }
+  ]
+},
+  {
+  "question": "[Q6] Based on the reported value, what is the expected lattice parameter for a corium sample in SI units?",
+  "accepted_answer": {
+    "value": "5.2984 x 10-10",
+    "unit": "m",
+    "uncertainty": "",
+    "document": "AR_2000_0",
+    "page": "90"
+  },
+  "suggested_answers": [
+    {
+      "value": "5.2984",
+      "unit": "A",
+      "uncertainty": "",
+      "document": "AR_2000_0",
+      "page": "90"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2000_0",
+      "page": "90"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2000_0",
+      "page": "90",
+      "text": "The X-ray diffraction of the corium pool sample indicated a distorted cubic fluorite lattice typical of U02 but with a very small lattice parameter a = 5.2984 A."
+    }
+  ]
+},
+{
+  "question": "[Q7] Which is the dissolution rate of spent nuclear fuel when in contact with water?",
+  "accepted_answer": {
+    "value": "10-2",
+    "unit": "g/m2d",
+    "uncertainty": "",
+    "document": "AR_2003_0",
+    "page": "14"
+  },
+  "suggested_answers": [
+    {
+      "value": "6.77E-11",
+      "unit": "mol m-2 s-1",
+      "uncertainty": "",
+      "document": "AR_2001_0",
+      "page": "74"
+    },
+    {
+      "value": "2.66E-10",
+      "unit": "mol m-2 s-1",
+      "uncertainty": "",
+      "document": "AR_2001_0",
+      "page": "74"
+    },
+    {
+      "value": "0.06",
+      "unit": "mg m-2 d-1",
+      "uncertainty": "",
+      "document": "AR_2001_0",
+      "page": "75"
+    },
+    {
+      "value": "0.3",
+      "unit": "mg m-2 d-1",
+      "uncertainty": "",
+      "document": "AR_2001_0",
+      "page": "75"
+    },
+    {
+      "value": "10-2",
+      "unit": "g/m2d",
+      "uncertainty": "",
+      "document": "AR_2003_0",
+      "page": "14"
+    },
+    {
+      "value": "10-4 to 10-3",
+      "unit": "g/m2d",
+      "uncertainty": "",
+      "document": "AR_2003_0",
+      "page": "17"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2001_0",
+      "page": "74"
+    },
+    {
+      "document": "AR_2001_0",
+      "page": "75"
+    },
+    {
+      "document": "AR_2003_0",
+      "page": "14"
+    },
+    {
+      "document": "AR_2003_0",
+      "page": "17"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2001_0",
+      "page": "74",
+      "text": "Tab. 5.3 Dissolution rates of spent fuel\r\nSample Groundwater Dissolution rate [CO3H-] (mol m-2 s-1)\r\nUO2 LWR fuel 29 MWd/Kg U [1mM] 6.77E-11\r\nUO2 LWR fuel 53 MWd/Kg U [1mM] 2.66E-10"
+    },
+    {
+      "document": "AR_2001_0",
+      "page": "75",
+      "text": "The corrosion rates calculated from the corrosion potentials are, respectively, 0.06 mg m-2 d-1 at a burn-up of 31.5 GWd/t, and 0.3 mg m-2 d-1 at 45.2 GWd/t"
+    },
+    {
+      "document": "AR_2003_0",
+      "page": "14",
+      "text": "Under reducing conditions, spent fuel leaching rates are of the order of magnitude of 10-2g/m2d, some three orders of magnitude less than can be observed under oxic conditions."
+    },
+    {
+      "document": "AR_2003_0",
+      "page": "17",
+      "text": "However, for an “old” spent fuel with moderate alpha-activity, the estimated corrosion rate is in the range from 10-4 to 10-3 g/m2d."
+    }
+  ]
+},
+  {
+  "question": "[Q8] What is the half-life of 213Bi?",
+  "accepted_answer": {
+    "value": "46",
+    "unit": "min",
+    "uncertainty": "",
+    "document": "AR_2011_0",
+    "page": "11"
+  },
+  "suggested_answers": [
+    {
+      "value": "45",
+      "unit": "min",
+      "uncertainty": "",
+      "document": "AR_2000_0",
+      "page": "30"
+    },
+    {
+      "value": "45",
+      "unit": "min",
+      "uncertainty": "",
+      "document": "AR_2001_0",
+      "page": "36"
+    },
+    {
+      "value": "46",
+      "unit": "min",
+      "uncertainty": "",
+      "document": "AR_2005_0",
+      "page": "10"
+    },
+    {
+      "value": "46",
+      "unit": "min",
+      "uncertainty": "",
+      "document": "AR_2011_0",
+      "page": "11"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2000_0",
+      "page": "30"
+    },
+    {
+      "document": "AR_2001_0",
+      "page": "36"
+    },
+    {
+      "document": "AR_2005_0",
+      "page": "10"
+    },
+    {
+      "document": "AR_2011_0",
+      "page": "11"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2000_0",
+      "page": "30",
+      "text": "For long term biodistribution studies 205Bi (t1; 2 == 15.3 d) and 206Bi (t112 == 6.2 d) are used instead of the short-lived 213 Bi (t112 == 45 min) ."
+    },
+    {
+      "document": "AR_2001_0",
+      "page": "36",
+      "text": "Because of the short half-life of 213Bi (45 min), 213Bi labelled peptides and Fab-fragments are required for fast localisation on the tumour."
+    },
+    {
+      "document": "AR_2005_0",
+      "page": "10",
+      "text": "213Bi\r\nBismuth 46 min"
+    },
+    {
+      "document": "AR_2011_0",
+      "page": "11",
+      "text": "It was shown that therapy with both nuclides significantly prolonged survival of treated animals, however, 1000-fold less activity of the longer-lived 225Ac (T1/2 = 10 days) compared to the relatively short-lived 213Bi (T1/2 = 46 min) was needed to achieve the same therapeutic effect."
+    }
+  ]
+},
+  {
+  "question": "[Q9] What is the half-life of 230U?",
+  "accepted_answer": {
+    "value": "20.2",
+    "unit": "d",
+    "uncertainty": "",
+    "document": "AR_2012_0",
+    "page": "17"
+  },
+  "suggested_answers": [
+    {
+      "value": "20.8",
+      "unit": "days",
+      "uncertainty": "",
+      "document": "AR_2007_0",
+      "page": "15"
+    },
+    {
+      "value": "20.8",
+      "unit": "d",
+      "uncertainty": "",
+      "document": "AR_2007_0",
+      "page": "16"
+    },
+    {
+      "value": "20.8",
+      "unit": "days",
+      "uncertainty": "",
+      "document": "AR_2009_0",
+      "page": "16"
+    },
+    {
+      "value": "20.2",
+      "unit": "d",
+      "uncertainty": "",
+      "document": "AR_2012_0",
+      "page": "17"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2007_0",
+      "page": "15"
+    },
+    {
+      "document": "AR_2007_0",
+      "page": "16"
+    },
+    {
+      "document": "AR_2009_0",
+      "page": "16"
+    },
+    {
+      "document": "AR_2012_0",
+      "page": "17"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2007_0",
+      "page": "15",
+      "text": "230U is a pure alpha emitter (T1/2 = 20.8 days) decaying through a rapid cascade of four further alpha emitting daughter nuclides with half-lives of 164 µs – 31 min to long-lived 210Pb (T1/2 = 22.3 years) (see Fig. 1)."
+    },
+    {
+      "document": "AR_2007_0",
+      "page": "16",
+      "text": "a, 20.8 d"
+    },
+    {
+      "document": "AR_2009_0",
+      "page": "16",
+      "text": "Due to the relatively long half-live of 230U of 20.8 days, the radioconjugate should show high stability over extended time periods."
+    },
+    {
+      "document": "AR_2012_0",
+      "page": "17",
+      "text": "The alpha emitter 230U (T1/2 = 20.2 d) is a promising radionuclide for application in TAT."
+    }
+  ]
+},
+  {
+  "question": "[Q10] What are the most promising radiometric techniques for the measurement of minor actinides in nuclear safeguard applications?",
+  "accepted_answer": {
+    "value": "X-ray fluorescence analysis (XRF), passive neutron coincidence counting (PNCC), high-resolution gamma spectrometry (HRGS) and calorimetry",
+    "unit": "",
+    "uncertainty": "",
+    "document": "AR_2002_0",
+    "page": "24"
+  },
+  "suggested_answers": [
+    {
+      "value": "X-ray fluorescence analysis (XRF), passive neutron coincidence counting (PNCC), high-resolution gamma spectrometry (HRGS) and calorimetry",
+      "unit": "",
+      "uncertainty": "",
+      "document": "AR_2002_0",
+      "page": "24"
+    }
+  ],
+  "retrieved_documents": [
+    {
+      "document": "AR_2002_0",
+      "page": "24"
+    }
+  ],
+  "supporting_evidence": [
+    {
+      "document": "AR_2002_0",
+      "page": "24",
+      "text": "Among the radiometric techniques developed and utilized for safeguards in the conventional fuel cycle the techniques of X-ray fluorescence analysis (XRF), passive neutron coincidence counting (PNCC), high-resolution gamma spectrometry (HRGS) and calorimetry show the most promising potential for applications in minor actinide assay."
+    }
+  ]
+}
+]

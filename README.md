@@ -4,6 +4,9 @@
 
 A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclear-related documents
 
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21346766.svg)](https://doi.org/10.5281/zenodo.21346766)
+
 ## PROTON-QA Explorer
 
 A visual demonstration of the PROTON-QA provenance model, illustrating how questions, answers, and evidence are linked to their source documents.
@@ -14,8 +17,7 @@ A visual demonstration of the PROTON-QA provenance model, illustrating how quest
        width="900">
 </p>
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC--BY--4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21346766.svg)](https://doi.org/10.5281/zenodo.21346766)
+
 
 ## Overview
 
@@ -57,7 +59,6 @@ repo-root/
 ├── corpus/                                # Documents (stored via Git LFS)
 │   ├── AR_YYYY_seq.pdf                   # Action Reports (12 files)
 │  
-│
 ├── vocab/
 │   ├── eurovoc_in_skos_core_concepts.rdf  # EuroVoc controlled vocabulary (SKOS)
 │   ├── concept_extensions.ttl             # Custom nuclear domain concept extensions
@@ -67,7 +68,11 @@ repo-root/
 │   ├── schemaorg-current-http.ttl         # Schema.org vocabulary
 │   ├── qudt.ttl                           # QUDT core ontology (quantities & dimensions)
 │   └── qudt-unit.ttl                      # QUDT units vocabulary
-│
+│ 
+├── benchmark/
+│   ├── rag_prompt.md          # Prompt template for RAG systems
+│   └── evaluate.py            # Benchmark evaluation script
+│ 
 └── questions.ttl                          # Q&A pairs with semantic annotations
 
 ```
@@ -191,14 +196,9 @@ appropriate attribution is given.
 See the [LICENSE](LICENSE) file or visit
 https://creativecommons.org/licenses/by/4.0/ for the full license text.
 
-## RAG Prompt Template
+## Benchmark Resources
 
-A prompt template for retrieval-augmented generation (RAG) systems that instructs the model to generate answers following the PROTON-QA RDF representation, including provenance, semantic annotations, and unit-aware answer formatting.
+The `benchmark/` directory contains the resources required to reproduce evaluations on the PROTON-QA benchmark.
 
-- [`scripts/rag_prompt.txt`](scripts/rag_prompt.txt)
-
-## Evaluation Script
-
-Script for evaluating question answering systems on the PROTON-QA benchmark. These utilities compare system outputs against the reference RDF annotations and compute benchmark evaluation metrics.
-
-- [`scripts/evaluate.py`](scripts/evaluate.py) — Evaluation script.
+- [`benchmark/rag_prompt.txt`](benchmark/rag_prompt.txt) — Prompt template for Retrieval-Augmented Generation (RAG) systems.
+- [`benchmark/evaluate.py`](benchmark/evaluate.py) — Evaluation script for comparing system outputs against the reference RDF annotations and computing benchmark metrics.
