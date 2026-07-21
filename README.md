@@ -12,7 +12,7 @@ A consolidated benchmark for Grounded Natural Language to QA on Technical Nuclea
 A visual demonstration of the PROTON-QA provenance model, illustrating how questions, answers, and evidence are linked to their source documents.
 
 <p align="center">
-  <img src="assets/provenance-demo.gif"
+  <img src="assets/ui.png"
        alt="PROTON-QA provenance visualization"
        width="900">
 </p>
@@ -49,33 +49,26 @@ These IDs are used as URIs in the TTL knowledge files, e.g. `pqa:AR_2000_0`.
 
 ## Repository Structure
 
-```
-repo-root/
-├── LICENSE                                # CC BY 4.0 License
-├── croissant.jsonld                       # Croissant dataset metadata
-├── croissant.ttl                          # Croissant metadata
-├── README.md                              # Project documentation
-│
-├── corpus/                                # Documents (stored via Git LFS)
-│   ├── AR_YYYY_seq.pdf                   # Action Reports (12 files)
-│  
-├── vocab/
-│   ├── eurovoc_in_skos_core_concepts.rdf  # EuroVoc controlled vocabulary (SKOS)
-│   ├── concept_extensions.ttl             # Custom nuclear domain concept extensions
-│   ├── oa.ttl                             # Open Annotation (OA) ontology
-│   ├── prov-o.ttl                         # PROV-O provenance ontology
-│   ├── qanary.ttl                         # Qanary ontology for QA annotations
-│   ├── schemaorg-current-http.ttl         # Schema.org vocabulary
-│   ├── qudt.ttl                           # QUDT core ontology (quantities & dimensions)
-│   └── qudt-unit.ttl                      # QUDT units vocabulary
-│ 
-├── benchmark/
-│   ├── rag_prompt.md          # Prompt template for RAG systems
-│   └── evaluate.py            # Benchmark evaluation script
-│ 
-└── questions.ttl                          # Q&A pairs with semantic annotations
+- [`benchmark/`](benchmark/)
+  - [`evaluate.py`](benchmark/evaluate.py) — Benchmark evaluation script.
+  - [`rag_prompt.md`](benchmark/rag_prompt.md) — Prompt template for RAG systems.
 
-```
+- [`corpus/`](corpus/)
+  - Nuclear technical reports (stored via Git LFS).
+
+- [`vocab/`](vocab/)
+  - Domain ontologies and controlled vocabularies, including EuroVoc, OA, PROV-O, Qanary, Schema.org, and QUDT.
+
+- [`questions.ttl`](questions.ttl) — RDF/Turtle question–answer annotations.
+
+- [`croissant.jsonld`](croissant.jsonld) — Croissant dataset metadata (JSON-LD).
+
+- [`croissant.ttl`](croissant.ttl) — Croissant dataset metadata (RDF/Turtle).
+
+- [`LICENSE`](LICENSE) — CC BY 4.0 License.
+
+- [`README.md`](README.md) — Project documentation.
+
 
 ## Naming Convention for URIs
 
@@ -152,6 +145,14 @@ To support consistent evaluation across diverse question types, PROTON-QA catego
 | **Enumerated List** | Entity Set | Multiple entities | Set match | 3 | *What are the most promising radiometric techniques for minor actinide measurement?* → **XRF, PNCC, HRGS** |
 | **Boolean** | Yes/No | Binary response | Exact match | 8 | *Do plutonium-containing materials exhibit superconductive properties?* → **Yes** |
 
+## Benchmark Resources
+
+The `benchmark/` directory contains the resources required to reproduce evaluations on the PROTON-QA benchmark.
+
+- [`benchmark/rag_prompt.txt`](benchmark/rag_prompt.txt) — Prompt template for Retrieval-Augmented Generation (RAG) systems.
+- [`benchmark/evaluate.py`](benchmark/evaluate.py) — Evaluation script for comparing system outputs against the reference RDF annotations and computing benchmark metrics.
+
+
 ## Git LFS
 
 The corpus documents are stored using **Git Large File Storage (Git LFS)**. To clone the repository with all PDF files:
@@ -166,14 +167,21 @@ The following file types are managed via Git LFS:
 
 - `*.pdf` — Source corpus documents
 
+
+
 ## Authors
 
-| Name | Affiliation | Contact |
-|------|-------------|---------|
-| **Thushari Pahalage Dona** | University of Verona | <thushari.pahalage@univr.it> · [ORCID](https://orcid.org/0000-0001-6563-9516) |
-| **Antonio Bulgheroni** | European Commission Joint Research Centre (JRC) | <Antonio.BULGHERONI@ec.europa.eu> · [ORCID](https://orcid.org/0000-0001-7988-2090) |
-| **Lorenzo Fongaro** | European Commission Joint Research Centre (JRC) | <Lorenzo.FONGARO@ec.europa.eu> · [ORCID](https://orcid.org/0000-0001-9267-3525) |
-| **Matteo Lissandrini** | University of Verona | <matteo.lissandrini@univr.it> · [ORCID](https://orcid.org/0000-0001-7922-5998) |
+- **Thushari Pahalage Dona** — University of Verona  
+  Email: <thushari.pahalage@univr.it> · ORCID: https://orcid.org/0000-0001-6563-9516
+
+- **Antonio Bulgheroni** — European Commission Joint Research Centre (JRC)  
+  Email: <Antonio.BULGHERONI@ec.europa.eu> · ORCID: https://orcid.org/0000-0001-7988-2090
+
+- **Lorenzo Fongaro** — European Commission Joint Research Centre (JRC)  
+  Email: <Lorenzo.FONGARO@ec.europa.eu> · ORCID: https://orcid.org/0000-0001-9267-3525
+
+- **Matteo Lissandrini** — University of Verona  
+  Email: <matteo.lissandrini@univr.it> · ORCID: https://orcid.org/0000-0001-7922-5998
 
 ## Citation
 
@@ -195,9 +203,10 @@ If you use **PROTON-QA** in your research, please cite the dataset. If applicabl
 }
 ```
 
-### BibTeX (Publication)
+<!-- ### BibTeX (Publication)
 
-*To be added upon publication.*
+*To be added upon publication.* -->
+
 
 ## License
 
@@ -210,9 +219,3 @@ appropriate attribution is given.
 See the [LICENSE](LICENSE) file or visit
 https://creativecommons.org/licenses/by/4.0/ for the full license text.
 
-## Benchmark Resources
-
-The `benchmark/` directory contains the resources required to reproduce evaluations on the PROTON-QA benchmark.
-
-- [`benchmark/rag_prompt.txt`](benchmark/rag_prompt.txt) — Prompt template for Retrieval-Augmented Generation (RAG) systems.
-- [`benchmark/evaluate.py`](benchmark/evaluate.py) — Evaluation script for comparing system outputs against the reference RDF annotations and computing benchmark metrics.
