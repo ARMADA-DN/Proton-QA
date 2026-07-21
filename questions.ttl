@@ -1,3 +1,3780 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:534af5251b89305c1d44789059a14f2a97545521c7145259d0a46cb45913d8e3
-size 135232
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix wd:      <http://www.wikidata.org/entity/> .
+@prefix eurovoc: <http://eurovoc.europa.eu/> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix schema:  <https://schema.org/> .
+@prefix qa:      <https://w3id.org/wdaqua/qanary#> .
+@prefix pqa:     <https://w3id.org/proton-qa/resource#> .
+
+
+# ------------------------------------------------------- 
+# Dataset metadata 
+# ------------------------------------------------------- 
+
+<https://w3id.org/proton-qa/>
+  a dcat:Dataset ;
+  dct:title "Proton-QA Questions Dataset"@en ;
+  dct:description """A knowledge-grounded annotated QnA benchmark dataset 
+                      in the nuclear technical domain. Q&A pairs are provided 
+                      by industry experts with source locations. The annotation 
+                      layer maps questions, answers and important terms to 
+                      EuroVoc and Wikidata and encodes everything as 
+                      linked data."""@en ;
+  dct:creator "Thushari Pahalage Dona" ,
+              "Antonio Bulgheroni" ,
+              "Lorenzo Fongaro" ,
+              "Matteo Lissandrini" ;
+  dct:created "2026"^^xsd:gYear ;
+  dct:license <https://opensource.org/licenses/mit> ;
+  dct:source <https://github.com/ARMADA-DN/Proton-QA> ;
+  dct:conformsTo <http://eurovoc.europa.eu/> ,
+                 <https://www.wikidata.org/> ;
+  dcat:version "1.0" .
+
+
+
+#################################################
+# SOURCE DOCUMENTS
+#################################################
+
+pqa:AR_2000_0 a foaf:Document ;
+    dct:identifier "AR_2000_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2000"^^xsd:gYear .
+
+pqa:AR_2001_0 a foaf:Document ;
+    dct:identifier "AR_2001_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2001"^^xsd:gYear .
+
+pqa:AR_2002_0 a foaf:Document ;
+    dct:identifier "AR_2002_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2002"^^xsd:gYear .
+    
+pqa:AR_2003_0 a foaf:Document ;
+    dct:identifier "AR_2003_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2003"^^xsd:gYear .
+
+pqa:AR_2004_0 a foaf:Document ;
+    dct:identifier "AR_2004_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2004"^^xsd:gYear .
+
+pqa:AR_2005_0 a foaf:Document ;
+    dct:identifier "AR_2005_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2005"^^xsd:gYear .
+
+pqa:AR_2006_0 a foaf:Document ;
+    dct:identifier "AR_2006_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2006"^^xsd:gYear .
+
+pqa:AR_2007_0 a foaf:Document ;
+    dct:identifier "AR_2007_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2007"^^xsd:gYear .
+
+pqa:AR_2008_0 a foaf:Document ;
+    dct:identifier "AR_2008_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2008"^^xsd:gYear .
+
+pqa:AR_2009_0 a foaf:Document ;
+    dct:identifier "AR_2009_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2009"^^xsd:gYear .
+
+pqa:AR_2010_0 a foaf:Document ;
+    dct:identifier "AR_2010_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2010"^^xsd:gYear .
+
+pqa:AR_2011_0 a foaf:Document ;
+    dct:identifier "AR_2011_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2011"^^xsd:gYear .
+
+pqa:AR_2012_0 a foaf:Document ;
+    dct:identifier "AR_2012_0.pdf" ;
+    dct:format     "application/pdf" ;
+    dct:type       <http://id.loc.gov/vocabulary/marcgt/ter> ;
+    dct:date       "2012"^^xsd:gYear .
+
+
+#################################################
+# Q1
+# What is the melting point temperature of magnesia?
+#################################################
+
+pqa:q1 a qa:Question ;
+    rdfs:label             "What is the melting point temperature of magnesia?"@en ;
+    schema:acceptedAnswer  pqa:q1_a1 ;
+    schema:suggestedAnswer pqa:q1_a1 ;
+    schema:suggestedAnswer  pqa:q1_a2 .
+
+
+pqa:q1_a1 a qa:Answer, qudt:QuantityValue;
+    rdfs:label               "3245 +/- 10 K"@en ;
+    qudt:numericValue        "3245"^^xsd:decimal ;
+    qudt:standardUncertainty "10"^^xsd:decimal ;
+    qudt:unit                unit:K ;
+    prov:wasDerivedFrom pqa:q1_src1 ;
+    prov:hadPrimarySource    pqa:AR_2000_0 .
+
+pqa:q1_a2 a qa:Answer, qudt:QuantityValue;
+    rdfs:label               "3250 +/- 20 K"@en ;
+    qudt:numericValue        "3250"^^xsd:decimal ;
+    qudt:standardUncertainty "20"^^xsd:decimal ;
+    qudt:unit                unit:K ;
+    prov:wasDerivedFrom pqa:q1_src2, pqa:q1_src3 ;
+    prov:hadPrimarySource    pqa:AR_2000_0 .
+
+# Provenance annotations
+pqa:q1_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q1_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=20" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Fig.3 Fitting of a spectrum taken during MgO freezing. The resulting melting temperature is 3245 K; the fitting precision gives an uncertainty of the order of 10 K."
+            ]
+        ]
+    ] .
+
+pqa:q1_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q1_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=19" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Application of this method to the investigation of MgO melting led to the unexpected conclusion that its melting point lies in the interval 3250±20 K - about 180 K
+higher than the currently accepted value of 3070 K, obtained with conventional methods."""
+            ]
+        ]
+    ] .
+
+pqa:q1_src3 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q1_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=80" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The melting point of MgO was measured at 3250±20 K, i.e.approximately 150 K higher than previously reported in the literature."""
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+pqa:q1_ann_magnesia a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q214769 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "41"^^xsd:nonNegativeInteger ;
+            oa:end   "49"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q1_ann_meltingpoint a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q15318 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "25"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q1_ann_temperature a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q11466 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "26"^^xsd:nonNegativeInteger ;
+            oa:end   "37"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+
+#################################################
+# Q2
+# What is the melting point temperature of Pure MgO?
+#################################################
+
+pqa:q2 a qa:Question ;
+    rdfs:label              "What is the melting point temperature of Pure MgO?"@en ;
+    schema:suggestedAnswer  pqa:q2_a1 ;
+    schema:acceptedAnswer   pqa:q2_a1 .
+
+pqa:q2_a1 a qa:Answer, qudt:QuantityValue;
+    rdfs:label               "3250 +/- 20 K"@en ;
+    qudt:numericValue        "3250"^^xsd:decimal ;
+    qudt:standardUncertainty "20"^^xsd:decimal ;
+    qudt:unit                unit:K ;
+    prov:wasDerivedFrom pqa:q2_src1, pqa:q2_src2 ;
+    prov:hadPrimarySource    pqa:AR_2000_0 .
+
+# Provenance annotations
+
+pqa:q2_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q2_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=19" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Application of this method to the investigation of MgO melting led to the unexpected conclusion that its melting point lies in the interval 3250±20 K - about 180 K
+higher than the currently accepted value of 3070 K, obtained with conventional methods."""
+            ]
+        ]
+    ] .
+
+pqa:q2_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q2_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=80" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The melting point of MgO was measured at 3250±20 K, i.e.approximately 150 K higher than previously reported in the literature."
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+
+pqa:q2_ann_mgo a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q214769 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q2 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "46"^^xsd:nonNegativeInteger ;
+            oa:end   "49"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q2_ann_meltingpoint a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q15318 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q2 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "25"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q2_ann_temperature a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q11466 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q2 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "26"^^xsd:nonNegativeInteger ;
+            oa:end   "37"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+
+#################################################
+# Q3
+# What is the melting point temperature of Mg:AmO2
+#################################################
+
+pqa:q3 a qa:Question ;
+    rdfs:label              "What is the melting point temperature of Mg:AmO2?"@en ;
+    schema:suggestedAnswer  pqa:q3_a1 ;
+    schema:acceptedAnswer   pqa:q3_a1 .
+
+pqa:q3_a1 a qa:Answer, qudt:QuantityValue;
+    rdfs:label               "3220 +/- 15 K"@en ;
+    qudt:numericValue        "3220"^^xsd:decimal ;
+    qudt:standardUncertainty "15"^^xsd:decimal ;
+    qudt:unit                unit:K ;
+    prov:wasDerivedFrom pqa:q3_src1 ;
+    prov:hadPrimarySource    pqa:AR_2000_0 .
+
+# Provenance annotation
+
+pqa:q3_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q3_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=80" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """This high value was confirmed by the measured melting point of MgO:Am02 (3220±15 K), a dark coloured material, for which pyrometric temperature measurements
+are much easier."""
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+
+pqa:q3_ann_mgamo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:MgAmO2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q3 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "41"^^xsd:nonNegativeInteger ;
+            oa:end   "48"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q3_ann_meltingpoint a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q15318 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q3 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "25"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q3_ann_temperature a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q11466;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q3 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "26"^^xsd:nonNegativeInteger ;
+            oa:end   "37"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+
+#################################################
+# Q4
+# How many defects can an alpha particle generate
+# in nuclear fuel?
+#################################################
+
+pqa:q4 a qa:Question ;
+    rdfs:label            "How many defects can an alpha particle generate in nuclear fuel?"@en ;
+    schema:acceptedAnswer pqa:q4_a1 ;
+    schema:suggestedAnswer pqa:q4_a1 .
+
+pqa:q4_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "200 NUM"@en ;
+    qudt:numericValue     "200"^^xsd:decimal ;
+    qudt:unit             unit:NUM ;
+    prov:wasDerivedFrom pqa:q4_src ;
+    prov:hadPrimarySource pqa:AR_2000_0 .
+
+# Provenance annotation
+pqa:q4_src a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q4_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=33&table=1" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Tab. 1 Displacements induced in U02 by different damaging sources."
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+pqa:q4_ann_alphaparticle a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q103517 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q4 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "24"^^xsd:nonNegativeInteger ;
+            oa:end   "38"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q4_ann_nuclearfuel a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q194523 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q4 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "51"^^xsd:nonNegativeInteger ;
+            oa:end   "63"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q4_ann_nuclearfuel a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q42501 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q4 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "51"^^xsd:nonNegativeInteger ;
+            oa:end   "63"^^xsd:nonNegativeInteger ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "nuclear fuel"
+            ]
+        ]
+    ] .
+
+#################################################
+# Q5
+# What is the expected lattice parameter
+# for a corium sample?
+#################################################
+
+pqa:q5 a qa:Question ;
+    rdfs:label            "What is the expected lattice parameter for a corium sample?"@en ;
+    schema:acceptedAnswer pqa:q5_a1 ;
+    schema:suggestedAnswer pqa:q5_a1 .
+
+pqa:q5_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "5.2984 Angstrom"@en ;
+    qudt:numericValue     "5.2984"^^xsd:decimal ;
+    qudt:unit             unit:ANGSTROM ;
+    prov:wasDerivedFrom pqa:q5_src ;
+    prov:hadPrimarySource pqa:AR_2000_0 .
+
+# Provenance annotation
+pqa:q5_src a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q5_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=91" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The X-ray diffraction of the corium pool sample indicated a
+distorted cubic fluorite lattice typical of U02 but with a verysmall lattice parameter a = 5.2984 Å."""
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+pqa:q5_ann_latticeparameter a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:LatticeParameter ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q5 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "21"^^xsd:nonNegativeInteger ;
+            oa:end   "38"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q5_ann_corium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q910355 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q5 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "45"^^xsd:nonNegativeInteger ;
+            oa:end   "51"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# Q6
+# Based on the reported value,
+# what is the expected lattice parameter
+# for a corium sample in SI units?
+#################################################
+
+pqa:q6 a qa:Question ;
+    rdfs:label              "Based on the reported value, what is the expected lattice parameter for a corium sample in SI units?"@en ;
+    schema:suggestedAnswer  pqa:q6_a1 ;
+    schema:acceptedAnswer   pqa:q6_a1 .
+
+pqa:q6_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "5.2984 × 10^-10 m"@en ;
+    qudt:numericValue     "5.2984e-10"^^xsd:double ;
+    qudt:unit             unit:M ;
+    prov:wasDerivedFrom pqa:q6_src ;
+    prov:hadPrimarySource pqa:AR_2000_0 .
+
+# Provenance annotation
+
+pqa:q6_src a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=91" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The X-ray diffraction of the corium pool sample indicated a
+distorted cubic fluorite lattice typical of U02 but with a verysmall lattice parameter a = 5.2984 Å."""
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+
+pqa:q6_ann_latticeparameter a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:LatticeParameter ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q6 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "50"^^xsd:nonNegativeInteger ;
+            oa:end   "67"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+pqa:q6_ann_corium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q910355 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q6 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "74"^^xsd:nonNegativeInteger ;
+            oa:end   "80"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+pqa:q6_ann_siunits a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q61610698 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q6 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "91"^^xsd:nonNegativeInteger ;
+            oa:end   "99"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+#################################################
+# Q7
+# Which is the dissolution rate of spent nuclear
+# fuel when in contact with water?
+#################################################
+
+pqa:q7 a qa:Question ;
+    rdfs:label            "Which is the dissolution rate of spent nuclear fuel when in contact with water?"@en ;
+    schema:acceptedAnswer pqa:q7_a1 ;
+    schema:suggestedAnswer pqa:q7_a1 ;
+    schema:suggestedAnswer pqa:q7_a2 .
+
+pqa:q7_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "6.77e-11 mol/m2/s"@en ;
+    rdfs:comment          "Lower burnup light water reactor fuel"@en ;
+    qudt:numericValue     "6.77e-11"^^xsd:double ;
+    qudt:unit             unit:MOL-PER-M2-SEC ;
+    prov:wasDerivedFrom pqa:q7_src1 ;
+    prov:hadPrimarySource pqa:AR_2001_0 .
+
+pqa:q7_a2 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "2.66e-10 mol/m2/s"@en ;
+    rdfs:comment          "Higher burnup light water reactor fuel (53 MWd/KgU)"@en ;
+    qudt:numericValue     "2.66e-10"^^xsd:double ;
+    qudt:unit             unit:MOL-PER-M2-SEC ;
+    prov:wasDerivedFrom pqa:q7_src2 ;
+    prov:hadPrimarySource pqa:AR_2001_0 .
+
+# Provenance annotations
+pqa:q7_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q7_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2001_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=76&table=5.3" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Tab. 5.3 Dissolution rates of spent fuel"
+            ]
+        ]
+    ] .
+
+pqa:q7_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q7_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2001_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=76&table=5.3" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Tab. 5.3 Dissolution rates of spent fuel"
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+pqa:q7_ann_dissolutionrate a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:DissolutionRate ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q7 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "13"^^xsd:nonNegativeInteger ;
+            oa:end   "29"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+pqa:q7_ann_spentnuclearfuel a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1863171 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q7 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "33"^^xsd:nonNegativeInteger ;
+            oa:end   "51"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+pqa:q7_ann_water a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q283 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q7 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "73"^^xsd:nonNegativeInteger ;
+            oa:end   "78"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+#################################################
+# q8
+# What is the half-life of 213Bi?
+#################################################
+
+pqa:q8 a qa:Question ;
+    rdfs:label               "What is the half-life of 213Bi?"@en ;
+    schema:suggestedAnswer   pqa:q8_a1 ;
+    schema:suggestedAnswer   pqa:q8_a2 ;
+    schema:suggestedAnswer   pqa:q8_a3 ;
+    schema:acceptedAnswer    pqa:q8_a3 .
+
+#################################################
+# Accepted (gold) answer
+# Most precise value and closest to recommended nuclear data
+#################################################
+
+pqa:q8_a3 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "45.6 min"@en ;
+    qudt:numericValue     "45.6"^^xsd:decimal ;
+    qudt:unit             unit:MIN ;
+    prov:wasDerivedFrom pqa:q8_src3 ;
+    prov:hadPrimarySource pqa:AR_2003_0 .
+
+#################################################
+# Alternative suggested answers
+#################################################
+
+pqa:q8_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "45 min"@en ;
+    qudt:numericValue     "45"^^xsd:decimal ;
+    qudt:unit             unit:MIN ;
+    prov:wasDerivedFrom pqa:q8_src1 ;
+    prov:hadPrimarySource pqa:AR_2001_0 .
+
+pqa:q8_a2 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "46 min"@en ;
+    qudt:numericValue     "46"^^xsd:decimal ;
+    qudt:unit             unit:MIN ;
+    prov:wasDerivedFrom pqa:q8_src2, pqa:q8_src4, pqa:q8_src5 ;
+    prov:hadPrimarySource pqa:AR_2002_0 ;
+    prov:hadPrimarySource pqa:AR_2006_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q8_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q8_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2001_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=38" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Because of
+the short half-life of 213Bi (45 min), 213Bi labelled peptides and
+Fab-fragments are required for fast localisation on the tumour."""
+            ]
+        ]
+    ] .
+
+pqa:q8_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q8_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2002_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=42" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Because of its short half-life (46 min), Bi-213 must be
+produced at the place of utilisation."""
+            ]
+        ]
+    ] .
+
+pqa:q8_src3 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q8_a3 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2003_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=54" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Alpha-emitters with short half-lives such as 213
+Bi (t1/2 = 45.6
+min) provided by ITU in form of 225Ac/213Bi generators are
+appropriate in their application to readily accessible tumours."""
+            ]
+        ]
+    ] .
+
+
+
+pqa:q8_src4 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q8_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2006_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=61" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Low-molecular peptides are ideal carrier molecules in combination with relatively short-lived 213Bi (T1/2 = 46min) due to their relatively fast diffusion and rapid tumour targeting"""
+            ]
+        ]
+    ] .
+
+pqa:q8_src5 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q8_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2005_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=6" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Although several alpha-emitting nuclides have been
+investigated in AIT, including Ac-225, Ra-224,
+Ra-223, Bi-213, Bi-212, At-211 and Tb-149, studies
+using Bi-213 (T1/2 = 46 min), that is made available to
+hospitals via a radionuclide generator loaded with its
+parent nuclide Ac-225 (T1/2 = 10 days), are presently
+the most advanced (see Fig. 3)."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q8_ann_halflife a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q98118544 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q8 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "21"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+pqa:q8_ann_bismuth213 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q18888211 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q8 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "25"^^xsd:nonNegativeInteger ;
+            oa:end   "30"^^xsd:nonNegativeInteger
+        ]
+    ] .
+
+#################################################
+# q9
+# What is the half-life of 230U?
+#################################################
+
+pqa:q9 a qa:Question ;
+    rdfs:label               "What is the half-life of 230U?"@en ;
+    schema:suggestedAnswer   pqa:q9_a1 ;
+    schema:suggestedAnswer   pqa:q9_a2 ;
+    schema:acceptedAnswer    pqa:q9_a1 .
+
+#################################################
+# Accepted (gold) answer
+# Supported by multiple sources
+#################################################
+
+pqa:q9_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "20.8 days"@en ;
+    qudt:numericValue     "20.8"^^xsd:decimal ;
+    qudt:unit             unit:DAY ;
+    prov:wasDerivedFrom pqa:q9_src1, pqa:q9_src2 ;
+    prov:hadPrimarySource pqa:AR_2007_0 ;
+    prov:hadPrimarySource pqa:AR_2009_0 .
+
+#################################################
+# Alternative suggested answer
+#################################################
+
+pqa:q9_a2 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "20.2 d"@en ;
+    qudt:numericValue     "20.2"^^xsd:decimal ;
+    qudt:unit             unit:DAY ;
+    prov:wasDerivedFrom pqa:q9_src3 ;
+    prov:hadPrimarySource pqa:AR_2012_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q9_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q9_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=18" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """ 230U is a pure
+alpha emitter (T1/2 = 20.8 days) decaying through a
+rapid cascade of four further alpha emitting daughter
+nuclides with half-lives of 164 μs – 31 min to longlived 210
+Pb (T1/2 = 22.3 years) (see Fig. 1)."""
+            ]
+        ]
+    ] .
+
+pqa:q9_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q9_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2009_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=18" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Due to the relatively long half-live of 230U of 20.8 days, the radioconjugate
+should show high stability over extended time periods."""
+            ]
+        ]
+    ] .
+
+pqa:q9_src3 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q9_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2012_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=19" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The alpha emitter 230U (T1/2 = 20.2 d) is a promising radionuclide for
+application in TAT."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q9_ann_halflife a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q98118544 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q9 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "21"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q9_ann_uranium230 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q18845539 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q9 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "25"^^xsd:nonNegativeInteger ;
+            oa:end   "29"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+#################################################
+# q10
+# What are the most promising radiometric techniques
+# for the measurement of minor actinides in nuclear
+# safeguard applications?
+#################################################
+
+pqa:q10 a qa:Question ;
+    rdfs:label               "What are the most promising radiometric techniques for the measurement of minor actinides in nuclear safeguard applications?"@en ;
+    schema:suggestedAnswer   pqa:q10_a1 ;
+    schema:acceptedAnswer    pqa:q10_a1 .
+
+#################################################
+# Accepted (gold) answer
+# Complete list answer
+#################################################
+
+pqa:q10_a1 a qa:Answer, schema:ItemList ;
+    rdfs:label            "XRF, PNCC, HRGS"@en ;
+    schema:itemListOrder  schema:ItemListUnordered ;
+    schema:itemListElement pqa:XRF, pqa:PNCC, pqa:HRGS ;
+    rdfs:comment          "Complete enumeration; all three techniques required for full answer"@en ;
+    prov:hadPrimarySource pqa:AR_2002_0 ;
+    prov:hadPrimarySource pqa:AR_2004_0 .
+
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q10_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q10_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2002_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=27" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Among the radiometric techniques
+developed and utilized for safeguards in the conventional
+fuel cycle the techniques of X-ray fluorescence analysis
+(XRF), passive neutron coincidence counting (PNCC), highresolution gamma spectrometry (HRGS) and calorimetry
+show the most promising potential for applications in minor
+actinide assay"""
+            ]
+        ]
+    ] .
+
+
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q10_ann_actinides a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q19577 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q10 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "80"^^xsd:nonNegativeInteger ;
+            oa:end   "89"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q10_ann_radiometric a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q247760 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q10 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "28"^^xsd:nonNegativeInteger ;
+            oa:end   "39"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q10_ann_measurement a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q12453 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q10 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "59"^^xsd:nonNegativeInteger ;
+            oa:end   "70"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q10_a1_ann_xrf a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q898974 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q10_a1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "0"^^xsd:nonNegativeInteger ;
+            oa:end   "3"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q10_a1_ann_pncc a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:PNCC ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q10_a1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "5"^^xsd:nonNegativeInteger ;
+            oa:end   "9"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q10_a1_ann_hrgs a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:HRGS ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q10_a1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "11"^^xsd:nonNegativeInteger ;
+            oa:end   "15"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# q11
+# At what temperature is helium released from
+# irradiated fuel during Knudsen cell experiments?
+#################################################
+
+pqa:q11 a qa:Question ;
+    rdfs:label               "At what temperature is helium released from irradiated fuel during Knudsen cell experiments?"@en ;
+    schema:suggestedAnswer   pqa:q11_a1 ;
+    schema:suggestedAnswer   pqa:q11_a2 ;
+    schema:suggestedAnswer   pqa:q11_a3 ;
+    schema:acceptedAnswer    pqa:q11_a1 .
+
+#################################################
+# Accepted (gold) answer
+
+#################################################
+
+pqa:q11_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "1250 K"@en ;
+    qudt:numericValue     "1250"^^xsd:decimal ;
+    qudt:unit             unit:K ;
+    prov:wasDerivedFrom pqa:q11_src1 ;
+    prov:hadPrimarySource pqa:AR_2003_0 .
+
+#################################################
+# Suggested candidate answers
+# Other stages of helium release
+#################################################
+
+# Onset of release
+pqa:q11_a2 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "900 K"@en ;
+    qudt:numericValue     "900"^^xsd:decimal ;
+    qudt:unit             unit:K ;
+    prov:wasDerivedFrom pqa:q11_src2 ;
+    prov:hadPrimarySource pqa:AR_2001_0 .
+
+# Main / bulk release region
+pqa:q11_a3 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "1650 K"@en ;
+    qudt:numericValue     "1650"^^xsd:decimal ;
+    qudt:unit             unit:K ;
+    prov:wasDerivedFrom pqa:q11_src3 ;
+    prov:hadPrimarySource pqa:AR_2001_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q11_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q11_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2003_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=27" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The Knudsen Cell experiments showed a release of Helium at 1250K, that corresponds to the third annealing
+stage: He trapped in vacancies is released via the migration or dissociation of the vacancy-helium complexes."""
+            ]
+        ]
+    ] .
+
+pqa:q11_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q11_a2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2001_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=14" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """From
+the release/vaporisation rates (see Fig.) of a number of components (matrix atoms, volatile-, metallic- and ceramic fission product compounds, actinides, fission gas and helium)
+present in the irradiated material, one can see that the onset
+of helium release occurs at approximately 900 K, but a large
+part is retained up to 1650 K and above."""
+            ]
+        ]
+    ] .
+
+pqa:q11_src3 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q11_a3 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2001_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=14" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """From
+the release/vaporisation rates (see Fig.) of a number of components (matrix atoms, volatile-, metallic- and ceramic fission product compounds, actinides, fission gas and helium)
+present in the irradiated material, one can see that the onset
+of helium release occurs at approximately 900 K, but a large
+part is retained up to 1650 K and above."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q11_ann_helium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q560 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q11 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "23"^^xsd:nonNegativeInteger ;
+            oa:end   "29"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q11_ann_irradiatedfuel a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:IrradiatedFuel ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q11 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "44"^^xsd:nonNegativeInteger ;
+            oa:end   "59"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q11_ann_knudsencell a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q6423816 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q11 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "67"^^xsd:nonNegativeInteger ;
+            oa:end   "79"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+
+#################################################
+# q12
+# What is the decontamination factor of Tc
+# achieved in the DIAMEX process?
+#################################################
+
+pqa:q12 a qa:Question ;
+    rdfs:label               "What is the decontamination factor of Tc achieved in the DIAMEX process?"@en ;
+    schema:suggestedAnswer   pqa:q12_a1 ;
+    schema:acceptedAnswer    pqa:q12_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q12_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "217"@en ;
+    qudt:numericValue     "217"^^xsd:decimal ;
+    qudt:unit             unit:ONE ;
+    rdfs:comment          "Dimensionless decontamination factor"@en ;
+    prov:wasDerivedFrom pqa:q12_src1, pqa:q12_src2 ;
+    prov:hadPrimarySource pqa:AR_2003_0 .
+
+#################################################
+# Provenance annotation
+#################################################
+
+pqa:q12_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q12_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2003_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=35&table=1" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Table 1 HL: Decontamination factors (DF) of the feed."""
+            ]
+        ]
+    ] .
+
+pqa:q12_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q12_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2003_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=35" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Most fission products were not extracted, the exception being Tc which has a DF = 217, Y a DF =
+85 and Ru a DF = 1.1"""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q12_ann_decontamination a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q17008689 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q12 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "27"^^xsd:nonNegativeInteger ]
+    ] .
+
+# Technetium (Tc)
+pqa:q12_ann_tc a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1054 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q12 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "38"^^xsd:nonNegativeInteger ;
+            oa:end   "40"^^xsd:nonNegativeInteger ]
+    ] .
+
+# DIAMEX process
+pqa:q12_ann_diamex a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:DIAMEX ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q12 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "57"^^xsd:nonNegativeInteger ;
+            oa:end   "63"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# q13
+# What is the feed decontamination factor reported
+# for americium in the DIAMEX process?
+#################################################
+
+pqa:q13 a qa:Question ;
+    rdfs:label            "What is the feed decontamination factor reported for americium in the DIAMEX process?"@en ;
+    schema:acceptedAnswer pqa:q13_a1 ;
+    schema:suggestedAnswer pqa:q13_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q13_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            ">20000"@en ;
+    qudt:numericValue     "20000"^^xsd:decimal ;
+    qudt:unit             unit:ONE ;
+    rdfs:comment          "Value is a lower bound: the actual decontamination factor exceeds 20000"@en ;
+    prov:wasDerivedFrom pqa:q13_src1, pqa:q13_src2 ;
+    prov:hadPrimarySource pqa:AR_2003_0 .
+
+#################################################
+# Provenance annotation
+#################################################
+
+pqa:q13_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q13_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2003_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=35" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """DF
+values were for the most abundant Ln > 5000, for Am > 20000
+and for Cm > 10000, which shows the efficiency of DIAMEX
+process for MA extraction."""
+            ]
+        ]
+    ] .
+
+pqa:q13_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q13_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2003_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=35&table=1" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Table 1 HL: Decontamination factors (DF) of the feed."""
+            ]
+        ]
+    ] .
+
+
+#################################################
+# Entity linking annotations
+#################################################
+
+# Americium
+pqa:q13_ann_am a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1872 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q13 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "53"^^xsd:nonNegativeInteger ;
+            oa:end   "62"^^xsd:nonNegativeInteger ]
+    ] .
+
+# Decontamination
+pqa:q13_ann_decontamination a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q17008689 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q13 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "17"^^xsd:nonNegativeInteger ;
+            oa:end   "32"^^xsd:nonNegativeInteger ]
+    ] .
+
+# DIAMEX process
+pqa:q13_ann_diamex a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:DIAMEX ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q13 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "70"^^xsd:nonNegativeInteger ;
+            oa:end   "76"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+#################################################
+# q14
+# Which parent isotope is used in generator-based
+# production of Ac-225 through purification processes?
+#################################################
+
+pqa:q14 a qa:Question ;
+    rdfs:label               "Which parent isotope is used in generator-based production of Ac-225 through purification processes?"@en ;
+    schema:suggestedAnswer   pqa:q14_a1 ;
+    schema:acceptedAnswer    pqa:q14_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q14_a1 a qa:Answer, schema:Thing ;
+    rdfs:label            "Thorium-229"@en ;
+    prov:wasDerivedFrom pqa:q14_src1, pqa:q14_src2, pqa:q14_src3 ;
+    prov:hadPrimarySource pqa:AR_2005_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q14_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q14_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2005_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=6" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Th-229 was purified using
+repeated ion exchange procedures and was loaded
+onto Dowex 1x8 anion exchange resin to prepare the
+Th-229 “cow“ that has been in use for more than 1
+decade for continuous production of Ac-225."""
+            ]
+        ]
+    ] .
+
+pqa:q14_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q14_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2005_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=7" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """In a first step Ra-225 and Ac-225 are separated from
+Th-229 by anion exchange. Subsequently, Ac-225 is
+separated from Ra-225 and residual traces of Th-229
+by extraction chromatography."""
+            ]
+        ]
+    ] .
+
+
+pqa:q14_src3 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q14_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2002_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=42" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Ac-225 is currently obtained by
+extraction from Th-229."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+
+pqa:q14_ann_ac225 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q4060124 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q14 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "62"^^xsd:nonNegativeInteger ;
+            oa:end   "68"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+pqa:q14_a1_ann_th229 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q15831435 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q14_a1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "0"^^xsd:nonNegativeInteger ;
+            oa:end   "11"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+pqa:q14_ann_isotope a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q25276 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q14 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "13"^^xsd:nonNegativeInteger ;
+            oa:end   "20"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# q15
+# How many fuel rodlets were irradiated in the FPT2 experiment?
+#################################################
+
+pqa:q15 a qa:Question ;
+    rdfs:label               "How many fuel rodlets were irradiated in the FPT2 experiment?"@en ;
+    schema:suggestedAnswer   pqa:q15_a1 ;
+    schema:acceptedAnswer    pqa:q15_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q15_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "20"@en ;
+    qudt:numericValue     "20"^^xsd:decimal ;
+    prov:wasDerivedFrom pqa:q15_src1, pqa:q15_src2 ;
+    prov:hadPrimarySource pqa:AR_2006_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q15_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q15_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2006_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=46" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The FPT2 test was performed under low steam flow conditions to simulate the reducing conditions that could occur withlarge H2 production. In the tests, a 20 x 1m-rod bun-dle of irradiated fuel (burn-up: ~35 MWd/kgU) wasoverheated and allowed to degrade and release thefission products, which were captured downstream inan instrumented, simulated primary circuit."""
+            ]
+        ]
+    ] .
+
+pqa:q15_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q15_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2005_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=28" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The FPT2 test was performed under low
+steam flow conditions to simulate the reducing
+conditions that could occur with large H2 production.
+In the test a 20 x 1 m-rod bundle of irradiated fuel
+(~35 GWd/tU) was overheated and allowed to
+degrade and release the fission products, which were
+captured downstream in an instrumented simulated
+primary circuit."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+
+pqa:q15_ann_rodlets a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q11569230 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q15 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "9"^^xsd:nonNegativeInteger ;
+            oa:end   "21"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+pqa:q15_ann_irradiated a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q2737837 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q15 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "27"^^xsd:nonNegativeInteger ;
+            oa:end   "37"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+#################################################
+# q16
+# What is the most suitable plutonium isotope for
+# studying the superconductivity of actinide
+# compounds of the 115 family?
+#################################################
+
+pqa:q16 a qa:Question ;
+    rdfs:label               "What is the most suitable plutonium isotope for studying the superconductivity of actinide compounds of the 115 family?"@en ;
+    schema:suggestedAnswer   pqa:q16_a1 ;
+    schema:acceptedAnswer    pqa:q16_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q16_a1 a qa:Answer, schema:Thing ;
+    rdfs:label            "Plutonium-242"@en ;
+    prov:wasDerivedFrom pqa:q16_src1 ;
+    prov:hadPrimarySource pqa:AR_2004_0 .
+
+#################################################
+# Provenance annotation
+#################################################
+
+pqa:q16_src a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q16_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2004_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=12" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The use of the 242
+Pu isotope, which has a much lower activity than 239Pu, means
+that the samples with 242Pu may be cooled to lower temperatures than those with 239
+Pu, and, equally importantly,
+neutron experiments can be performed whereas the slow
+neutron fission cross section of 239
+Pu is too high."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+
+pqa:q16_ann_plutonium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1102 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q16 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "26"^^xsd:nonNegativeInteger ;
+            oa:end   "35"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q16_ann_isotope a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q25276 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q16 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "36"^^xsd:nonNegativeInteger ;
+            oa:end   "43"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q16_ann_superconductivity a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q124131 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q16 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "61"^^xsd:nonNegativeInteger ;
+            oa:end   "78"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+pqa:q16_ann_actinides a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q19577 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q16 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "82"^^xsd:nonNegativeInteger ;
+            oa:end   "90"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+pqa:q16_ann_115family a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:ActinideCe115Family ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q16 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "108"^^xsd:nonNegativeInteger ;
+            oa:end   "111"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+pqa:q16_a1_ann_plutonium242 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:ActinideCe115Family ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q16_a1 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "0"^^xsd:nonNegativeInteger ;
+            oa:end   "13"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# q17
+# How long were the fuel rods in the
+# Phebus FPT2 experiment?
+#################################################
+
+pqa:q17 a qa:Question ;
+    rdfs:label               "How long were the fuel rods in the Phebus FPT2 experiment?"@en ;
+    schema:suggestedAnswer   pqa:q17_a1 ;
+    schema:acceptedAnswer    pqa:q17_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q17_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "1 m"@en ;
+    qudt:numericValue     "1"^^xsd:decimal ;
+    qudt:unit             unit:M ;
+    prov:wasDerivedFrom pqa:q17_src1, pqa:q17_src2 ;
+    prov:hadPrimarySource pqa:AR_2006_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q17_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q17_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2006_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=46" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The FPT2 test was performed under low steam flow conditions to simulate the reducing conditions that could occur withlarge H2 production. In the tests, a 20 x 1m-rod bun-dle of irradiated fuel (burn-up: ~35 MWd/kgU) wasoverheated and allowed to degrade and release thefission products, which were captured downstream inan instrumented, simulated primary circuit."""
+            ]
+        ]
+    ] .
+
+pqa:q17_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q17_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2006_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=28" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """The FPT2 test was performed under low
+steam flow conditions to simulate the reducing
+conditions that could occur with large H2 production.
+In the test a 20 x 1 m-rod bundle of irradiated fuel
+(~35 GWd/tU) was overheated and allowed to
+degrade and release the fission products, which were
+captured downstream in an instrumented simulated
+primary circuit."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q17_ann_fuelrod a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1772380 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q17 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "18"^^xsd:nonNegativeInteger ;
+            oa:end   "27"^^xsd:nonNegativeInteger ]
+    ] .
+
+
+#################################################
+# q18
+# What is the reference level of plutonium
+# in food?
+#################################################
+
+pqa:q18 a qa:Question ;
+    rdfs:label               "What is the reference level of plutonium in food?"@en ;
+    schema:suggestedAnswer   pqa:q18_a1 ;
+    schema:acceptedAnswer    pqa:q18_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q18_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label            "10 Bq/kg"@en ;
+    qudt:numericValue     "10"^^xsd:decimal ;
+    qudt:unit             unit:BQ-PER-KiloGM ;
+    prov:wasDerivedFrom pqa:q18_src1 ;
+    prov:hadPrimarySource pqa:AR_2006_0 .
+
+#################################################
+# Provenance annotation
+#################################################
+
+pqa:q18_src1 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q18_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2006_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=23&table=1" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Tab. 1: Guideline levels (Bq/kg) for radionuclides in foods"""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q18_ann_plutonium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1102 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q18 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "31"^^xsd:nonNegativeInteger ;
+            oa:end   "40"^^xsd:nonNegativeInteger ]
+    ] .
+pqa:q18_ann_food a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q2095 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q18 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "44"^^xsd:nonNegativeInteger ;
+            oa:end   "48"^^xsd:nonNegativeInteger ]
+    ] .
+#################################################
+# q19
+# Can Ac-225 be produced at cyclotron facilities?
+#################################################
+
+pqa:q19 a qa:Question ;
+    rdfs:label             "Can Ac-225 be produced at cyclotron facilities?"@en ;
+    schema:suggestedAnswer pqa:q19_a1 ;
+    schema:acceptedAnswer  pqa:q19_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q19_a1 a qa:Answer, schema:Boolean ;
+    rdfs:label            "Yes"@en ;
+    rdf:value             "true"^^xsd:boolean ;
+    prov:wasDerivedFrom pqa:q19_src1, pqa:q19_src2, pqa:q19_src3, pqa:q19_src4 ;
+    prov:hadPrimarySource pqa:AR_2005_0 ;
+    prov:hadPrimarySource pqa:AR_2010_0 ;
+    prov:hadPrimarySource pqa:AR_2000_0 ;
+    prov:hadPrimarySource pqa:AR_2002_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q19_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q19_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2005_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=6" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Since the availability of Th-229 sources is still limited, ITU has developed and patented alternative ways of producing Ac-225 based on the irradiation of Ra-226 in a cyclotron, a process that will also be described below."
+            ]
+        ]
+    ] .
+
+pqa:q19_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q19_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2005_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=7" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "To overcome the shortness of Ac-225 supply, ITU has developed a cyclotron based method for the production of Ac-225, utilizing the proton irradiation of Ra-226 targets [2]."
+            ]
+        ]
+    ] .
+
+pqa:q19_src2 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q19_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2010_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=18" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Another promising pair of alpha emitting radionuclides is 230 U/ 226 Th. They can be produced by proton irradiation of natural 232 Th metal in a cyclotron, e.g. at the cyclotron of the JRC, Institute for Health and Consumer Production (IHCP) in Ispra using a 10 µA proton beam at 27 MeV incident particle energy."
+            ]
+        ]
+    ] .
+
+pqa:q19_src3 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q19_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2000_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=56&figure=1.1.2" ; 
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "(Fig. 1.1.2 226 Ra-route (production of 225 Ac through proton irradiation of 226 Ra using a cyclotron)In collaboration with the Forschungszentrum Karlsruhe (FZK)"
+            ]
+        ]
+    ] .
+
+pqa:q19_src4 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q19_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2002_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=42" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The irradiation of Ra-226 with protons in a cyclotron to produce Ac-225, as developed with the Forschungszentrum Karlsruhe (FZK), seems particularly interesting: Ra-226 (p, 2n) Ac-225."
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q19_ann_ac225 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q4060124 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q19 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "4"^^xsd:nonNegativeInteger ;
+            oa:end   "10"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q19_ann_cyclotron a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q204469 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q19 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "26"^^xsd:nonNegativeInteger ;
+            oa:end   "35"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# q20
+# Do plutonium containing materials exhibit
+# superconductive properties?
+#################################################
+
+pqa:q20 a qa:Question ;
+    rdfs:label             "Do plutonium containing materials exhibit superconductive properties?"@en ;
+    schema:suggestedAnswer pqa:q20_a1 ;
+    schema:acceptedAnswer  pqa:q20_a1 .
+
+#################################################
+# Accepted (gold) answer
+#################################################
+
+pqa:q20_a1 a qa:Answer, schema:Boolean ;
+    rdfs:label            "Yes"@en ;
+    rdf:value             "true"^^xsd:boolean ;
+    prov:wasDerivedFrom pqa:q20_src1, pqa:q20_src2 ;
+    prov:hadPrimarySource pqa:AR_2002_0 .
+
+#################################################
+# Provenance annotations
+#################################################
+
+pqa:q20_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q20_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2002_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=9&figure=2" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """Fig. 2 Evidence of bulk superconductivity in PuRhGa5 as observed by magnetic susceptibility and resistivity measurements"""
+            ]
+        ]
+    ] .
+
+pqa:q20_src2 a oa:Annotation ;
+    oa:motivatedBy oa:linking ;
+    oa:hasBody   pqa:q20_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2002_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=8" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact """PuCoGa5 and PuRhGa5 are two new Pu-based superconducting compounds with critical temperatures above 18 K
+and 8 K, respectively.The two compounds display very similar properties of type-II like superconductors."""
+            ]
+        ]
+    ] .
+
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q20_ann_plutonium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1102 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q20 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "3"^^xsd:nonNegativeInteger ;
+            oa:end   "12"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q20_ann_materials a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q214609 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q20 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "24"^^xsd:nonNegativeInteger ;
+            oa:end   "32"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q20_ann_superconductivity a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q124131 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q20 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "42"^^xsd:nonNegativeInteger ;
+            oa:end   "57"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# q21
+# What is the nominal maximum H2 pressure used in MOX fuel corrosion suppression experiments?
+#################################################
+
+pqa:q21 a qa:Question ;
+    rdfs:label             "What is the nominal maximum H2 pressure used in MOX fuel corrosion suppression experiments?"@en ;
+    schema:suggestedAnswer pqa:q21_a1 ;
+    schema:acceptedAnswer  pqa:q21_a1 .
+
+pqa:q21_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "~52 bar"@en ;
+    qudt:numericValue      "52"^^xsd:decimal ;
+    qudt:unit              unit:BAR ;
+    rdfs:comment           "Value is approximate (~) per source text."@en ;
+    prov:wasDerivedFrom    pqa:q21_src1 , pqa:q21_src2 ;
+    prov:hadPrimarySource  pqa:AR_2004_0 ;
+    prov:hadPrimarySource  pqa:AR_2005_0 
+    .
+
+pqa:q21_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q21_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2004_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=27" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "an experiment with 47.5 GWd/t MOX, started in 2002, is still running at the nominal maximum H 2 pressure of ~52 bar."
+            ]
+        ]
+    ] .
+
+pqa:q21_src2 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q21_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2005_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=22" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "A nominal H 2 pressure of 52 bar is applied to simulate deep repository conditions. "
+            ]
+        ]
+    ] .
+
+pqa:q21_ann_h2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q3027893 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q21 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "28"^^xsd:nonNegativeInteger ;
+            oa:end   "30"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q21_ann_mox a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q898519 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q21 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "60"^^xsd:nonNegativeInteger ;
+            oa:end   "63"^^xsd:nonNegativeInteger ]
+    ] .
+
+#################################################
+# q22
+# What average dose rate was dissipated in the
+# aqueous leachant during the 10 wt% 233U-doped
+# UO2 leaching experiment?
+#################################################
+
+pqa:q22 a qa:Question ;
+    rdfs:label             "What average dose rate was dissipated in the aqueous leachant during the 10 wt% 233U-doped UO2 leaching experiment?"@en ;
+    schema:suggestedAnswer pqa:q22_a1 ;
+    schema:acceptedAnswer  pqa:q22_a1 .
+
+pqa:q22_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "83 Gy/h"@en ;
+    qudt:numericValue      "83"^^xsd:decimal ;
+    qudt:unit              unit:GRAY-PER-HR ;
+    prov:wasDerivedFrom    pqa:q22_src1 ;
+    prov:hadPrimarySource  pqa:AR_2004_0 .
+
+pqa:q22_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q22_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2004_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=27" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "An average dose rate of 83 Gy/h was dissipated in the 10 -2 M NaCl + 2 10 -3 M HCO3 -aqueous leachant."
+            ]
+        ]
+    ] .
+
+# Entity linking annotations
+# unit:GRAY-PER-HR — confirmed as applicable unit for
+#   quantitykind:AbsorbedDoseRate in QUDT
+# wd:Q2668919 — uranium-233, confirmed
+# wd:Q378379  — uranium dioxide (UO2), confirmed (used in existing dataset)
+
+pqa:q22_ann_u233 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q2668919 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q22 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "80"^^xsd:nonNegativeInteger ;
+            oa:end   "84"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q22_ann_uo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q378379 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q22 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "91"^^xsd:nonNegativeInteger ;
+            oa:end   "94"^^xsd:nonNegativeInteger ]
+    ] .
+
+# NOTE: "leachant" and "absorbed dose rate" have no confirmed
+# standalone Wikidata QIDs found Left unannotated.
+
+
+#################################################
+# q23 
+# What is the maximum internal overpressure of the DSC stainless steel crucible?
+#################################################
+
+pqa:q23 a qa:Question ;
+    rdfs:label             "WWhat is the maximum internal overpressure of the DSC stainless steel crucible?"@en ;
+    schema:suggestedAnswer pqa:q23_a1 ;
+    schema:acceptedAnswer  pqa:q23_a1 .
+
+pqa:q23_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "5 bar"@en ;
+    qudt:numericValue      "5"^^xsd:decimal ;
+    qudt:unit              unit:BAR ;
+    # unit:BAR ✓ confirmed in QUDT
+    prov:wasDerivedFrom    pqa:q23_src1 ;
+    prov:hadPrimarySource  pqa:AR_2010_0 .
+
+pqa:q23_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q23_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2010_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=11" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Both parts are enclosed within a stainless steel crucible permitting measurements up to 1250 °C with an internal overpressure of 5 bar."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q373950  molten salt reactor ✓
+# NOTE: DSC (differential scanning calorimetry) — no confirmed
+# standalone Wikidata QID found. Left unannotated.
+
+pqa:q23_ann_msr a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q373950 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q23 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "fluoride salt" — offsets to be verified manually
+            oa:start "69"^^xsd:nonNegativeInteger ; oa:end "82"^^xsd:nonNegativeInteger ] ] .
+
+
+#################################################
+# q24 
+# What melting temperature of pure NaF measured?
+#################################################
+
+pqa:q24 a qa:Question ;
+    rdfs:label             "What melting temperature of pure NaF measured?"@en ;
+    schema:suggestedAnswer pqa:q24_a1 ;
+    schema:acceptedAnswer  pqa:q24_a1 .
+
+pqa:q24_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "1269 K"@en ;
+    qudt:numericValue      "1269"^^xsd:decimal ;
+    qudt:unit              unit:K ;
+    # unit:K (kelvin, SI base unit) ✓ confirmed in QUDT
+    prov:wasDerivedFrom    pqa:q24_src1 ;
+    prov:hadPrimarySource  pqa:AR_2010_0 .
+
+pqa:q24_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q24_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2010_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=11" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The onset temperature of the peak is related to the melting point of NaF and was found at T = 1269 K, in excellent agreement with previously reported values."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q407520  sodium fluoride (NaF)  ✓
+# wd:Q15318   melting point           ✓ (used in existing dataset q1/q2)
+
+pqa:q24_ann_naf a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q407520 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q24 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "NaF" at offset 35-38
+            oa:start "33"^^xsd:nonNegativeInteger ; oa:end "36"^^xsd:nonNegativeInteger ] ] .
+
+pqa:q24_ann_mp a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q15318 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q24 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "melting temperature" at offset 5-23
+            oa:start "5"^^xsd:nonNegativeInteger ; oa:end "24"^^xsd:nonNegativeInteger ] ] .
+
+
+#################################################
+# q25  
+# What is the diffusion coefficient of U(IV) in
+# molten LiF-CaF2 at 820 °C?
+#################################################
+
+pqa:q25 a qa:Question ;
+    rdfs:label             "What is the diffusion coefficient of U(IV) in molten LiF-CaF2 determined at 820 °C?"@en ;
+    schema:suggestedAnswer pqa:q25_a1 ;
+    schema:acceptedAnswer  pqa:q25_a1 .
+
+pqa:q25_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "3.7 × 10⁻⁵ cm²/s"@en ;
+    qudt:numericValue      "3.7E-5"^^xsd:decimal ;
+    qudt:unit              unit:CentiM2-PER-SEC ;
+    # unit:CentiM2-PER-SEC ✓ confirmed (applicable unit for
+    # quantitykind:AreaPerTime / DiffusionCoefficient)
+    prov:wasDerivedFrom    pqa:q25_src1 ;
+    prov:hadPrimarySource  pqa:AR_2010_0 .
+
+pqa:q25_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q25_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2010_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=16" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The diffusion coefficients evaluated from cyclic voltammetry at 820 °C are 3.710 -5 and 2.410 -5 cm 2 /s for U(IV) and U(III), respectively."
+            ]
+        ]
+    ] .
+
+# NOTE: U(IV) ion and LiF-CaF2 eutectic — no confirmed standalone
+# Wikidata QIDs found. Left unannotated.
+
+
+#################################################
+# q26 
+# What was the purity of 242Pu metal ingots
+# produced?
+#################################################
+
+pqa:q26 a qa:Question ;
+    rdfs:label             "What was the purity of 242Pu metal ingots produced?"@en ;
+    schema:suggestedAnswer pqa:q26_a1 ;
+    schema:acceptedAnswer  pqa:q26_a1 .
+
+pqa:q26_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "99.7 %"@en ;
+    qudt:numericValue      "99.7"^^xsd:decimal ;
+    qudt:unit              unit:PERCENT ;
+    # unit:PERCENT ✓ confirmed in QUDT
+    rdfs:comment           "Purity determined by ICP-MS analysis."@en ;
+    prov:wasDerivedFrom    pqa:q26_src1 ;
+    prov:hadPrimarySource  pqa:AR_2010_0 .
+
+pqa:q26_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q26_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2010_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=23" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Chemical analysis made by ICP-MS showed that its purity is 99.7 %."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q7205708  plutonium-242  ✓
+
+pqa:q26_ann_pu242 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q7205708 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q26 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "242Pu" — offsets to be verified manually
+            oa:start "27"^^xsd:nonNegativeInteger ; oa:end "32"^^xsd:nonNegativeInteger ] ] .
+
+
+#################################################
+# q27 
+# At what temperature is the first distillation
+# step of the AnHgx amalgam performed to produce
+# Np metal?
+#################################################
+
+pqa:q27 a qa:Question ;
+    rdfs:label             "At what temperature is the first distillation step of the AnHgx amalgam performed to produce Np metal?"@en ;
+    schema:suggestedAnswer pqa:q27_a1 ;
+    schema:acceptedAnswer  pqa:q27_a1 .
+
+pqa:q27_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "350 °C"@en ;
+    qudt:numericValue      "350"^^xsd:decimal ;
+    qudt:unit              unit:DEG_C ;
+    # unit:DEG_C ✓ confirmed in QUDT
+    rdfs:comment           "Performed under high vacuum (10^-5 mbar) for 24 h. Second step at 1100 °C for 10 min."@en ;
+    prov:wasDerivedFrom    pqa:q27_src1 ;
+    prov:hadPrimarySource  pqa:AR_2009_0 .
+
+pqa:q27_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q27_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2009_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=25" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The AnHg x amalgam is later distilled under high vacuum (10 -5 mbar), first at 350 °C for 24h and then at maximal heating capacity of the furnace, at 1100 °C for 10 min."
+            ]
+        ]
+    ] .
+
+# NOTE: neptunium (element) — wd:Q1100 is a candidate but not
+# confirmed in this session. Left unannotated.
+
+
+#################################################
+# q28  [AR_2009_0 · p.36 · Alternative Nuclear Fuel Cycle]
+# At what temperature was the direct
+# electroreduction of irradiated commercial
+# MOX fuel carried out in the LiCl-1wt%Li2O
+# melt?
+#################################################
+
+pqa:q28 a qa:Question ;
+    rdfs:label             "At what temperature was the direct electroreduction of irradiated MOX fuel carried out in the LiCl-1wt%Li2O melt?"@en ;
+    schema:suggestedAnswer pqa:q28_a1 ;
+    schema:acceptedAnswer  pqa:q28_a1 .
+
+pqa:q28_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "923 K"@en ;
+    qudt:numericValue      "923"^^xsd:decimal ;
+    qudt:unit              unit:K ;
+    rdfs:comment           "MOX fuel had burn-up of 44 GWd/tHM and Pu content of 3.6 wt%. Three runs with ~5 g fuel per batch."@en ;
+    prov:wasDerivedFrom    pqa:q28_src1 ;
+    prov:hadPrimarySource  pqa:AR_2009_0 .
+
+pqa:q28_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q28_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2009_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=36" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "the fuel fragments were loaded in a steel mesh basket and reduced cathodically in a LiCl-1wt% Li 2 O melt at 923 K."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q898519  MOX fuel  ✓ confirmed
+
+pqa:q28_ann_mox a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q898519 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q28 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "MOX" — offsets to be verified manually
+            oa:start "52"^^xsd:nonNegativeInteger ;
+            oa:end   "55"^^xsd:nonNegativeInteger ] ] .
+
+
+##############################################################
+# AR_2008_0  ·  10 questions  ·  q29–q36
+# Type distribution: T1×2  T2×2  T3×2  T4×1  T6×1  T7×2
+##############################################################
+
+
+## ── T1  Dimensionless ────────────────────────────────────
+
+#################################################
+# q29  [T1 · AR_2008_0 · p.35 · LWR DEPUTY]
+# How many LWR DEPUTY fuel pins were completed
+# and transported to Mol for irradiation in
+# the BR2 reactor?
+#################################################
+
+pqa:q29 a qa:Question ;
+    rdfs:label "How many LWR DEPUTY fuel pins were completed and transported to Mol for irradiation in the BR2 reactor?"@en ;
+    schema:suggestedAnswer pqa:q29_a1 ;
+    schema:acceptedAnswer  pqa:q29_a1 .
+
+pqa:q29_a1 a qa:Answer ;
+    rdfs:label             "8"@en ;
+    qudt:numericValue      "8"^^xsd:integer ;
+    rdfs:comment           "Dimensionless count (integer). No QUDT unit applies. Pins contain micro- and macro-dispersed PuO2 in a stainless steel CERMET matrix."@en ;
+    prov:wasDerivedFrom    pqa:q29_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q29_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q29_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=35" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The 8 LWR DEPUTY Fuel pins were transported to Mol for irradiation in the BR2 reactor."
+            ]
+        ]
+    ] .
+
+# NOTE: LWR DEPUTY, CERMET, BR2 — no confirmed standalone Wikidata
+# QIDs found in this session. Left unannotated.
+
+
+#################################################
+# q30  [T1 · AR_2008_0 · p.29 · Compressibility of Cf]
+# How many crystallographic phases co-exist in
+# californium metal at pressures up to 35 GPa?
+#################################################
+
+pqa:q30 a qa:Question ;
+    rdfs:label "How many crystallographic phases co-exist in californium metal at pressures up to 35 GPa?"@en ;
+    schema:suggestedAnswer pqa:q30_a1 ;
+    schema:acceptedAnswer  pqa:q30_a1 .
+
+pqa:q30_a1 a qa:Answer ;
+    rdfs:label             "2"@en ;
+    qudt:numericValue      "2"^^xsd:integer ;
+    rdfs:comment           "Dimensionless count. The two phases are Cf I (space group P63/mmc, dhcp) and Cf II (space group Fm3m, fcc). Above 16 GPa the Cf II fcc phase becomes pure."@en ;
+    prov:wasDerivedFrom    pqa:q30_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q30_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q30_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=29" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "up to 35 GPa a mixture of 2 phases co-exist, namely Cf I (space group, P63/mmc ) and Cf II (space group, Fm3m )."
+            ]
+        ]
+    ] .
+
+# NOTE: californium element — wd:Q1058 is the element.
+# Confirmed QID not verified in this session. Left unannotated.
+
+
+## ── T2  Scalar + unit ────────────────────────────────────
+
+#################################################
+# q31 
+# What is the superconducting transition
+# temperature Tc of NpPd5Al2?
+#################################################
+
+pqa:q31 a qa:Question ;
+    rdfs:label "What is the superconducting transition temperature Tc of NpPd5Al2?"@en ;
+    schema:suggestedAnswer pqa:q31_a1 ;
+    schema:acceptedAnswer  pqa:q31_a1 .
+
+pqa:q31_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "~5 K"@en ;
+    qudt:numericValue      "5"^^xsd:decimal ;
+    qudt:unit              unit:K ;
+    # unit:K ✓ confirmed in QUDT
+    rdfs:comment           "Approximate value (~) per source. NpPd5Al2 is the first neptunium-based superconductor reported."@en ;
+    prov:wasDerivedFrom    pqa:q31_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q31_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q31_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=30" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "NpPd 5 Al 2 (T c ~ 5 K) is the first neptunium based superconductor to be reported"
+            ]
+        ]
+    ] .
+
+# NOTE: NpPd5Al2 — no confirmed standalone Wikidata QID found.
+# Left unannotated.
+
+
+#################################################
+# q32  
+# What was the maximum 230U/226Th yield achievable in a single production run at JRC cyclotron?
+#################################################
+
+pqa:q32 a qa:Question ;
+    rdfs:label "What was the maximum 230U/226Th yield achievable in a single production run at JRC cyclotron?"@en ;
+    schema:suggestedAnswer pqa:q32_a1 ;
+    schema:acceptedAnswer  pqa:q32_a1 .
+
+pqa:q32_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "52 MBq"@en ;
+    qudt:numericValue      "52"^^xsd:decimal ;
+    qudt:unit              unit:MegaBQ ;
+    # unit:MegaBQ ✓ confirmed in QUDT (full RDF verified)
+    rdfs:comment           "Production via 232Th(p,3n)230Pa(β-)230U reaction. MBq scale achieved after optimisation of beam focusing and target cooling."@en ;
+    prov:wasDerivedFrom    pqa:q32_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q32_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q32_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=20" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "yields of up to 52 MBq 230 U/ 226 Th could be obtained in a single production run."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q18845539  uranium-230 (230U)  ✓ confirmed
+
+pqa:q32_ann_u230 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q18845539 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q32 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "230U" — offsets to be verified manually
+            oa:start "34"^^xsd:nonNegativeInteger ;
+            oa:end   "38"^^xsd:nonNegativeInteger ] ] .
+
+
+## ── T3  Value ± unc. + unit ──────────────────────────────
+
+#################################################
+# q33  [T3 · AR_2008_0 · p.30 · Compressibility of Cf]
+# What is the bulk modulus B0 of californium
+# metal determined by fitting the
+# Birch-Murnaghan equation of state?
+#################################################
+
+pqa:q33 a qa:Question ;
+    rdfs:label "What is the bulk modulus B0 of californium metal from the Birch-Murnaghan equation of state fit?"@en ;
+    schema:suggestedAnswer pqa:q33_a1 ;
+    schema:acceptedAnswer  pqa:q33_a1 .
+
+pqa:q33_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "36.2 ± 0.3 GPa"@en ;
+    qudt:numericValue      "36.2"^^xsd:decimal ;
+    qudt:standardUncertainty "0.3"^^xsd:decimal ;
+    qudt:unit              unit:GigaPA ;
+    # unit:GigaPA ✓ confirmed in QUDT (full RDF verified;
+    # applicable unit for quantitykind:ModulusOfElasticity)
+    rdfs:comment           "Notation '36.2(3) GPa' in source (parenthetical uncertainty = last digit). Theoretical value: 37.4 GPa."@en ;
+    prov:wasDerivedFrom    pqa:q33_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q33_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q33_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=30" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "36.2(3) GPa for B 0 and 3.9(2) for B ' 0"
+            ]
+        ]
+    ] .
+
+# NOTE: californium element — Wikidata QID not confirmed this session.
+# Left unannotated.
+
+
+#################################################
+# q34  [T3 · AR_2008_0 · p.21 · Alpha-Immunotherapy]
+# What is the maximum cross section for the
+# nuclear reaction 231Pa(p,2n)230U?
+#################################################
+
+pqa:q34 a qa:Question ;
+    rdfs:label "What is the maximum cross section for the nuclear reaction 231Pa(p,2n)230U?"@en ;
+    schema:suggestedAnswer pqa:q34_a1 ;
+    schema:acceptedAnswer  pqa:q34_a1 .
+
+pqa:q34_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "33.2 ± 5.3 mb"@en ;
+    qudt:numericValue      "0.0332"^^xsd:decimal ;
+    qudt:standardUncertainty "0.0053"^^xsd:decimal ;
+    qudt:unit              unit:BARN ;
+    # unit:BARN ✓ confirmed in QUDT.
+    # Source reports in millibarns (mb): 33.2 ± 5.3 mb.
+    # unit:MilliBARN not confirmed in QUDT; stored as 0.0332 ± 0.0053
+    # barn (1 mb = 0.001 b) per dataset convention (same as q64).
+    rdfs:comment           "Source: 33.2 ± 5.3 mb at 14.6 ± 0.2 MeV proton energy. Stored in unit:BARN (×0.001). unit:MilliBARN not confirmed in QUDT."@en ;
+    prov:wasDerivedFrom    pqa:q34_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q34_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q34_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=21" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "the maximum of the 231 Pa(p,2n) 230 U excitation function (33.2 ± 5.3 mb) was found at 14.6 ± 0.2 MeV proton energy."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q18845514  protactinium-231 (231Pa)  ✓ confirmed
+# wd:Q18845539  uranium-230 (230U)        ✓ confirmed
+
+pqa:q34_ann_pa231 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q18845514 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q34 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "231Pa" — offsets to be verified manually
+            oa:start "48"^^xsd:nonNegativeInteger ;
+            oa:end   "53"^^xsd:nonNegativeInteger ] ] .
+
+pqa:q34_ann_u230 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q18845539 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q34 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "230U" — offsets to be verified manually
+            oa:start "59"^^xsd:nonNegativeInteger ;
+            oa:end   "63"^^xsd:nonNegativeInteger ] ] .
+
+
+
+#################################################
+# q35  [T7 · AR_2008_0 · p.28–29 · NWD / Actinide High Oxides]
+# Is Np2O3 stable as a bulk phase during
+# oxidation of neptunium metal?
+#################################################
+
+pqa:q35 a qa:Question ;
+    rdfs:label "Is Np2O3 stable as a bulk phase during oxidation of neptunium metal?"@en ;
+    schema:suggestedAnswer pqa:q35_a1 ;
+    schema:acceptedAnswer  pqa:q35_a1 .
+
+pqa:q35_a1 a qa:Answer ;
+    rdfs:label             "No"@en ;
+    rdf:value              "false"^^xsd:boolean ;
+    rdfs:comment           "Np2O3 is stable only as a surface phase (~8 monolayers thick), not as a bulk phase. It is replaced by NpO2 at higher O2 dosage. Contrast with Pu, where the sesquioxide forms as stable bulk phase."@en ;
+    prov:wasDerivedFrom    pqa:q35_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q35_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q35_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=29" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Np 2 O3 is stable only as surface phase."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# NOTE: Np2O3 (neptunium sesquioxide) — no confirmed Wikidata QID.
+# Left unannotated.
+
+
+#################################################
+# q36  [T7 · AR_2008_0 · p.36 · ANFC / SANEX]
+# Did the SANEX demonstration using the
+# CyMe4-BTBP extractant achieve recovery of
+# Am and Cm higher than 99.9% in the product
+# fraction?
+#################################################
+
+pqa:q36 a qa:Question ;
+    rdfs:label "Did the SANEX CyMe4-BTBP demonstration test achieve recovery of Am and Cm higher than 99.9% in the product fraction?"@en ;
+    schema:suggestedAnswer pqa:q36_a1 ;
+    schema:acceptedAnswer  pqa:q36_a1 .
+
+pqa:q36_a1 a qa:Answer ;
+    rdfs:label             "Yes"@en ;
+    rdf:value              "true"^^xsd:boolean ;
+    rdfs:comment           "Am decontamination factor = 7000; Cm decontamination factor = 1000. Lanthanide rejection also >99.9%. First demonstration on genuine spent fuel solution."@en ;
+    prov:wasDerivedFrom    pqa:q36_src1 ;
+    prov:hadPrimarySource  pqa:AR_2008_0 .
+
+pqa:q36_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q36_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2008_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=36" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The recoveries of these elements into the product fraction were higher than 99.9 % which is what is aimed for in an efficient P&T fuel cycle."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q1872  americium  ✓ confirmed
+# wd:Q880   plutonium  ✓ (Cm/Am recovered; Am annotated here)
+
+pqa:q36_ann_am a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1872 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q36 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "Am" — offsets to be verified manually
+            oa:start "65"^^xsd:nonNegativeInteger ;
+            oa:end   "67"^^xsd:nonNegativeInteger ] ] .
+
+
+##############################################################
+# AR_2007_0  ·  10 questions  ·  q37–q44
+# Type distribution: T1×2  T2×2  T3×2  T4×1  T6×1  T7×2
+##############################################################
+
+
+## ── T1  Dimensionless ────────────────────────────────────
+
+#################################################
+# q37  
+# How many PuO2-kernel coated particle fuels were used in the helium retention annealing experiments?
+#################################################
+
+pqa:q37 a qa:Question ;
+    rdfs:label "How many PuO2-kernel coated particle fuels were used in the helium retention annealing experiments?"@en ;
+    schema:suggestedAnswer pqa:q37_a1 ;
+    schema:acceptedAnswer  pqa:q37_a1 .
+
+pqa:q37_a1 a qa:Answer ;
+    rdfs:label             "37"@en ;
+    qudt:numericValue      "37"^^xsd:integer ;
+    rdfs:comment           "Dimensionless count. CPs obtained from Belgonucleaire stocks (late 1960s); helium generated in-situ by 238Pu and 241Am decay."@en ;
+    prov:wasDerivedFrom    pqa:q37_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q37_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q37_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=49" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "a set of 37 coated particle fuels (with PuO 2 kernels) were obtained from stocks made at Belgonucleaire in the late 1960s."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q413258  plutonium dioxide (PuO2)  ✓ confirmed
+
+pqa:q37_ann_puo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q413258 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q37 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "PuO2" — offsets to be verified manually
+            oa:start "7"^^xsd:nonNegativeInteger ;
+            oa:end   "11"^^xsd:nonNegativeInteger ] ] .
+
+
+#################################################
+# q38  [T1 · AR_2007_0 · p.37 · NWD / SNF Corrosion]
+# How many commercial UO2 fuel rod segments
+# were used for the spent fuel humid-atmosphere
+# corrosion experiments?
+#################################################
+
+pqa:q38 a qa:Question ;
+    rdfs:label "How many commercial UO2 fuel rod segments were used for the spent fuel humid-atmosphere corrosion experiments?"@en ;
+    schema:suggestedAnswer pqa:q38_a1 ;
+    schema:acceptedAnswer  pqa:q38_a1 .
+
+pqa:q38_a1 a qa:Answer ;
+    rdfs:label             "3"@en ;
+    qudt:numericValue      "3"^^xsd:integer ;
+    rdfs:comment           "Dimensionless count. Three rodlets tested under: (1) pure Ar, (2) Ar/H2 mixture, (3) pure H2."@en ;
+    prov:wasDerivedFrom    pqa:q38_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q38_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q38_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=37" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Three short segments of commercial UO 2 fuel rods with a burn up of ~60 GWd/t U were used for the experiments."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q378379  uranium dioxide (UO2)  ✓ confirmed
+
+pqa:q38_ann_uo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q378379 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q38 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "UO2" — offsets to be verified manually
+            oa:start "24"^^xsd:nonNegativeInteger ;
+            oa:end   "27"^^xsd:nonNegativeInteger ] ] .
+
+
+## ── T2  Scalar + unit ────────────────────────────────────
+
+#################################################
+# q39  [T2 · AR_2007_0 · p.49 · SANF / Coated Particle Fuels]
+# What was the highest temperature reached
+# during Knudsen-cell annealing of the
+# PuO2-kernel coated particle?
+#################################################
+
+pqa:q39 a qa:Question ;
+    rdfs:label "What was the highest temperature reached during Knudsen-cell annealing of the PuO2-kernel coated particle?"@en ;
+    schema:suggestedAnswer pqa:q39_a1 ;
+    schema:acceptedAnswer  pqa:q39_a1 .
+
+pqa:q39_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "2800 K"@en ;
+    qudt:numericValue      "2800"^^xsd:decimal ;
+    qudt:unit              unit:K ;
+    # unit:K ✓ confirmed in QUDT
+    rdfs:comment           "No helium release observed at this temperature; also no SiC or C constituent release before onset of vaporisation at 2400 K."@en ;
+    prov:wasDerivedFrom    pqa:q39_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q39_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q39_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=49" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "No helium release could be observed even at the highest temperature (2800 K)."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q413258  plutonium dioxide (PuO2)  ✓ confirmed
+
+pqa:q39_ann_puo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q413258 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q39 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "PuO2" — offsets to be verified manually
+            oa:start "70"^^xsd:nonNegativeInteger ;
+            oa:end   "74"^^xsd:nonNegativeInteger ] ] .
+
+
+#################################################
+# q40  [T2 · AR_2007_0 · p.31 · FAR / NpCoGa5 magnetism]
+# What is the antiferromagnetic ordering
+# temperature TN of NpCoGa5?
+#################################################
+
+pqa:q40 a qa:Question ;
+    rdfs:label "What is the antiferromagnetic ordering temperature TN of NpCoGa5?"@en ;
+    schema:suggestedAnswer pqa:q40_a1 ;
+    schema:acceptedAnswer  pqa:q40_a1 .
+
+pqa:q40_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "47 K"@en ;
+    qudt:numericValue      "47"^^xsd:decimal ;
+    qudt:unit              unit:K ;
+    rdfs:comment           "Propagation vector [0 0 1/2]. NpCoGa5 is the magnetic analogue of the isostructural superconductor PuCoGa5."@en ;
+    prov:wasDerivedFrom    pqa:q40_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q40_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q40_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=31" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "NpCoGa 5 , a magnetic analogue ordering antiferromagnetically at T N = 47 K, with propagation vector [0 0 1/2]."
+            ]
+        ]
+    ] .
+
+# NOTE: NpCoGa5 — no confirmed standalone Wikidata QID.
+# Left unannotated.
+
+
+## ── T3  Value ± unc. + unit ──────────────────────────────
+
+#################################################
+# q41  [T3 · AR_2007_0 · p.19 · AIT / 230U production]
+# What is the maximum cross section for the
+# nuclear reaction 232Th(p,3n)230Pa, and at
+# what proton energy does it occur?
+#################################################
+
+pqa:q41 a qa:Question ;
+    rdfs:label "What is the maximum cross section for the nuclear reaction 232Th(p,3n)230Pa?"@en ;
+    schema:suggestedAnswer pqa:q41_a1 ;
+    schema:acceptedAnswer  pqa:q41_a1 .
+
+pqa:q41_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "353 ± 14.5 mb at 19.9 ± 0.3 MeV"@en ;
+    qudt:numericValue      "0.353"^^xsd:decimal ;
+    qudt:standardUncertainty "0.0145"^^xsd:decimal ;
+    qudt:unit              unit:BARN ;
+    # unit:BARN ✓ confirmed in QUDT.
+    # Source reports in millibarns (mb): 353 ± 14.5 mb.
+    # unit:MilliBARN not confirmed in QUDT; stored as 0.353 ± 0.0145
+    # barn (1 mb = 0.001 b) per dataset convention (same as q64, q76).
+    rdfs:comment           "Source: 353 ± 14.5 mb at 19.9 ± 0.3 MeV proton energy. Stored in unit:BARN (×0.001 conversion). In good agreement with Celler 1981, Kudo 1982, Roshchin 1997."@en ;
+    prov:wasDerivedFrom    pqa:q41_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q41_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q41_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=19" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The maximum of the 232 Th(p,3n) 230 Pa excitation function (353 ± 14.5 mb) is found at 19.9 ± 0.3 MeV proton energy."
+            ]
+        ]
+    ] .
+
+# NOTE: 232Th target nuclide — wd:Q14755481 is thorium-230, not
+# thorium-232. Thorium-232 QID not confirmed this session.
+# Left unannotated.
+
+
+
+#################################################
+# q42  [T6 · AR_2007_0 · p.43 · SCNF / SIMS fission gas]
+# Which fission gases were found co-existing in
+# the pores of the high burn-up structure in
+# the UO2 fuel pellet rim?
+#################################################
+
+pqa:q42 a qa:Question ;
+    rdfs:label "Which fission gases were found co-existing in the pores of the high burn-up structure in the UO2 fuel pellet rim?"@en ;
+    schema:suggestedAnswer pqa:q42_a1 ;
+    schema:acceptedAnswer  pqa:q42_a1 .
+
+pqa:q42_a1 a qa:Answer ;
+    rdfs:label             "{Xe, Kr}"@en ;
+    pqa:hasAnswerMember    wd:Q1006 ;   # xenon   (element 54)
+    pqa:hasAnswerMember    wd:Q888 ;    # krypton (element 36)
+    rdfs:comment           "Unordered set. First experimental evidence of Kr and Xe co-existing in HBS pores. Detected via SIMS ion maps for 133Cs and 85Rb (decay products of 133Xe and 85Kr)."@en ;
+    prov:wasDerivedFrom    pqa:q42_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q42_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q42_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=43" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The ion maps in Fig. 2 confirm that the pores of the high burn-up structure contain both Xe and Kr."
+            ]
+        ]
+    ] .
+
+# Entity linking — both QIDs are well-known IUPAC elements.
+# wd:Q1006  xenon   (element 54) — highly confident
+# wd:Q888   krypton (element 36) — highly confident
+# NOTE: QIDs not formally verified by session search; added as
+# well-established canonical Wikidata identifiers for noble gas elements.
+
+
+## ── T7  Yes/No ───────────────────────────────────────────
+
+#################################################
+# q43  [T7 · AR_2007_0 · p.49 · SANF / Coated Particle Fuels]
+# Was helium gas released from the PuO2-kernel
+# coated particle during Knudsen-cell annealing
+# up to 2800 K?
+#################################################
+
+pqa:q43 a qa:Question ;
+    rdfs:label "Was helium gas released from the PuO2-kernel coated particle during Knudsen-cell annealing up to 2800 K?"@en ;
+    schema:suggestedAnswer pqa:q43_a1 ;
+    schema:acceptedAnswer  pqa:q43_a1 .
+
+pqa:q43_a1 a qa:Answer ;
+    rdfs:label             "No"@en ;
+    rdf:value              "false"^^xsd:boolean ;
+    rdfs:comment           "He retained in the porous graphite buffer layer by the tight SiC sealing layer. No SiC/C constituent release either before onset of vaporisation at 2400 K."@en ;
+    prov:wasDerivedFrom    pqa:q43_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q43_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q43_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=49" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "No helium release could be observed even at the highest temperature (2800 K)."
+            ]
+        ]
+    ] .
+
+# NOTE: q43 and q39 share the same source sentence; q39 extracts the
+# temperature value (T2), q43 extracts the boolean outcome (T7).
+
+# Entity linking
+# wd:Q413258  plutonium dioxide (PuO2)  ✓ confirmed
+
+pqa:q43_ann_puo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q413258 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q43 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "PuO2" — offsets to be verified manually
+            oa:start "28"^^xsd:nonNegativeInteger ;
+            oa:end   "32"^^xsd:nonNegativeInteger ] ] .
+
+
+#################################################
+# q44  [T7 · AR_2007_0 · p.28 · MaRE / Environmental Particles]
+# Is plutonium present exclusively at oxidation
+# state +4 throughout the cross-section of the
+# Marshall Islands hot particle investigated
+# by µ-XANES?
+#################################################
+
+pqa:q44 a qa:Question ;
+    rdfs:label "Is plutonium present exclusively at oxidation state +4 throughout the cross-section of the Marshall Islands hot particle investigated by µ-XANES?"@en ;
+    schema:suggestedAnswer pqa:q44_a1 ;
+    schema:acceptedAnswer  pqa:q44_a1 .
+
+pqa:q44_a1 a qa:Answer ;
+    rdfs:label             "Yes"@en ;
+    rdf:value              "true"^^xsd:boolean ;
+    rdfs:comment           "Pu LII absorption edge energy shows < 0.5 eV variation across the particle section. Distribution is irregular (no correlation to sample shape) but oxidation state is uniformly +4."@en ;
+    prov:wasDerivedFrom    pqa:q44_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q44_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q44_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=28" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "Plutonium within the whole sample section is present at oxidation state +4, distributed irregularly, without correlation to the sample shape."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q880  plutonium (element)  ✓ confirmed
+
+pqa:q44_ann_pu a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q880 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q44 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "plutonium" — offsets to be verified manually
+            oa:start "3"^^xsd:nonNegativeInteger ;
+            oa:end   "12"^^xsd:nonNegativeInteger ] ] .
+
+
+##############################################################
+# AR_2007_0  ·  10 questions  ·  q45–q50
+# Type distribution: T1×2  T2×2  T3×2  T4×1  T6×1  T7×2
+##############################################################
+
+
+
+#################################################
+# q45  [T2 · AR_2007_0 · p.33 · FAR / NpNiSi2]
+# What is the ferromagnetic Curie temperature
+# TC of NpNiSi2?
+#################################################
+
+pqa:q45 a qa:Question ;
+    rdfs:label "What is the ferromagnetic Curie temperature TC of NpNiSi2?"@en ;
+    schema:suggestedAnswer pqa:q45_a1 ;
+    schema:acceptedAnswer  pqa:q45_a1 .
+
+pqa:q45_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "51.5 K"@en ;
+    qudt:numericValue      "51.5"^^xsd:decimal ;
+    qudt:unit              unit:K ;
+    # unit:K ✓ confirmed in QUDT
+    rdfs:comment           "Confirmed by specific heat and resistivity anomaly. Saturated moment μsat ≈ 1.07 μB, ordered moment from Mössbauer μNp = 1.4 μB."@en ;
+    prov:wasDerivedFrom    pqa:q45_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q45_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q45_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=33" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "the onset of ferromagnetic order below T C = 51.5 K (Fig.1)"
+            ]
+        ]
+    ] .
+
+# NOTE: NpNiSi2 — no confirmed standalone Wikidata QID.
+# Left unannotated.
+
+
+#################################################
+# q46  [T2 · AR_2007_0 · p.39 · NWD / He solubility in UO2]
+# At what temperature was helium infused into
+# the stoichiometric UO2 single crystal to
+# measure He solubility?
+#################################################
+
+pqa:q46 a qa:Question ;
+    rdfs:label "At what temperature was helium infused into the stoichiometric UO2 single crystal to measure He solubility?"@en ;
+    schema:suggestedAnswer pqa:q46_a1 ;
+    schema:acceptedAnswer  pqa:q46_a1 .
+
+pqa:q46_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "1250 °C"@en ;
+    qudt:numericValue      "1250"^^xsd:decimal ;
+    qudt:unit              unit:DEG_C ;
+    # unit:DEG_C ✓ confirmed in QUDT
+    rdfs:comment           "He pressure during infusion: 1100 bar. Crystal: 300 µm thin, 3 mm diameter stoichiometric UO2.00 single crystal."@en ;
+    prov:wasDerivedFrom    pqa:q46_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q46_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q46_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=39" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "He pressure of 1100 bar and T = 1250 °C."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q378379  uranium dioxide (UO2)  ✓ confirmed
+
+pqa:q46_ann_uo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q378379 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q46 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "UO2" — offsets to be verified manually
+            oa:start "59"^^xsd:nonNegativeInteger ;
+            oa:end   "62"^^xsd:nonNegativeInteger ] ] .
+
+
+
+
+#################################################
+# q47  [T3 · AR_2007_0 · p.19 · AIT / 230U production]
+# At what proton energy does the 232Th(p,3n)230Pa
+# reaction cross section reach its maximum?
+#################################################
+
+pqa:q47 a qa:Question ;
+    rdfs:label "At what proton energy does the 232Th(p,3n)230Pa reaction cross section reach its maximum?"@en ;
+    schema:suggestedAnswer pqa:q47_a1 ;
+    schema:acceptedAnswer  pqa:q47_a1 .
+
+pqa:q47_a1 a qa:Answer, qudt:QuantityValue ;
+    rdfs:label             "19.9 ± 0.3 MeV"@en ;
+    qudt:numericValue      "19.9"^^xsd:decimal ;
+    qudt:standardUncertainty "0.3"^^xsd:decimal ;
+    qudt:unit              unit:MegaEV ;
+    # unit:MegaEV ✓ confirmed in QUDT (full RDF verified)
+    rdfs:comment           "Maximum cross section at this energy: 353 ± 14.5 mb (see q41). Measurements at cyclotron of JRC-IHCP Ispra using stacked foil technique."@en ;
+    prov:wasDerivedFrom    pqa:q47_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q47_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q47_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=19" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "The maximum of the 232 Th(p,3n) 230 Pa excitation function (353 ± 14.5 mb) is found at 19.9 ± 0.3 MeV proton energy."
+            ]
+        ]
+    ] .
+
+# NOTE: q47 and q41 share the same source sentence; q41 extracts the
+# cross section (353 ± 14.5 mb), q47 extracts the peak proton energy.
+
+
+
+#################################################
+# q48  [T6 · AR_2007_0 · p.33–34 · FAR / Thermopower]
+# Which actinide-based members of the AnPd2Sn
+# series were studied for thermoelectric power
+# (Seebeck coefficient)?
+#################################################
+
+pqa:q48 a qa:Question ;
+    rdfs:label "Which actinide-based members of the AnPd2Sn series were studied for thermoelectric power (Seebeck coefficient) at ITU?"@en ;
+    schema:suggestedAnswer pqa:q48_a1 ;
+    schema:acceptedAnswer  pqa:q48_a1 .
+
+pqa:q48_a1 a qa:Answer ;
+    rdfs:label             "{Th, U, Np, Pu}"@en ;
+    pqa:hasAnswerMember    wd:Q1099 ;   # thorium    — well-known element (not session-verified)
+    pqa:hasAnswerMember    wd:Q855 ;    # uranium    ✓ confirmed
+    pqa:hasAnswerMember    wd:Q1100 ;   # neptunium  — candidate (not session-verified)
+    pqa:hasAnswerMember    wd:Q880 ;    # plutonium  ✓ confirmed
+    rdfs:comment           "Unordered set. ThPd2Sn: simple metal (linear S-T); UPd2Sn, NpPd2Sn, PuPd2Sn: heavy-fermion behaviour. NOTE: wd:Q1099 (Th) and wd:Q1100 (Np) are well-established element QIDs added without session-level verification."@en ;
+    prov:wasDerivedFrom    pqa:q48_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q48_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q48_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=34" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "temperature dependences of the Seebeck coefficient for An Pd 2 Sn ( An = Th, U, Np, Pu)."
+            ]
+        ]
+    ] .
+
+
+## ── T7  Yes/No ───────────────────────────────────────────
+
+#################################################
+# q49  [T7 · AR_2007_0 · p.14 · ANFC / Am–Nd electrorefining]
+# Did the two-stage Am/Nd electrorefining
+# process successfully reduce the Am content in
+# the LiCl-KCl salt from 186 mg to below 12 mg?
+#################################################
+
+pqa:q49 a qa:Question ;
+    rdfs:label "Did the two-stage Am/Nd electrorefining process reduce the Am content in the LiCl-KCl salt from 186 mg to below 12 mg?"@en ;
+    schema:suggestedAnswer pqa:q49_a1 ;
+    schema:acceptedAnswer  pqa:q49_a1 .
+
+pqa:q49_a1 a qa:Answer ;
+    rdfs:label             "Yes"@en ;
+    rdf:value              "true"^^xsd:boolean ;
+    rdfs:comment           "Nd concentration in salt phase remained constant throughout both electrolyses, confirming high An/Ln selectivity. Only traces of Nd found in the deposit."@en ;
+    prov:wasDerivedFrom    pqa:q49_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q49_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q49_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=14" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "the Am content in the salt phase decreased in two electrolyses steps from an initial amount of Am of 186 mg to less than 12 mg."
+            ]
+        ]
+    ] .
+
+# Entity linking
+# wd:Q1872  americium  ✓ confirmed
+
+pqa:q49_ann_am a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1872 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q49 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "Am" — offsets to be verified manually
+            oa:start "35"^^xsd:nonNegativeInteger ;
+            oa:end   "37"^^xsd:nonNegativeInteger ] ] .
+
+
+#################################################
+# q50  [T7 · AR_2007_0 · p.40 · NWD / DFT He in UO2]
+# Do DFT calculations predict that the
+# interaction between He impurities in the UO2
+# crystal is repulsive?
+#################################################
+
+pqa:q50 a qa:Question ;
+    rdfs:label "Do DFT calculations predict that the interaction between He impurities in the UO2 crystal is repulsive?"@en ;
+    schema:suggestedAnswer pqa:q50_a1 ;
+    schema:acceptedAnswer  pqa:q50_a1 .
+
+pqa:q50_a1 a qa:Answer ;
+    rdfs:label             "Yes"@en ;
+    rdf:value              "true"^^xsd:boolean ;
+    rdfs:comment           "He–He interaction is repulsive, very small and short-range (incorporation energy 0.6–0.8 eV). Proper estimate requires spin polarisation. Contrast with q97 which quantifies the energy range."@en ;
+    prov:wasDerivedFrom    pqa:q50_src1 ;
+    prov:hadPrimarySource  pqa:AR_2007_0 .
+
+pqa:q50_src1 a oa:Annotation ;
+    oa:motivatedBy oa:highlighting ;
+    oa:hasBody   pqa:q50_a1 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:AR_2007_0 ;
+        oa:hasSelector [
+            a oa:FragmentSelector ;
+            dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
+            rdf:value "page=40" ;
+            oa:refinedBy [
+                a oa:TextQuoteSelector ;
+                oa:exact "the interaction between He impurities in the UO 2 crystal is very small, repulsive (incorporation energy 0.6-0.8 eV), and has a very short range."
+            ]
+        ]
+    ] .
+
+# NOTE: q50 and q97 share the same source sentence; q97 extracts
+# the numeric energy range (T4), q50 extracts the boolean character
+# (repulsive vs attractive) as a yes/no answer (T7).
+
+# Entity linking
+# wd:Q378379  uranium dioxide (UO2)  ✓ confirmed
+
+pqa:q50_ann_uo2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q378379 ;
+    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q50 ;
+        oa:hasSelector [ a oa:TextPositionSelector ;
+            # "UO2" — offsets to be verified manually
+            oa:start "61"^^xsd:nonNegativeInteger ;
+            oa:end   "64"^^xsd:nonNegativeInteger ] ] .

@@ -51,23 +51,23 @@ These IDs are used as URIs in the TTL knowledge files, e.g. `pqa:AR_2000_0`.
 
 - [`benchmark/`](benchmark/)
   - [`evaluate.py`](benchmark/evaluate.py) — Benchmark evaluation script.
-  - [`rag_prompt.md`](benchmark/rag_prompt.md) — Prompt template for RAG systems.
+  - [`rag_prompt.txt`](benchmark/rag_prompt.md) — Prompt template.
 
 - [`corpus/`](corpus/)
-  - Nuclear technical reports (stored via Git LFS).
+  - Nuclear technical reports.
 
 - [`vocab/`](vocab/)
   - Domain ontologies and controlled vocabularies, including EuroVoc, OA, PROV-O, Qanary, Schema.org, and QUDT.
 
 - [`questions.ttl`](questions.ttl) — RDF/Turtle question–answer annotations.
 
-- [`croissant.jsonld`](croissant.jsonld) — Croissant dataset metadata (JSON-LD).
+- [`README.md`](README.md) — Project documentation.
 
-- [`croissant.ttl`](croissant.ttl) — Croissant dataset metadata (RDF/Turtle).
+- [`croissant.jsonld`](croissant.jsonld) — Croissant dataset metadata (JSON-LD).
 
 - [`LICENSE`](LICENSE) — CC BY 4.0 License.
 
-- [`README.md`](README.md) — Project documentation.
+
 
 
 ## Naming Convention for URIs

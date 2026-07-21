@@ -20,22 +20,34 @@ Design principles
    Precision measures relevance (are retrieved sources actually valid?).
 
 3. Evidence is matched by normalised exact substring — the benchmark
-   stores verbatim quotations and the prompt instructs exact copying,
-   so approximate matching is replaced by strict text containment after
-   unicode and whitespace normalisation.
+   stores verbatim quotations and the prompt instructs exact copying.
+   Because the oa:exact quotes are manually curated by domain experts,
+   a RAG system may retrieve a different sentence from the correct page
+   that equally supports the answer. Evidence Exact should therefore be
+   interpreted as alignment with the expert-selected quotation, not as
+   a binary retrieval pass/fail. Evidence ROUGE-1 F1 is reported as a
+   supplementary softer metric and proposed as the primary evidence
+   measure in future work.
 
-Five scored dimensions
-----------------------
-  1. Document Recall    — fraction of GT documents retrieved
-  2. Document Precision — fraction of retrieved documents that are valid
-  3. Page Recall        — fraction of GT (document, page) pairs retrieved
-  4. Page Precision     — fraction of retrieved pages that are valid
-  5. Evidence Exact     — normalised exact substring match of supporting text
+Five provenance dimensions (weighted → Overall score)
+------------------------------------------------------
+  1. Document Recall    — fraction of GT documents retrieved            (15%)
+  2. Document Precision — fraction of retrieved documents that are valid (10%)
+  3. Page Recall        — fraction of GT (document, page) pairs retrieved(30%)
+  4. Page Precision     — fraction of retrieved pages that are valid     (20%)
+  5. Evidence Exact     — normalised exact substring match of oa:exact   (25%)
 
 Ground truth for all five dimensions comes directly from the TTL:
   prov:hadPrimarySource  → source document   (accepted + suggested)
   oa:FragmentSelector    → page number        (accepted + suggested)
   oa:exact               → verbatim quote     (accepted answer only)
+
+Four supplementary answer quality metrics (informational — not weighted)
+------------------------------------------------------------------------
+  Value Match           — numeric value within 2% tolerance; ROUGE-1 fallback for text
+  Unit Match            — normalised unit string comparison against GT label
+  Uncertainty Provided  — whether the system reported uncertainty when GT requires it
+  Evidence ROUGE-1      — unigram token overlap between retrieved text and oa:exact quote
 
 Usage
 -----
@@ -442,6 +454,121 @@ def score_evidence_exact(gold, pred):
     return safe_div(matched, len(gold_ev))
 
 
+# ─────────────────────────────────────────────────────────────────────────────
+# Answer quality scorers (supplementary — not weighted into Overall)
+# ─────────────────────────────────────────────────────────────────────────────
+
+UNIT_NORM_AQ = {
+    "k":"K","kelvin":"K",
+    "day":"DAY","days":"DAY","d":"DAY",
+    "min":"MIN","minutes":"MIN",
+    "a":"ANGSTROM","å":"ANGSTROM","angstrom":"ANGSTROM",
+    "pm":"PicoM","nm":"NanoM","m":"M",
+    "displacements":"NUM","defects":"NUM",
+    "n/a":"","na":"","%":"PERCENT",
+    "mol m-2 s-1":"MOL-PER-M2-SEC","mol/m2/s":"MOL-PER-M2-SEC",
+}
+
+def _aq_norm_unit(u):
+    return UNIT_NORM_AQ.get((u or "").strip().lower(), (u or "").strip().upper())
+
+def _parse_num(s):
+    m = re.search(r"[-+]?\d+\.?\d*(?:[eE][-+]?\d+)?", str(s).replace(",",""))
+    return float(m.group()) if m else None
+
+def _rouge1_f1(hyp, ref):
+    """ROUGE-1 F1 via unigram token overlap — no external dependencies."""
+    h = set(_normalise_text(hyp).split())
+    r = set(_normalise_text(ref).split())
+    if not r: return 1.0
+    if not h: return 0.0
+    ov = h & r
+    p  = len(ov) / len(h)
+    rc = len(ov) / len(r)
+    return 2 * p * rc / (p + rc) if (p + rc) > 0 else 0.0
+
+def _gt_unit_from_label(label):
+    """Extract trailing unit token from a GT label like '3245 ± 10 K'."""
+    parts = str(label).strip().split()
+    for part in reversed(parts):
+        if not re.match(r'^[\d.±eE+\-]+$', part):
+            return part
+    return ""
+
+def score_value_match(gt_label, pred_val, tol=0.02):
+    """
+    Numeric value match within 2% tolerance.
+    Falls back to ROUGE-1 F1 for non-numeric answers (e.g. technique lists).
+    """
+    pn = _parse_num(str(pred_val or ""))
+    gn = _parse_num(str(gt_label or ""))
+    if pn is None or gn is None:
+        return _rouge1_f1(str(pred_val or ""), str(gt_label or ""))
+    if gn == 0:
+        return 1.0 if abs(pn) <= tol else 0.0
+    return 1.0 if safe_div(abs(pn - gn), abs(gn)) <= tol else 0.0
+
+def score_unit_match_aq(gt_label, pred_unit):
+    """
+    Unit string match between GT label unit and predicted unit.
+    Returns 1.0 when GT has no unit (not required).
+    """
+    gu = _aq_norm_unit(_gt_unit_from_label(str(gt_label or "")))
+    pu = _aq_norm_unit(str(pred_unit or ""))
+    if not gu:
+        return 1.0
+    return 1.0 if pu == gu else 0.0
+
+def score_uncertainty_provided(gt_label, pred_unc):
+    """
+    1.0 if GT has no uncertainty (not required).
+    1.0 if GT has uncertainty AND system filled the uncertainty field.
+    0.0 if GT has uncertainty AND system left the field empty.
+    """
+    has_unc    = "±" in str(gt_label)
+    pred_filled = bool(str(pred_unc or "").strip())
+    if not has_unc:
+        return 1.0
+    return 1.0 if pred_filled else 0.0
+
+def score_evidence_rouge1(gold, raw_pred):
+    """
+    ROUGE-1 F1 between predicted supporting evidence text and the
+    oa:exact verbatim quote in the TTL.
+
+    Softer than Evidence Exact — rewards partial token overlap.
+    Proposed as the primary evidence metric in future work to account
+    for the expected divergence between manually curated quotes and
+    the sentences independently surfaced by the retriever.
+
+    Returns 1.0 if the TTL has no verbatim quote (no penalty).
+    """
+    gold_ev = [e["text"]
+               for e in gold.get("supporting_evidence", [])
+               if e.get("text")]
+    pred_ev = [e.get("text", "") or e.get("verbatim_text", "")
+               for e in (raw_pred.get("supporting_evidence") or [])
+               if e.get("text") or e.get("verbatim_text")]
+    if not gold_ev:
+        return 1.0
+    if not pred_ev:
+        return 0.0
+    per_pred = [max(_rouge1_f1(pt, gt) for gt in gold_ev) for pt in pred_ev]
+    return sum(per_pred) / len(per_pred)
+
+def compute_answer_quality(gt_label, raw_pred):
+    """
+    Compute supplementary answer quality metrics from the raw prediction JSON.
+    These are informational — they do not contribute to the provenance Overall score.
+    """
+    acc = raw_pred.get("accepted_answer", {}) if isinstance(raw_pred, dict) else {}
+    return {
+        "Value Match":          score_value_match(gt_label, acc.get("value", "")),
+        "Unit Match":           score_unit_match_aq(gt_label, acc.get("unit", "")),
+        "Uncertainty Provided": score_uncertainty_provided(gt_label, acc.get("uncertainty", "")),
+    }
+
+
 def compute_scores(gold, pred):
     """Compute all five provenance dimensions and weighted overall."""
     s = {
@@ -470,53 +597,67 @@ def cmd_validate(ttl, answers_path, target_ids, out_path):
     if isinstance(preds_raw, dict):
         preds_raw = [preds_raw]
 
-    pred_map = {}
+    pred_map = {}   # qid → (raw_pred, normalised_pred)
     for p in preds_raw:
         np_ = normalise_pred(p)
         qid = np_.get("question_id")
         if qid:
-            pred_map[qid] = np_
+            pred_map[qid] = (p, np_)
 
     print(f"Predictions parsed  : {len(pred_map)} ({sorted(pred_map.keys())})")
 
+    AQ_KEYS = ["Value Match", "Unit Match", "Uncertainty Provided", "Evidence ROUGE-1"]
+
     rows = []
     for q_id, gold in gt_all.items():
-        pred = pred_map.get(q_id)
+        entry = pred_map.get(q_id)
 
-        if not pred:
+        if not entry:
             sc = {k: 0.0 for k in WEIGHTS}
             sc["Overall"] = 0.0
-            gt_prov = gold["all_provenance"][0] if gold["all_provenance"] else {}
             rows.append({
                 "question_id":    q_id,
                 "question":       gold["question"][:80],
                 "gt_answer":      gold["gt_answer_label"],
                 "pred_answer":    "MISSING",
+                "pred_unit":      "",
+                "pred_unc":       "",
                 "gt_sources":     len(gold["all_provenance"]),
                 "pred_retrieved": 0,
                 "note":           "not_in_output",
                 **{k: "0.000" for k in list(WEIGHTS) + ["Overall"]},
+                **{k: "0.000" for k in AQ_KEYS},
             })
             continue
 
-        sc = compute_scores(gold, pred)
+        raw_pred, pred = entry
+        sc  = compute_scores(gold, pred)
+        aq  = compute_answer_quality(gold["gt_answer_label"], raw_pred)
+        r1  = score_evidence_rouge1(gold, raw_pred)
+        aq["Evidence ROUGE-1"] = r1
+
         acc = pred.get("accepted_answer", {})
         rows.append({
             "question_id":    q_id,
             "question":       gold["question"][:80],
             "gt_answer":      gold["gt_answer_label"],
             "pred_answer":    acc.get("value", ""),
+            "pred_unit":      raw_pred.get("accepted_answer", {}).get("unit", ""),
+            "pred_unc":       raw_pred.get("accepted_answer", {}).get("uncertainty", ""),
             "gt_sources":     len(gold["all_provenance"]),
             "pred_retrieved": len(pred.get("retrieved_documents", [])),
             "note":           "",
             **{k: f"{v:.3f}" for k, v in sc.items()},
+            **{k: f"{v:.3f}" for k, v in aq.items()},
         })
 
     fields = ["question_id", "question", "gt_answer", "pred_answer",
+              "pred_unit", "pred_unc",
               "gt_sources", "pred_retrieved", "note",
               "Document Recall", "Document Precision",
               "Page Recall", "Page Precision",
-              "Evidence Exact", "Overall"]
+              "Evidence Exact", "Overall",
+              "Value Match", "Unit Match", "Uncertainty Provided", "Evidence ROUGE-1"]
 
     with open(out_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=fields, quoting=csv.QUOTE_ALL)
@@ -532,7 +673,7 @@ def _print_metrics(rows):
 
     print()
     print("═" * 72)
-    print("  ProtonQA — Provenance Evaluation ")
+    print("  ProtonQA — Provenance Evaluation")
     print("═" * 72)
     print(f"  {'Dimension':<22} {'Weight':>6}  {'Avg':>6}  Bar")
     print("─" * 72)
@@ -577,6 +718,52 @@ def _print_metrics(rows):
             print(f"    [{r['question_id']}] "
                   f"gt_sources={r['gt_sources']}  "
                   f"pred_retrieved={r['pred_retrieved']}")
+
+    # ── Supplementary: Answer Quality ────────────────────────────────────────
+    AQ_KEYS = ["Value Match", "Unit Match", "Uncertainty Provided", "Evidence ROUGE-1"]
+    if all(k in rows[0] for k in AQ_KEYS) if rows else False:
+        print()
+        print("═" * 72)
+        print("  Supplementary — Answer Quality Metrics (not weighted into Overall)")
+        print("═" * 72)
+        print(f"  {'Dimension':<25}  {'Avg':>6}  Bar")
+        print("─" * 72)
+        for key in AQ_KEYS:
+            vals = [float(r[key]) for r in rows if r.get(key) not in ("", None)]
+            avg  = sum(vals) / len(vals) if vals else 0.0
+            bar  = "█" * int(avg * 20) + "░" * (20 - int(avg * 20))
+            # note = ("  ← proposed future metric" if key == "Evidence ROUGE-1" else "")
+            print(f"  {key:<25}  {avg:>5.3f}  {bar}{note}")
+        print("─" * 72)
+        print()
+        print(f"  {'ID':<6}  {'ValM':>5}  {'UnitM':>5}  {'UncP':>5}  "
+              f"{'R1':>5}  GT answer → Predicted")
+        print("  " + "─" * 72)
+        for r in rows:
+            vm  = float(r.get("Value Match", 0))
+            um  = float(r.get("Unit Match", 0))
+            up  = float(r.get("Uncertainty Provided", 0))
+            r1  = float(r.get("Evidence ROUGE-1", 0))
+            vm_i = "✅" if vm == 1.0 else ("🟡" if vm >= 0.5 else "❌")
+            um_i = "✅" if um == 1.0 else "❌"
+            up_i = "✅" if up == 1.0 else "❌"
+            r1_i = "✅" if r1 >= 0.8 else ("🟡" if r1 >= 0.5 else "❌")
+            pu = r.get("pred_unit","")
+            pp = r.get("pred_unc","")
+            pred_str = r["pred_answer"]
+            if pu: pred_str += f" {pu}"
+            if pp: pred_str += f" ±{pp}"
+            gt_str   = r["gt_answer"][:22]
+            pred_str = pred_str[:22]
+            print(f"  {r['question_id']:<6}  {vm:.2f}{vm_i} {um:.2f}{um_i} "
+                  f"{up:.2f}{up_i} {r1:.2f}{r1_i}  "
+                  f"{gt_str:<22} → {pred_str}")
+        print()
+        print("  Definitions:")
+        print("  ValM   Value Match           — numeric within 2% tolerance (ROUGE-1 fallback for text)")
+        print("  UnitM  Unit Match            — normalised unit string comparison")
+        print("  UncP   Uncertainty Provided  — 1.0 if GT requires uncertainty AND system provided it")
+        print("  R1     Evidence ROUGE-1 F1   — unigram token overlap vs oa:exact quote (no dependencies)")
     print()
 
 
