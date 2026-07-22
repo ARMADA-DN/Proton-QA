@@ -340,6 +340,7 @@ pqa:q2_ann_temperature a oa:Annotation ;
 
 
 
+
 #################################################
 # Q3
 # What is the melting point temperature of Mg:AmO2
@@ -2294,7 +2295,6 @@ pqa:q21_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "~52 bar"@en ;
     qudt:numericValue      "52"^^xsd:decimal ;
     qudt:unit              unit:BAR ;
-    rdfs:comment           "Value is approximate (~) per source text."@en ;
     prov:wasDerivedFrom    pqa:q21_src1 , pqa:q21_src2 ;
     prov:hadPrimarySource  pqa:AR_2004_0 ;
     prov:hadPrimarySource  pqa:AR_2005_0 
@@ -2309,7 +2309,7 @@ pqa:q21_src1 a oa:Annotation ;
         oa:hasSelector [
             a oa:FragmentSelector ;
             dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
-            rdf:value "page=27" ;
+            rdf:value "page=28" ;
             oa:refinedBy [
                 a oa:TextQuoteSelector ;
                 oa:exact "an experiment with 47.5 GWd/t MOX, started in 2002, is still running at the nominal maximum H 2 pressure of ~52 bar."
@@ -2334,6 +2334,10 @@ pqa:q21_src2 a oa:Annotation ;
         ]
     ] .
 
+
+#################################################
+# Entity linking annotations
+#################################################
 pqa:q21_ann_h2 a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     wd:Q3027893 ;
@@ -2346,6 +2350,18 @@ pqa:q21_ann_h2 a oa:Annotation ;
             oa:end   "30"^^xsd:nonNegativeInteger ]
     ] .
 
+pqa:q21_ann_pressure a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q39552 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q21 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "31"^^xsd:nonNegativeInteger ;
+            oa:end   "39"^^xsd:nonNegativeInteger ]
+    ] .
+
 pqa:q21_ann_mox a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     wd:Q898519 ;
@@ -2354,8 +2370,20 @@ pqa:q21_ann_mox a oa:Annotation ;
         oa:hasSource pqa:q21 ;
         oa:hasSelector [
             a oa:TextPositionSelector ;
-            oa:start "60"^^xsd:nonNegativeInteger ;
-            oa:end   "63"^^xsd:nonNegativeInteger ]
+            oa:start "48"^^xsd:nonNegativeInteger ;
+            oa:end   "51"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q21_ann_corrosion a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q137056 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q21 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "57"^^xsd:nonNegativeInteger ;
+            oa:end   "66"^^xsd:nonNegativeInteger ]
     ] .
 
 #################################################
@@ -2386,7 +2414,7 @@ pqa:q22_src1 a oa:Annotation ;
         oa:hasSelector [
             a oa:FragmentSelector ;
             dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
-            rdf:value "page=27" ;
+            rdf:value "page=28" ;
             oa:refinedBy [
                 a oa:TextQuoteSelector ;
                 oa:exact "An average dose rate of 83 Gy/h was dissipated in the 10 -2 M NaCl + 2 10 -3 M HCO3 -aqueous leachant."
@@ -2394,11 +2422,49 @@ pqa:q22_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
+
 # Entity linking annotations
 # unit:GRAY-PER-HR — confirmed as applicable unit for
 #   quantitykind:AbsorbedDoseRate in QUDT
-# wd:Q2668919 — uranium-233, confirmed
-# wd:Q378379  — uranium dioxide (UO2), confirmed (used in existing dataset)
+
+pqa:q22_ann_leachant a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:AqueousLeachant ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q22 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "45"^^xsd:nonNegativeInteger ;
+            oa:end   "61"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q22_ann_wtpct a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q110162802 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q22 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "76"^^xsd:nonNegativeInteger ;
+            oa:end   "79"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q22_ann_percent a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     unit:PERCENT ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q22 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "78"^^xsd:nonNegativeInteger ;
+            oa:end   "79"^^xsd:nonNegativeInteger ]
+    ] .
 
 pqa:q22_ann_u233 a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
@@ -2412,6 +2478,19 @@ pqa:q22_ann_u233 a oa:Annotation ;
             oa:end   "84"^^xsd:nonNegativeInteger ]
     ] .
 
+pqa:q22_ann_doped a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1130571 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q22 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "85"^^xsd:nonNegativeInteger ;
+            oa:end   "90"^^xsd:nonNegativeInteger ]
+    ] .
+
+
 pqa:q22_ann_uo2 a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     wd:Q378379 ;
@@ -2424,8 +2503,17 @@ pqa:q22_ann_uo2 a oa:Annotation ;
             oa:end   "94"^^xsd:nonNegativeInteger ]
     ] .
 
-# NOTE: "leachant" and "absorbed dose rate" have no confirmed
-# standalone Wikidata QIDs found Left unannotated.
+pqa:q22_ann_leaching a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1483184 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q22 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "95"^^xsd:nonNegativeInteger ;
+            oa:end   "103"^^xsd:nonNegativeInteger ]
+    ] .
 
 
 #################################################
@@ -2434,7 +2522,7 @@ pqa:q22_ann_uo2 a oa:Annotation ;
 #################################################
 
 pqa:q23 a qa:Question ;
-    rdfs:label             "WWhat is the maximum internal overpressure of the DSC stainless steel crucible?"@en ;
+    rdfs:label             "What is the maximum internal overpressure of the DSC stainless steel crucible?"@en ;
     schema:suggestedAnswer pqa:q23_a1 ;
     schema:acceptedAnswer  pqa:q23_a1 .
 
@@ -2455,7 +2543,7 @@ pqa:q23_src1 a oa:Annotation ;
         oa:hasSelector [
             a oa:FragmentSelector ;
             dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
-            rdf:value "page=11" ;
+            rdf:value "page=12" ;
             oa:refinedBy [
                 a oa:TextQuoteSelector ;
                 oa:exact "Both parts are enclosed within a stainless steel crucible permitting measurements up to 1250 °C with an internal overpressure of 5 bar."
@@ -2463,18 +2551,57 @@ pqa:q23_src1 a oa:Annotation ;
         ]
     ] .
 
-# Entity linking
-# wd:Q373950  molten salt reactor ✓
-# NOTE: DSC (differential scanning calorimetry) — no confirmed
-# standalone Wikidata QID found. Left unannotated.
+#################################################
+# Entity linking annotations
+#################################################
 
-pqa:q23_ann_msr a oa:Annotation ;
+pqa:q23_ann_overpressure a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
-    oa:hasBody     wd:Q373950 ;
-    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q23 ;
-        oa:hasSelector [ a oa:TextPositionSelector ;
-            # "fluoride salt" — offsets to be verified manually
-            oa:start "69"^^xsd:nonNegativeInteger ; oa:end "82"^^xsd:nonNegativeInteger ] ] .
+    oa:hasBody     wd:Q1663889 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q23 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "29"^^xsd:nonNegativeInteger ;
+            oa:end   "41"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q23_ann_dsc a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q904893 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q23 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "49"^^xsd:nonNegativeInteger ;
+            oa:end   "52"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q23_ann_stainlesssteel a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q172587 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q23 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "53"^^xsd:nonNegativeInteger ;
+            oa:end   "68"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q23_ann_crucible a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q390417 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q23 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "69"^^xsd:nonNegativeInteger ;
+            oa:end   "77"^^xsd:nonNegativeInteger ]
+    ] .
 
 
 #################################################
@@ -2512,16 +2639,15 @@ pqa:q24_src1 a oa:Annotation ;
         ]
     ] .
 
-# Entity linking
-# wd:Q407520  sodium fluoride (NaF)  ✓
-# wd:Q15318   melting point           ✓ (used in existing dataset q1/q2)
+#################################################
+# Entity linking annotations
+#################################################
 
 pqa:q24_ann_naf a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     wd:Q407520 ;
     oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q24 ;
         oa:hasSelector [ a oa:TextPositionSelector ;
-            # "NaF" at offset 35-38
             oa:start "33"^^xsd:nonNegativeInteger ; oa:end "36"^^xsd:nonNegativeInteger ] ] .
 
 pqa:q24_ann_mp a oa:Annotation ;
@@ -2529,7 +2655,6 @@ pqa:q24_ann_mp a oa:Annotation ;
     oa:hasBody     wd:Q15318 ;
     oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q24 ;
         oa:hasSelector [ a oa:TextPositionSelector ;
-            # "melting temperature" at offset 5-23
             oa:start "5"^^xsd:nonNegativeInteger ; oa:end "24"^^xsd:nonNegativeInteger ] ] .
 
 
@@ -2570,8 +2695,57 @@ pqa:q25_src1 a oa:Annotation ;
         ]
     ] .
 
-# NOTE: U(IV) ion and LiF-CaF2 eutectic — no confirmed standalone
-# Wikidata QIDs found. Left unannotated.
+
+#################################################
+# Entity linking annotations
+#################################################
+pqa:q25_ann_diffcoeff a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q604008 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q25 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "33"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q25_ann_uiv a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q7899757 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q25 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "37"^^xsd:nonNegativeInteger ;
+            oa:end   "42"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q25_ann_lifcaf2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:LiFCaF2Eutectic ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q25 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "53"^^xsd:nonNegativeInteger ;
+            oa:end   "61"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q25_ann_unit_celsius a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     unit:DEG_C ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q25 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "80"^^xsd:nonNegativeInteger ;
+            oa:end   "82"^^xsd:nonNegativeInteger ]
+    ] .
 
 
 #################################################
@@ -2590,7 +2764,6 @@ pqa:q26_a1 a qa:Answer, qudt:QuantityValue ;
     qudt:numericValue      "99.7"^^xsd:decimal ;
     qudt:unit              unit:PERCENT ;
     # unit:PERCENT ✓ confirmed in QUDT
-    rdfs:comment           "Purity determined by ICP-MS analysis."@en ;
     prov:wasDerivedFrom    pqa:q26_src1 ;
     prov:hadPrimarySource  pqa:AR_2010_0 .
 
@@ -2603,7 +2776,7 @@ pqa:q26_src1 a oa:Annotation ;
         oa:hasSelector [
             a oa:FragmentSelector ;
             dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
-            rdf:value "page=23" ;
+            rdf:value "page=24" ;
             oa:refinedBy [
                 a oa:TextQuoteSelector ;
                 oa:exact "Chemical analysis made by ICP-MS showed that its purity is 99.7 %."
@@ -2611,16 +2784,34 @@ pqa:q26_src1 a oa:Annotation ;
         ]
     ] .
 
-# Entity linking
-# wd:Q7205708  plutonium-242  ✓
+
+#################################################
+# Entity linking annotations
+#################################################
 
 pqa:q26_ann_pu242 a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     wd:Q7205708 ;
-    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q26 ;
-        oa:hasSelector [ a oa:TextPositionSelector ;
-            # "242Pu" — offsets to be verified manually
-            oa:start "27"^^xsd:nonNegativeInteger ; oa:end "32"^^xsd:nonNegativeInteger ] ] .
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q26 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "23"^^xsd:nonNegativeInteger ;
+            oa:end   "28"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q26_ann_ingot a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q83893 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q26 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "35"^^xsd:nonNegativeInteger ;
+            oa:end   "41"^^xsd:nonNegativeInteger ]
+    ] .
 
 
 #################################################
@@ -2661,12 +2852,60 @@ pqa:q27_src1 a oa:Annotation ;
         ]
     ] .
 
-# NOTE: neptunium (element) — wd:Q1100 is a candidate but not
-# confirmed in this session. Left unannotated.
+#################################################
+# Entity linking annotations
+#################################################
 
+pqa:q27_ann_distillation a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q101017 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q27 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "33"^^xsd:nonNegativeInteger ;
+            oa:end   "45"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q27_ann_anhgx a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:AnHgxAmalgam ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q27 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "58"^^xsd:nonNegativeInteger ;
+            oa:end   "63"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q27_ann_amalgam a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q182574 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q27 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "64"^^xsd:nonNegativeInteger ;
+            oa:end   "71"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q27_ann_np a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1105 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q27 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "93"^^xsd:nonNegativeInteger ;
+            oa:end   "95"^^xsd:nonNegativeInteger ]
+    ] .
 
 #################################################
-# q28  [AR_2009_0 · p.36 · Alternative Nuclear Fuel Cycle]
+# q28 
 # At what temperature was the direct
 # electroreduction of irradiated commercial
 # MOX fuel carried out in the LiCl-1wt%Li2O
@@ -2682,7 +2921,6 @@ pqa:q28_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "923 K"@en ;
     qudt:numericValue      "923"^^xsd:decimal ;
     qudt:unit              unit:K ;
-    rdfs:comment           "MOX fuel had burn-up of 44 GWd/tHM and Pu content of 3.6 wt%. Three runs with ~5 g fuel per batch."@en ;
     prov:wasDerivedFrom    pqa:q28_src1 ;
     prov:hadPrimarySource  pqa:AR_2009_0 .
 
@@ -2703,43 +2941,75 @@ pqa:q28_src1 a oa:Annotation ;
         ]
     ] .
 
-# Entity linking
-# wd:Q898519  MOX fuel  ✓ confirmed
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q28_ann_electroreduction a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:Electroreduction ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q28 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "35"^^xsd:nonNegativeInteger ;
+            oa:end   "51"^^xsd:nonNegativeInteger ]
+    ] .
 
 pqa:q28_ann_mox a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     wd:Q898519 ;
-    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q28 ;
-        oa:hasSelector [ a oa:TextPositionSelector ;
-            # "MOX" — offsets to be verified manually
-            oa:start "52"^^xsd:nonNegativeInteger ;
-            oa:end   "55"^^xsd:nonNegativeInteger ] ] .
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q28 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "66"^^xsd:nonNegativeInteger ;
+            oa:end   "69"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q28_ann_licl a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q422930 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q28 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "94"^^xsd:nonNegativeInteger ;
+            oa:end   "98"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q28_ann_li2o a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q385662 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q28 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "103"^^xsd:nonNegativeInteger ;
+            oa:end   "107"^^xsd:nonNegativeInteger ]
+    ] .
 
 
-##############################################################
-# AR_2008_0  ·  10 questions  ·  q29–q36
-# Type distribution: T1×2  T2×2  T3×2  T4×1  T6×1  T7×2
-##############################################################
-
-
-## ── T1  Dimensionless ────────────────────────────────────
 
 #################################################
-# q29  [T1 · AR_2008_0 · p.35 · LWR DEPUTY]
-# How many LWR DEPUTY fuel pins were completed
-# and transported to Mol for irradiation in
+# q29 
+# How many fuel pins were transported for irradiation in
 # the BR2 reactor?
 #################################################
 
 pqa:q29 a qa:Question ;
-    rdfs:label "How many LWR DEPUTY fuel pins were completed and transported to Mol for irradiation in the BR2 reactor?"@en ;
+    rdfs:label "How many fuel pins were transported for irradiation in the BR2 reactor?"@en ;
     schema:suggestedAnswer pqa:q29_a1 ;
     schema:acceptedAnswer  pqa:q29_a1 .
 
-pqa:q29_a1 a qa:Answer ;
+pqa:q29_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "8"@en ;
     qudt:numericValue      "8"^^xsd:integer ;
-    rdfs:comment           "Dimensionless count (integer). No QUDT unit applies. Pins contain micro- and macro-dispersed PuO2 in a stainless steel CERMET matrix."@en ;
+    qudt:unit              unit:NUM ;
     prov:wasDerivedFrom    pqa:q29_src1 ;
     prov:hadPrimarySource  pqa:AR_2008_0 .
 
@@ -2760,25 +3030,60 @@ pqa:q29_src1 a oa:Annotation ;
         ]
     ] .
 
-# NOTE: LWR DEPUTY, CERMET, BR2 — no confirmed standalone Wikidata
-# QIDs found in this session. Left unannotated.
+#################################################
+# Entity linking annotations
+#################################################
+pqa:q29_ann_fuelpins a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q11569230 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q29 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "9"^^xsd:nonNegativeInteger ;
+            oa:end   "18"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q29_ann_irradiation a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q2737837 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q29 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "40"^^xsd:nonNegativeInteger ;
+            oa:end   "51"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q29_ann_br2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q4781389 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q29 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "59"^^xsd:nonNegativeInteger ;
+            oa:end   "70"^^xsd:nonNegativeInteger ]
+    ] .
 
 
 #################################################
-# q30  [T1 · AR_2008_0 · p.29 · Compressibility of Cf]
-# How many crystallographic phases co-exist in
-# californium metal at pressures up to 35 GPa?
+# q30 
+# HHow many crystallographic phases of californium metal coexist at pressures up to 35 GPa?
 #################################################
 
 pqa:q30 a qa:Question ;
-    rdfs:label "How many crystallographic phases co-exist in californium metal at pressures up to 35 GPa?"@en ;
+    rdfs:label "How many crystallographic phases of californium metal coexist at pressures up to 35 GPa??"@en ;
     schema:suggestedAnswer pqa:q30_a1 ;
     schema:acceptedAnswer  pqa:q30_a1 .
 
-pqa:q30_a1 a qa:Answer ;
+pqa:q30_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "2"@en ;
     qudt:numericValue      "2"^^xsd:integer ;
-    rdfs:comment           "Dimensionless count. The two phases are Cf I (space group P63/mmc, dhcp) and Cf II (space group Fm3m, fcc). Above 16 GPa the Cf II fcc phase becomes pure."@en ;
+    qudt:unit              unit:NUM ;
     prov:wasDerivedFrom    pqa:q30_src1 ;
     prov:hadPrimarySource  pqa:AR_2008_0 .
 
@@ -2791,28 +3096,61 @@ pqa:q30_src1 a oa:Annotation ;
         oa:hasSelector [
             a oa:FragmentSelector ;
             dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
-            rdf:value "page=29" ;
+            rdf:value "page=30" ;
             oa:refinedBy [
                 a oa:TextQuoteSelector ;
-                oa:exact "up to 35 GPa a mixture of 2 phases co-exist, namely Cf I (space group, P63/mmc ) and Cf II (space group, Fm3m )."
+                oa:exact "The experiments which were performed in collaboration with Oak Ridge National Laboratory (ORNL) have shown that up to 35 GPa a mixture of 2 phases co-exist, namely Cf I (space group, P63/mmc ) and Cf II (space group, Fm3m ). "
             ]
         ]
     ] .
+#################################################
+# Entity linking annotations
+#################################################
+pqa:q30_ann_phases a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q907364 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q30 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "9"^^xsd:nonNegativeInteger ;
+            oa:end   "32"^^xsd:nonNegativeInteger ]
+    ] .
 
-# NOTE: californium element — wd:Q1058 is the element.
-# Confirmed QID not verified in this session. Left unannotated.
+pqa:q30_ann_californium a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q1888 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q30 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "36"^^xsd:nonNegativeInteger ;
+            oa:end   "47"^^xsd:nonNegativeInteger ]
+    ] .
 
+pqa:q30_ann_unit_gpa a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     unit:GigaPA ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q30 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "84"^^xsd:nonNegativeInteger ;
+            oa:end   "87"^^xsd:nonNegativeInteger ]
+    ] .
 
-## ── T2  Scalar + unit ────────────────────────────────────
 
 #################################################
 # q31 
 # What is the superconducting transition
-# temperature Tc of NpPd5Al2?
+# temperature of NpPd5Al2?
 #################################################
 
 pqa:q31 a qa:Question ;
-    rdfs:label "What is the superconducting transition temperature Tc of NpPd5Al2?"@en ;
+    rdfs:label "What is the superconducting transition temperature of NpPd5Al2?"@en ;
     schema:suggestedAnswer pqa:q31_a1 ;
     schema:acceptedAnswer  pqa:q31_a1 .
 
@@ -2820,8 +3158,6 @@ pqa:q31_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "~5 K"@en ;
     qudt:numericValue      "5"^^xsd:decimal ;
     qudt:unit              unit:K ;
-    # unit:K ✓ confirmed in QUDT
-    rdfs:comment           "Approximate value (~) per source. NpPd5Al2 is the first neptunium-based superconductor reported."@en ;
     prov:wasDerivedFrom    pqa:q31_src1 ;
     prov:hadPrimarySource  pqa:AR_2008_0 .
 
@@ -2842,17 +3178,54 @@ pqa:q31_src1 a oa:Annotation ;
         ]
     ] .
 
-# NOTE: NpPd5Al2 — no confirmed standalone Wikidata QID found.
-# Left unannotated.
+#################################################
+# Entity linking annotations
+#################################################
+
+pqa:q31_ann_superconducting a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q124131 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q31 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "12"^^xsd:nonNegativeInteger ;
+            oa:end   "27"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q31_ann_transitiontemp a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q106103037 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q31 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "28"^^xsd:nonNegativeInteger ;
+            oa:end   "50"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q31_ann_nppd5al2 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     pqa:NpPd5Al2 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q31 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "54"^^xsd:nonNegativeInteger ;
+            oa:end   "62"^^xsd:nonNegativeInteger ]
+    ] .
 
 
 #################################################
 # q32  
-# What was the maximum 230U/226Th yield achievable in a single production run at JRC cyclotron?
+# What was the maximum 230U/226Th yield achievable in a single production run at the cyclotron?
 #################################################
 
 pqa:q32 a qa:Question ;
-    rdfs:label "What was the maximum 230U/226Th yield achievable in a single production run at JRC cyclotron?"@en ;
+    rdfs:label "What was the maximum 230U/226Th yield achievable in a single production run at the cyclotron?"@en ;
     schema:suggestedAnswer pqa:q32_a1 ;
     schema:acceptedAnswer  pqa:q32_a1 .
 
@@ -2860,8 +3233,6 @@ pqa:q32_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "52 MBq"@en ;
     qudt:numericValue      "52"^^xsd:decimal ;
     qudt:unit              unit:MegaBQ ;
-    # unit:MegaBQ ✓ confirmed in QUDT (full RDF verified)
-    rdfs:comment           "Production via 232Th(p,3n)230Pa(β-)230U reaction. MBq scale achieved after optimisation of beam focusing and target cooling."@en ;
     prov:wasDerivedFrom    pqa:q32_src1 ;
     prov:hadPrimarySource  pqa:AR_2008_0 .
 
@@ -2874,43 +3245,68 @@ pqa:q32_src1 a oa:Annotation ;
         oa:hasSelector [
             a oa:FragmentSelector ;
             dct:conformsTo <http://tools.ietf.org/rfc/rfc5147> ;
-            rdf:value "page=20" ;
+            rdf:value "page=21" ;
             oa:refinedBy [
                 a oa:TextQuoteSelector ;
-                oa:exact "yields of up to 52 MBq 230 U/ 226 Th could be obtained in a single production run."
+                oa:exact "Several production runs were performed and yields of up to 52 MBq 230 U/ 226 Th could be obtained in a single production run. "
             ]
         ]
     ] .
 
-# Entity linking
-# wd:Q18845539  uranium-230 (230U)  ✓ confirmed
 
+#################################################
+# Entity linking annotations
+#################################################
 pqa:q32_ann_u230 a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     wd:Q18845539 ;
-    oa:hasTarget [ a oa:SpecificResource ; oa:hasSource pqa:q32 ;
-        oa:hasSelector [ a oa:TextPositionSelector ;
-            # "230U" — offsets to be verified manually
-            oa:start "34"^^xsd:nonNegativeInteger ;
-            oa:end   "38"^^xsd:nonNegativeInteger ] ] .
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q32 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "21"^^xsd:nonNegativeInteger ;
+            oa:end   "25"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q32_ann_th226 a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q18844322 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q32 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "26"^^xsd:nonNegativeInteger ;
+            oa:end   "31"^^xsd:nonNegativeInteger ]
+    ] .
+
+pqa:q32_ann_cyclotron a oa:Annotation ;
+    oa:motivatedBy oa:identifying ;
+    oa:hasBody     wd:Q204469 ;
+    oa:hasTarget [
+        a oa:SpecificResource ;
+        oa:hasSource pqa:q32 ;
+        oa:hasSelector [
+            a oa:TextPositionSelector ;
+            oa:start "83"^^xsd:nonNegativeInteger ;
+            oa:end   "92"^^xsd:nonNegativeInteger ]
+    ] .
 
 
-## ── T3  Value ± unc. + unit ──────────────────────────────
 
 #################################################
-# q33  [T3 · AR_2008_0 · p.30 · Compressibility of Cf]
-# What is the bulk modulus B0 of californium
-# metal determined by fitting the
-# Birch-Murnaghan equation of state?
+# q33 
+# What is the bulk modulus of californium metal?
 #################################################
 
 pqa:q33 a qa:Question ;
-    rdfs:label "What is the bulk modulus B0 of californium metal from the Birch-Murnaghan equation of state fit?"@en ;
+    rdfs:label "What is the bulk modulus of californium metal?"@en ;
     schema:suggestedAnswer pqa:q33_a1 ;
     schema:acceptedAnswer  pqa:q33_a1 .
 
 pqa:q33_a1 a qa:Answer, qudt:QuantityValue ;
-    rdfs:label             "36.2 ± 0.3 GPa"@en ;
+    rdfs:label             "36.2 GPa"@en ;
     qudt:numericValue      "36.2"^^xsd:decimal ;
     qudt:standardUncertainty "0.3"^^xsd:decimal ;
     qudt:unit              unit:GigaPA ;
@@ -2937,8 +3333,11 @@ pqa:q33_src1 a oa:Annotation ;
         ]
     ] .
 
-# NOTE: californium element — Wikidata QID not confirmed this session.
-# Left unannotated.
+
+#################################################
+# Entity linking annotations
+#################################################
+
 
 
 #################################################
@@ -2981,6 +3380,10 @@ pqa:q34_src1 a oa:Annotation ;
             ]
         ]
     ] .
+
+#################################################
+# Entity linking annotations
+#################################################
 
 # Entity linking
 # wd:Q18845514  protactinium-231 (231Pa)  ✓ confirmed
@@ -3041,6 +3444,10 @@ pqa:q35_src1 a oa:Annotation ;
         ]
     ] .
 
+
+#################################################
+# Entity linking annotations
+#################################################
 # Entity linking
 # NOTE: Np2O3 (neptunium sesquioxide) — no confirmed Wikidata QID.
 # Left unannotated.
@@ -3083,6 +3490,9 @@ pqa:q36_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
 # Entity linking
 # wd:Q1872  americium  ✓ confirmed
 # wd:Q880   plutonium  ✓ (Cm/Am recovered; Am annotated here)
@@ -3139,6 +3549,9 @@ pqa:q37_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
 # Entity linking
 # wd:Q413258  plutonium dioxide (PuO2)  ✓ confirmed
 
@@ -3187,7 +3600,9 @@ pqa:q38_src1 a oa:Annotation ;
             ]
         ]
     ] .
-
+#################################################
+# Entity linking annotations
+#################################################
 # Entity linking
 # wd:Q378379  uranium dioxide (UO2)  ✓ confirmed
 
@@ -3240,7 +3655,9 @@ pqa:q39_src1 a oa:Annotation ;
             ]
         ]
     ] .
-
+#################################################
+# Entity linking annotations
+#################################################
 # Entity linking
 # wd:Q413258  plutonium dioxide (PuO2)  ✓ confirmed
 
@@ -3290,6 +3707,9 @@ pqa:q40_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
 # NOTE: NpCoGa5 — no confirmed standalone Wikidata QID.
 # Left unannotated.
 
@@ -3338,6 +3758,10 @@ pqa:q41_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
+
 # NOTE: 232Th target nuclide — wd:Q14755481 is thorium-230, not
 # thorium-232. Thorium-232 QID not confirmed this session.
 # Left unannotated.
@@ -3381,6 +3805,9 @@ pqa:q42_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
 # Entity linking — both QIDs are well-known IUPAC elements.
 # wd:Q1006  xenon   (element 54) — highly confident
 # wd:Q888   krypton (element 36) — highly confident
@@ -3425,6 +3852,10 @@ pqa:q43_src1 a oa:Annotation ;
             ]
         ]
     ] .
+
+#################################################
+# Entity linking annotations
+#################################################
 
 # NOTE: q43 and q39 share the same source sentence; q39 extracts the
 # temperature value (T2), q43 extracts the boolean outcome (T7).
@@ -3479,6 +3910,10 @@ pqa:q44_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
+
 # Entity linking
 # wd:Q880  plutonium (element)  ✓ confirmed
 
@@ -3492,11 +3927,10 @@ pqa:q44_ann_pu a oa:Annotation ;
             oa:end   "12"^^xsd:nonNegativeInteger ] ] .
 
 
-##############################################################
-# AR_2007_0  ·  10 questions  ·  q45–q50
-# Type distribution: T1×2  T2×2  T3×2  T4×1  T6×1  T7×2
-##############################################################
 
+#################################################
+# Entity linking annotations
+#################################################
 
 
 #################################################
@@ -3536,12 +3970,16 @@ pqa:q45_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
+
 # NOTE: NpNiSi2 — no confirmed standalone Wikidata QID.
 # Left unannotated.
 
 
 #################################################
-# q46  [T2 · AR_2007_0 · p.39 · NWD / He solubility in UO2]
+# q46 
 # At what temperature was helium infused into
 # the stoichiometric UO2 single crystal to
 # measure He solubility?
@@ -3577,6 +4015,10 @@ pqa:q46_src1 a oa:Annotation ;
             ]
         ]
     ] .
+
+#################################################
+# Entity linking annotations
+#################################################
 
 # Entity linking
 # wd:Q378379  uranium dioxide (UO2)  ✓ confirmed
@@ -3631,6 +4073,10 @@ pqa:q47_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
+
 # NOTE: q47 and q41 share the same source sentence; q41 extracts the
 # cross section (353 ± 14.5 mb), q47 extracts the peak proton energy.
 
@@ -3675,11 +4121,13 @@ pqa:q48_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
 
-## ── T7  Yes/No ───────────────────────────────────────────
 
 #################################################
-# q49  [T7 · AR_2007_0 · p.14 · ANFC / Am–Nd electrorefining]
+# q49 
 # Did the two-stage Am/Nd electrorefining
 # process successfully reduce the Am content in
 # the LiCl-KCl salt from 186 mg to below 12 mg?
@@ -3714,6 +4162,9 @@ pqa:q49_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
 # Entity linking
 # wd:Q1872  americium  ✓ confirmed
 
@@ -3763,6 +4214,9 @@ pqa:q50_src1 a oa:Annotation ;
         ]
     ] .
 
+#################################################
+# Entity linking annotations
+#################################################
 # NOTE: q50 and q97 share the same source sentence; q97 extracts
 # the numeric energy range (T4), q50 extracts the boolean character
 # (repulsive vs attractive) as a yes/no answer (T7).
