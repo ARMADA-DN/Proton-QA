@@ -1,3 +1,204 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d5faa74960cb5c936631823b82c58c4f5cfb5ebb3628ed3a76b59b06b7435bec
-size 6005
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix wd:   <http://www.wikidata.org/entity/> .
+@prefix eurovoc: <http://eurovoc.europa.eu/> .
+@prefix pqa: <https://w3id.org/proton-qa/resource#> .
+
+# -------------------------------------------------------
+# Custom Concept Scheme
+# -------------------------------------------------------
+
+pqa:ProtonQAVocabulary a skos:ConceptScheme ;
+    rdfs:label      "PROTON-QA Concept Extension Vocabulary"@en ;
+    dct:description "Concept extensions where no external entity exists in EuroVoc or Wikidata"@en ;
+    dct:created     "2026"^^xsd:gYear .
+
+# -------------------------------------------------------
+# Q3 - Magnesium Americium Oxide (Mg:AmO2)
+# -------------------------------------------------------
+
+pqa:MgAmO2 a skos:Concept ;
+    skos:prefLabel  "Magnesium Americium Oxide"@en ;
+    skos:altLabel   "Mg:AmO2"@en ;
+    skos:definition "Americium Oxide, used in nuclear fuel research as a surrogate or doped fuel matrix."@en ;
+    skos:scopeNote  "Studied in the context of melting point measurements of actinide-doped oxide fuels."@en ;
+    skos:relatedMatch wd:Q214769 ;   # magnesium oxide (MgO) - matrix component
+    skos:relatedMatch wd:Q425412 ;   # americium dioxide (AmO2) - actinide component
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q5, Q6 - Lattice Parameter
+# -------------------------------------------------------
+
+pqa:LatticeParameter a skos:Concept ;
+    skos:prefLabel  "Lattice parameter"@en ;
+    skos:altLabel   "Lattice constant"@en ;
+    skos:definition "Physical dimensions of unit cells in a crystal lattice."@en ;
+    skos:scopeNote  "Used in crystallography and materials science to describe unit cell geometry of solids, including nuclear materials and fuel matrices."@en ;
+    skos:exactMatch wd:Q625641 ; # lattice constant 
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q7 - Dissolution Rate
+# -------------------------------------------------------
+
+pqa:DissolutionRate a skos:Concept ;
+    skos:prefLabel  "Dissolution rate"@en ;
+    skos:definition "The rate at which a solid substance dissolves in a liquid, typically expressed in mol/m²/s."@en ;
+    skos:scopeNote  "Used in the context of spent nuclear fuel dissolution in groundwater or aqueous media."@en ;
+    skos:closeMatch wd:Q3133701 ; # dissolution (general process)
+    skos:relatedMatch wd:Q1144560 ; # rate 
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+
+# -------------------------------------------------------
+# Q10 - PNCC
+# -------------------------------------------------------
+
+pqa:PNCC a skos:Concept ;
+    skos:prefLabel  "Passive Neutron Coincidence Counting"@en ;
+    skos:altLabel   "PNCC"@en ;
+    skos:definition "Non-destructive assay technique measuring correlated neutron pairs from spontaneous fission for nuclear material accountancy."@en ;
+    skos:scopeNote  "One of the most promising radiometric techniques for measurement of minor actinides in nuclear safeguard applications."@en ;
+    skos:narrowMatch wd:Q60552688 ; #Probabilistic non-destructive assay of radioactive waste 
+    skos:relatedMatch eurovoc:347 ; # radioactive waste (altLabel: nuclear waste) - the material class PNCC assays
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q10 - HRGS
+# -------------------------------------------------------
+
+pqa:HRGS a skos:Concept ;
+    skos:prefLabel  "High Resolution Gamma Spectrometry"@en ;
+    skos:altLabel   "HRGS"@en ;
+    skos:definition "Gamma-ray spectrometry technique with high energy resolution for isotopic identification and quantification of radionuclides."@en ;
+    skos:scopeNote  "One of the most promising radiometric techniques for measurement of minor actinides in nuclear safeguard applications."@en ;
+    skos:closeMatch wd:Q906816 ; # gamma spectroscopy (general technique)
+    skos:relatedMatch eurovoc:5301 ; # spectrometry (altLabel: atomic spectrometry) - the broader analytical technique family
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q16 - Actinide 115 Family
+# -------------------------------------------------------
+
+pqa:ActinideCe115Family a skos:Concept ;
+    skos:prefLabel  "Actinide 115 family"@en ;
+    skos:altLabel   "115 family"@en ;
+    skos:definition "AnTX₅ crystal structure actinide compounds (e.g. PuCoGa₅), a class of heavy-fermion superconductors."@en ;
+    skos:scopeNote  "Studied in the context of plutonium isotope suitability for superconductivity research."@en ;
+    skos:relatedMatch eurovoc:3691 ; # superconducting alloy - broader materials-science category
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q11 - Irradiated Fuel
+# -------------------------------------------------------
+
+pqa:IrradiatedFuel a skos:Concept ;
+    skos:prefLabel  "Irradiated fuel"@en ;
+    skos:altLabel   "Spent nuclear fuel"@en ;
+    skos:definition "Nuclear fuel that has been used in a reactor and contains fission products, actinides, and activation products."@en ;
+    skos:scopeNote  "Used in the context of helium release measurements during Knudsen cell experiments."@en ;
+    skos:closeMatch wd:Q1863171 ; # spent nuclear fuel
+    skos:exactMatch eurovoc:3792 ; # irradiated fuel - identical EuroVoc term, same concept
+    skos:broadMatch eurovoc:6047 ; # nuclear fuel - EuroVoc's own broader term for "irradiated fuel"
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q12, Q13 - DIAMEX Process
+# -------------------------------------------------------
+
+pqa:DIAMEX a skos:Concept ;
+    skos:prefLabel  "DIAMEX process"@en ;
+    skos:altLabel   "DIAMide EXtraction"@en ;
+    skos:definition "Solvent extraction process using malonamide extractants for the separation of minor actinides (Am, Cm) from lanthanides in highly active liquid waste."@en ;
+    skos:scopeNote  "Applied in nuclear reprocessing as a complementary process to PUREX, operating on the PUREX raffinate."@en ;
+    skos:broader    wd:Q386477 ; #PUREX
+    skos:relatedMatch eurovoc:3631 ; # fuel reprocessing - the industrial process class DIAMEX belongs to
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q22 - Aqueous Leachant
+# -------------------------------------------------------
+
+pqa:AqueousLeachant a skos:Concept ;
+    skos:prefLabel  "Aqueous leachant"@en ;
+    skos:altLabel   "Leaching solution"@en ;
+    skos:definition "A liquid solution used to extract metals or other substances from a solid matrix through dissolution."@en ;
+    skos:scopeNote  "Used in the context of nuclear waste treatment and remediation processes."@en ;
+    skos:relatedMatch wd:Q3595231 ; # leaching (metallurgy) - the process this reagent performs
+    skos:relatedMatch wd:Q906356 ; # aqueous solution - the general medium class it belongs to
+    skos:closeMatch eurovoc:4211 ; # solvent - an aqueous leachant is functionally a solvent used for extraction
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q25 - LiF-CaF2
+# -------------------------------------------------------
+
+pqa:LiFCaF2 a skos:Concept ;
+    skos:prefLabel  "Lithium Calcium Fluoride"@en ;
+    skos:altLabel   "LiF-CaF2"@en ;
+    skos:definition "A eutectic mixture of lithium fluoride and calcium fluoride, used as a flux in metallurgical processes."@en ;
+    skos:scopeNote  "Studied in the context of nuclear fuel fabrication and processing."@en ;
+    skos:relatedMatch wd:Q409319 ; # lithium fluoride (LiF) - corrected; previous entry duplicated the CaF2 QID here in error
+    skos:relatedMatch wd:Q413374 ; # calcium fluoride (CaF2)
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q27 - AnHgx
+# -------------------------------------------------------
+
+pqa:AnHgx a skos:Concept ;
+    skos:prefLabel  "AnHgx amalgam"@en ;
+    skos:altLabel   "AnHgx"@en ;
+    skos:definition "A generic actinide-mercury amalgam, where 'An' denotes an actinide element (e.g. Np, Pu, Am) alloyed with mercury in variable stoichiometry."@en ;
+    # Corrected: previous definition incorrectly described this as an antimony-mercury alloy;
+    # "An" here is the standard actinide-series placeholder, not the element symbol Sb.
+    skos:scopeNote  "Used in the context of nuclear fuel processing and waste management."@en ;
+    skos:broadMatch wd:Q19577 ; # actinide - the element family "An" ranges over (cross-scheme mapping, not intra-scheme hierarchy)
+    skos:relatedMatch wd:Q182574 ; # amalgam - the general alloy class this is a subtype of
+    skos:relatedMatch eurovoc:1340 ; # alloy (altLabels: brass, bronze) - amalgam is a mercury-based alloy
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q28 - Electroreduction
+# -------------------------------------------------------
+
+pqa:Electroreduction a skos:Concept ;
+    skos:prefLabel  "Electroreduction"@en ;
+    skos:altLabel   "Electrolytic reduction"@en ;
+    skos:definition "A process where an electric current is used to reduce metal ions in solution to metallic elements."@en ;
+    skos:scopeNote  "Applied in the context of nuclear fuel reprocessing and waste management."@en ;
+    skos:broadMatch wd:Q64403 ; # electrolysis - the parent process this is a specific case of
+    skos:closeMatch eurovoc:708 ; # electrometallurgy - electroreduction is a specific electrometallurgical technique
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q31 - NpPd5Al2
+# -------------------------------------------------------
+
+pqa:NpPd5Al2 a skos:Concept ;
+    skos:prefLabel  "NpPd5Al2"@en ;
+    skos:altLabel   "Neptunium Palladium Aluminum Compound"@en ;
+    skos:definition "A ternary neptunium-palladium-aluminum intermetallic compound (formula NpPd5Al2), the first reported neptunium-based superconductor."@en ;
+    skos:scopeNote  "Investigated for its potential use in nuclear applications."@en ;
+    skos:broadMatch wd:Q1105 ; # neptunium - the actinide element in the formula
+    skos:relatedMatch wd:Q124131 ; # superconductivity - the property this compound was studied for
+    skos:relatedMatch eurovoc:3691 ; # superconducting alloy - the EuroVoc materials-science category this belongs to
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
+# -------------------------------------------------------
+# Q35 - Neptunium(III) oxide
+# -------------------------------------------------------
+
+pqa:Np2O3 a skos:Concept ;
+    skos:prefLabel  "Neptunium(III) oxide"@en ;
+    skos:altLabel   "Np2O3"@en ;
+    skos:definition "A lower oxide of neptunium reported to be stable only as a surface phase, rather than as a bulk phase, during oxidation of neptunium metal."@en ;
+    skos:scopeNote  "Studied in the context of neptunium metal oxidation-phase stability."@en ;
+    skos:broadMatch wd:Q1105 ; # neptunium - the parent element
+    skos:relatedMatch wd:Q414832 ; # neptunium(IV) oxide (NpO2) - the adjacent, well-characterized oxide in the same family
+    skos:inScheme   pqa:ProtonQAVocabulary .
+
