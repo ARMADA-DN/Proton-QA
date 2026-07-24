@@ -765,7 +765,9 @@ pqa:q8_a2 a qa:Answer, qudt:QuantityValue ;
     qudt:numericValue     "46"^^xsd:decimal ;
     qudt:unit             unit:MIN ;
     prov:wasDerivedFrom pqa:q8_src2, pqa:q8_src4, pqa:q8_src5 ;
-    prov:hadPrimarySource pqa:AR_2002_0 .
+    prov:hadPrimarySource pqa:AR_2002_0 ;
+    prov:hadPrimarySource pqa:AR_2006_0 ;
+    prov:hadPrimarySource pqa:AR_2005_0 .
 
 #################################################
 # Provenance annotations
@@ -921,7 +923,8 @@ pqa:q9_a1 a qa:Answer, qudt:QuantityValue ;
     qudt:numericValue     "20.8"^^xsd:decimal ;
     qudt:unit             unit:DAY ;
     prov:wasDerivedFrom pqa:q9_src1, pqa:q9_src2 ;
-    prov:hadPrimarySource pqa:AR_2007_0 .
+    prov:hadPrimarySource pqa:AR_2007_0 ;
+    prov:hadPrimarySource pqa:AR_2009_0 .
 
 #################################################
 # Alternative suggested answer
@@ -1045,7 +1048,7 @@ pqa:q10_a1 a qa:Answer, schema:ItemList ;
     rdfs:label            "XRF, PNCC, HRGS"@en ;
     schema:itemListOrder  schema:ItemListUnordered ;
     schema:itemListElement pqa:XRF, pqa:PNCC, pqa:HRGS ;
-    rdfs:comment          "Complete enumeration; all three techniques required for full answer"@en ;
+    prov:wasDerivedFrom   pqa:q10_src1 ;
     prov:hadPrimarySource pqa:AR_2002_0 .
 
 
@@ -1536,7 +1539,8 @@ pqa:q14 a qa:Question ;
 pqa:q14_a1 a qa:Answer, schema:Thing ;
     rdfs:label            "Thorium-229"@en ;
     prov:wasDerivedFrom pqa:q14_src1, pqa:q14_src2, pqa:q14_src3 ;
-    prov:hadPrimarySource pqa:AR_2005_0 .
+    prov:hadPrimarySource pqa:AR_2005_0 ;
+    prov:hadPrimarySource pqa:AR_2002_0 .
 
 #################################################
 # Provenance annotations
@@ -1663,7 +1667,8 @@ pqa:q15_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label            "20"@en ;
     qudt:numericValue     "20"^^xsd:decimal ;
     prov:wasDerivedFrom pqa:q15_src1, pqa:q15_src2 ;
-    prov:hadPrimarySource pqa:AR_2006_0 .
+    prov:hadPrimarySource pqa:AR_2006_0 ;
+    prov:hadPrimarySource pqa:AR_2005_0 .
 
 #################################################
 # Provenance annotations
@@ -2040,7 +2045,10 @@ pqa:q19_a1 a qa:Answer, schema:Boolean ;
     rdfs:label            "Yes"@en ;
     rdf:value             "true"^^xsd:boolean ;
     prov:wasDerivedFrom pqa:q19_src1, pqa:q19_src5, pqa:q19_src2, pqa:q19_src3, pqa:q19_src4 ;
-    prov:hadPrimarySource pqa:AR_2005_0 .
+    prov:hadPrimarySource pqa:AR_2005_0 ;
+    prov:hadPrimarySource pqa:AR_2010_0 ;
+    prov:hadPrimarySource pqa:AR_2000_0 ;
+    prov:hadPrimarySource pqa:AR_2002_0 .
 
 #################################################
 # Provenance annotations
@@ -2276,8 +2284,7 @@ pqa:q21_a1 a qa:Answer, qudt:QuantityValue ;
     qudt:unit              unit:BAR ;
     prov:wasDerivedFrom    pqa:q21_src1 , pqa:q21_src2 ;
     prov:hadPrimarySource  pqa:AR_2004_0 ;
-    prov:hadPrimarySource  pqa:AR_2005_0 
-    .
+    prov:hadPrimarySource  pqa:AR_2005_0 .
 
 pqa:q21_src1 a oa:Annotation ;
     oa:motivatedBy oa:highlighting ;
@@ -4389,7 +4396,8 @@ pqa:q44_a1 a qa:Answer, schema:Boolean ;
     rdfs:label             "Yes"@en ;
     rdf:value              "true"^^xsd:boolean ;
     prov:wasDerivedFrom    pqa:q44_src1, pqa:q44_src2 ;
-    prov:hadPrimarySource  pqa:AR_2007_0 .
+    prov:hadPrimarySource  pqa:AR_2007_0 ;
+    prov:hadPrimarySource  pqa:AR_2009_0 .
 
 pqa:q44_src1 a oa:Annotation ;
     oa:motivatedBy oa:highlighting ;
