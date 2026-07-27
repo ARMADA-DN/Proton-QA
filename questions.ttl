@@ -2412,10 +2412,6 @@ pqa:q22_src1 a oa:Annotation ;
 # Entity linking annotations
 #################################################
 
-# Entity linking annotations
-# unit:GRAY-PER-HR — confirmed as applicable unit for
-#   quantitykind:AbsorbedDoseRate in QUDT
-
 pqa:q22_ann_leachant a oa:Annotation ;
     oa:motivatedBy oa:identifying ;
     oa:hasBody     pqa:AqueousLeachant ;
@@ -2516,7 +2512,6 @@ pqa:q23_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "5 bar"@en ;
     qudt:numericValue      "5"^^xsd:decimal ;
     qudt:unit              unit:BAR ;
-    # unit:BAR ✓ confirmed in QUDT
     prov:wasDerivedFrom    pqa:q23_src1 ;
     prov:hadPrimarySource  pqa:AR_2010_0 .
 
@@ -2604,7 +2599,6 @@ pqa:q24_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "1269 K"@en ;
     qudt:numericValue      "1269"^^xsd:decimal ;
     qudt:unit              unit:K ;
-    # unit:K (kelvin, SI base unit) ✓ confirmed in QUDT
     prov:wasDerivedFrom    pqa:q24_src1 ;
     prov:hadPrimarySource  pqa:AR_2010_0 .
 
@@ -2659,8 +2653,6 @@ pqa:q25_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "3.7 × 10⁻⁵ cm²/s"@en ;
     qudt:numericValue      "3.7E-5"^^xsd:decimal ;
     qudt:unit              unit:CentiM2-PER-SEC ;
-    # unit:CentiM2-PER-SEC ✓ confirmed (applicable unit for
-    # quantitykind:AreaPerTime / DiffusionCoefficient)
     prov:wasDerivedFrom    pqa:q25_src1 ;
     prov:hadPrimarySource  pqa:AR_2010_0 .
 
@@ -2749,7 +2741,6 @@ pqa:q26_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "99.7 %"@en ;
     qudt:numericValue      "99.7"^^xsd:decimal ;
     qudt:unit              unit:PERCENT ;
-    # unit:PERCENT ✓ confirmed in QUDT
     prov:wasDerivedFrom    pqa:q26_src1 ;
     prov:hadPrimarySource  pqa:AR_2010_0 .
 
@@ -2816,7 +2807,6 @@ pqa:q27_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "350 °C"@en ;
     qudt:numericValue      "350"^^xsd:decimal ;
     qudt:unit              unit:DEG_C ;
-    # unit:DEG_C ✓ confirmed in QUDT
     rdfs:comment           "Performed under high vacuum (10^-5 mbar) for 24 h. Second step at 1100 °C for 10 min."@en ;
     prov:wasDerivedFrom    pqa:q27_src1 ;
     prov:hadPrimarySource  pqa:AR_2009_0 .
@@ -3897,7 +3887,6 @@ pqa:q39_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "2800 K"@en ;
     qudt:numericValue      "2800"^^xsd:decimal ;
     qudt:unit              unit:K ;
-    # unit:K ✓ confirmed in QUDT
     rdfs:comment           "No helium release observed at this temperature; also no SiC or C constituent release before onset of vaporisation at 2400 K."@en ;
     prov:wasDerivedFrom    pqa:q39_src1 ;
     prov:hadPrimarySource  pqa:AR_2007_0 .
@@ -4205,8 +4194,8 @@ pqa:q42 a qa:Question ;
 
 pqa:q42_a1 a qa:Answer ;
     rdfs:label             "{Xe, Kr}"@en ;
-    pqa:hasAnswerMember    wd:Q1106 ;   # xenon   (element 54) — corrected from Q1006
-    pqa:hasAnswerMember    wd:Q888 ;    # krypton (element 36) — confirmed correct
+    pqa:hasAnswerMember    wd:Q1106 ;   # xenon   (element 54) 
+    pqa:hasAnswerMember    wd:Q888 ;    # krypton (element 36) 
     prov:wasDerivedFrom    pqa:q42_src1 ;
     prov:hadPrimarySource  pqa:AR_2007_0 .
 
@@ -4501,7 +4490,6 @@ pqa:q45_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "51.5 K"@en ;
     qudt:numericValue      "51.5"^^xsd:decimal ;
     qudt:unit              unit:K ;
-    # unit:K ✓ confirmed in QUDT
     rdfs:comment           "Confirmed by specific heat and resistivity anomaly. Saturated moment μsat ≈ 1.07 μB, ordered moment from Mössbauer μNp = 1.4 μB."@en ;
     prov:wasDerivedFrom    pqa:q45_src1 ;
     prov:hadPrimarySource  pqa:AR_2007_0 .
@@ -4683,7 +4671,6 @@ pqa:q47_a1 a qa:Answer, qudt:QuantityValue ;
     qudt:numericValue      "19.9"^^xsd:decimal ;
     qudt:standardUncertainty "0.3"^^xsd:decimal ;
     qudt:unit              unit:MegaEV ;
-    # unit:MegaEV ✓ confirmed in QUDT (full RDF verified)
     rdfs:comment           "Maximum cross section at this energy: 353 ± 14.5 mb (see q41). Measurements at cyclotron of JRC-IHCP Ispra using stacked foil technique."@en ;
     prov:wasDerivedFrom    pqa:q47_src1 ;
     prov:hadPrimarySource  pqa:AR_2007_0 .
@@ -4819,7 +4806,6 @@ pqa:q48_a1 a qa:Answer, qudt:QuantityValue ;
     rdfs:label             "~2850 °C"@en ;
     qudt:numericValue      "2850"^^xsd:decimal ;
     qudt:unit              unit:DEG_C ;
-    # unit:DEG_C ✓ confirmed in QUDT
     rdfs:comment           "Value is approximate (~) per source text. UN also noted for density (14.32 g/cm³) and thermal conductivity, motivating its consideration as advanced-reactor nuclear fuel."@en ;
     prov:wasDerivedFrom    pqa:q48_src1 ;
     prov:hadPrimarySource  pqa:AR_2001_0 .
