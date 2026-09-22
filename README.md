@@ -185,7 +185,7 @@ The following file types are managed via Git LFS:
 
 ## Citation
 
-If you use **PROTON-QA** in your research, please cite the dataset. If applicable, also cite the accompanying publication.
+If you use the **PROTON-QA** corpus in your research, please cite the corpus using the citation below. The benchmark citation will be provided separately later.
 
 ### BibTeX (Dataset)
 
@@ -195,11 +195,11 @@ If you use **PROTON-QA** in your research, please cite the dataset. If applicabl
                Antonio Bulgheroni and
                Lorenzo Fongaro and
                Matteo Lissandrini},
-  title     = {PROTON-QA: A Knowledge-Grounded Benchmark Dataset for Question Answering over Technical Nuclear Reports},
+  title     = {PROTON-QA Corpus},
   year      = {2026},
   publisher = {Zenodo},
-  doi       = {10.5281/zenodo.21346766},
-  url       = {https://doi.org/10.5281/zenodo.21346766}
+  doi       = {10.5281/zenodo.22543594},
+  url       = {https://doi.org/10.5281/zenodo.22543594}
 }
 ```
 
