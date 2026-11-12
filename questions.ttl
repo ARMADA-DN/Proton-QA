@@ -155,7 +155,7 @@ pqa:q1_a2 a qa:Answer, qudt:QuantityValue;
 
 # Provenance annotations
 pqa:q1_src1 a oa:Annotation ;
-    oa:motivatedBy oa:highlighting ;
+    oa:motivatedBy oa:linking ;
     oa:hasBody   pqa:q1_a1 ;
     oa:hasTarget [
         a oa:SpecificResource ;
@@ -1918,7 +1918,7 @@ pqa:q17_src1 a oa:Annotation ;
     ] .
 
 pqa:q17_src2 a oa:Annotation ;
-    oa:motivatedBy oa:linking ;
+    oa:motivatedBy oa:highlighting ;
     oa:hasBody   pqa:q17_a1 ;
     oa:hasTarget [
         a oa:SpecificResource ;
